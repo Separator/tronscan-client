@@ -1271,7 +1271,7 @@ export interface TronScanTokenListResponse extends TronScanTransfersCommonRespon
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTrxTransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  address: string;
+  address?: string;
   sort?: TronScanSort;
 }
 
