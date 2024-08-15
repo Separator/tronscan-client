@@ -110,8 +110,8 @@ const blocks = response.data;
 **You must use the API key!!!**  
 Just register an account on tronscan.org and generate an API key.
 
-| **Name**        | **Block explorer**           | Block explorer API url               |
-| --------------- | ---------------------------- | ------------------------------------ |
-| Tronscan        | https://tronscan.org/        | https://apilist.tronscanapi.com/api  |
-| Tronscan Nile   | https://nile.tronscan.org/   | https://nileapi.tronscan.org/api/new |
-| Tronscan Shasta | https://shasta.tronscan.org/ | https://shastapi.tronscan.org/api    |
+| **Name**        | **Block explorer**           | Block explorer API url              |
+| --------------- | ---------------------------- | ----------------------------------- |
+| Tronscan        | https://tronscan.org/        | https://apilist.tronscanapi.com/api |
+| Tronscan Nile   | https://nile.tronscan.org/   | https://nileapi.tronscan.org/api    |
+| Tronscan Shasta | https://shasta.tronscan.org/ | https://shastapi.tronscan.org/api   |
