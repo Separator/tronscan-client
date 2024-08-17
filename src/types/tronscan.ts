@@ -1578,6 +1578,81 @@ export interface TronScanAccountDetailInformationResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
+export interface TronScanGetVotedListOptions extends TronScanPaginationOptions {
+  /**
+   * @description Account address to be used when querying the voter list of a SR
+   * @example 'TKSXDA8HfE9E1y39RczVQ1ZascUEtaSToF'
+   */
+  candidate?: string;
+  /**
+   * @description Account address to be used when querying the voted list of a voter
+   * @example 'TRzQrtxrEJbSbQNwAsgAHkBMxTX47yNmjo'
+   */
+  voter?: string;
+}
+
+export interface TronScanVoteInfo {
+  /**
+   * @description Vote timestamp
+   * @example '2024-08-17T00:04:07.000+0000'
+   */
+  timestamp: string;
+  /**
+   * @description Voter address
+   * @example 'TRzQrtxrEJbSbQNwAsgAHkBMxTX47yNmjo'
+   */
+  voterAddress: string;
+  /**
+   * @description Candidate address
+   * @example 'TKSXDA8HfE9E1y39RczVQ1ZascUEtaSToF'
+   */
+  candidateAddress: string;
+  /**
+   * @description Votes
+   * @example 400000000
+   */
+  votes: number;
+  /**
+   * @description Candidate url
+   * @example 'http://cryptochain.network'
+   */
+  candidateUrl: string;
+  /**
+   * @description Candidate name
+   * @example 'CryptoChain'
+   */
+  candidateName: string;
+  /**
+   * @description Candidate total votes
+   * @example 1327388132
+   */
+  candidateTotalVotes: number;
+  /**
+   * @description Voter available votes
+   * @example 0
+   */
+  voterAvailableVotes: number;
+}
+
+export interface TronScanVotedListResponse {
+  /**
+   * @description Total
+   * @example 5206
+   */
+  total: number;
+  /**
+   * @description Total votes
+   * @example 1327388132
+   */
+  totalVotes: number;
+  /**
+   * Votes info list
+   */
+  data: TronScanVoteInfo[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
 export interface TronScanGetBlocksListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
   /**
    * @description Super representative address
