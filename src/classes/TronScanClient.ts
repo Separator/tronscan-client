@@ -4,9 +4,11 @@ import { AxiosTransport, Transport } from './Transport';
 import {
   TronScanAccountDetailInformationResponse,
   TronScanAccountListResponse,
+  TronScanAccountResourcesListResponse,
   TronScanBlockListResponse,
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountListOptions,
+  TronScanGetAccountResourcesListOptions,
   TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
   TronScanGetTransactionsListOptions,
@@ -67,6 +69,13 @@ export class TronScanClient {
 
   public async getVotedList(params: TronScanGetVotedListOptions): Promise<TronScanVotedListResponse> {
     const response = await this.transport.get<TronScanVotedListResponse>('vote', params);
+    return response.data;
+  }
+
+  public async getAccountResourcesList(
+    params: TronScanGetAccountResourcesListOptions
+  ): Promise<TronScanAccountResourcesListResponse> {
+    const response = await this.transport.get<TronScanAccountResourcesListResponse>('account/resource', params);
     return response.data;
   }
 

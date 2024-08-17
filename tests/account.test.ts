@@ -38,4 +38,11 @@ describe('Account', () => {
     });
     expect(response).toHaveProperty('data');
   });
+
+  test('Get a list of account resources', async () => {
+    const response = await tronScanClient.getAccountResourcesList({
+      address: ADDRESS!
+    });
+    expect(response).toHaveProperty('data');
+  });
 });

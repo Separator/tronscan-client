@@ -1653,6 +1653,106 @@ export interface TronScanVotedListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
+export enum TronScanResourceType {
+  BandwidthAndEnergy = 0,
+  Bandwidth = 1,
+  Energy = 2
+}
+
+export enum TronScanStakeType {
+  FreezeToYourself = 1,
+  FreezeToOthers = 2,
+  FreezeToYourselfByOthers = 3
+}
+
+export interface TronScanGetAccountResourcesListOptions extends TronScanPaginationOptions {
+  /**
+   * @description Account address
+   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
+   */
+  address: string;
+  /**
+   * @description Resource type:
+   * * 0: return the data of Bandwidth and Energy;
+   * * 1: return only the data of Bandwidth;
+   * * 2: return only the data of Energy.
+   */
+  resourceType?: TronScanResourceType;
+  /**
+   * @description Stake type:
+   * * 1-Freeze for yourself;
+   * * 2-Freeze for others;
+   */
+  type?: TronScanStakeType;
+}
+
+export interface TronScanResourceInfo {
+  /**
+   * @description Hash
+   * @example '0f62535aac5a4481ae2551b68615ad6f59b94cf7789409c5b0e9554012cf784c'
+   */
+  hash: string;
+  /**
+   * @description Block
+   * @example 43780046
+   */
+  block: number;
+  /**
+   * @description Timestamp
+   * @example 1661918766000
+   */
+  timestamp: number;
+  /**
+   * @description Owner address
+   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
+   */
+  ownerAddress: string;
+  /**
+   * @description Receiver address
+   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
+   */
+  receiverAddress: string;
+  /**
+   * @description Resource
+   * @example 'ENERGY'
+   */
+  resource: string;
+  /**
+   * @description Frozen balance
+   * @example 10000000
+   */
+  frozenBalance: number;
+  /**
+   * @description expire time
+   * @example 1662177963000
+   */
+  expireTime: number;
+  /**
+   * @description Resource value
+   * @example '103.794414'
+   */
+  resourceValue: string;
+}
+
+export interface TronScanAccountResourcesListResponse {
+  /**
+   * @description Total
+   * @example 1
+   */
+  total: number;
+  /**
+   * @description Range total
+   * @example 1
+   */
+  rangeTotal: number;
+  /**
+   * @description Resources list
+   */
+  data: TronScanResourceInfo[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
 export interface TronScanGetBlocksListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
   /**
    * @description Super representative address
