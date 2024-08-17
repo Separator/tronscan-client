@@ -49,6 +49,12 @@ const resourcesList = await tronScanClient.getAccountResourcesList({
   address: ADDRESS
 });
 console.log(resourcesList.data);
+
+// Get a list of stake 2.0 account resources:
+const resourcesStake2List = await tronScanClient.getAccountResourcesStake2List({
+  address: ADDRESS
+});
+console.log(resourcesStake2List.data);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)

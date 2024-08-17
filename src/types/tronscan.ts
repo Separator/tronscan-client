@@ -1665,6 +1665,24 @@ export enum TronScanStakeType {
   FreezeToYourselfByOthers = 3
 }
 
+interface TronScanResourceInfoCommon {
+  /**
+   * @description Receiver address
+   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
+   */
+  receiverAddress: string;
+  /**
+   * @description Expire time
+   * @example 1687418520000
+   */
+  expireTime: number;
+  /**
+   * @description Owner address
+   * @example 'TKNAHSPfXULFvhYz5YdYcXYitE9xhSkbyY'
+   */
+  ownerAddress: string;
+}
+
 export interface TronScanGetAccountResourcesListOptions extends TronScanPaginationOptions {
   /**
    * @description Account address
@@ -1686,7 +1704,7 @@ export interface TronScanGetAccountResourcesListOptions extends TronScanPaginati
   type?: TronScanStakeType;
 }
 
-export interface TronScanResourceInfo {
+export interface TronScanResourceInfo extends TronScanResourceInfoCommon {
   /**
    * @description Hash
    * @example '0f62535aac5a4481ae2551b68615ad6f59b94cf7789409c5b0e9554012cf784c'
@@ -1703,16 +1721,6 @@ export interface TronScanResourceInfo {
    */
   timestamp: number;
   /**
-   * @description Owner address
-   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
-   */
-  ownerAddress: string;
-  /**
-   * @description Receiver address
-   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
-   */
-  receiverAddress: string;
-  /**
    * @description Resource
    * @example 'ENERGY'
    */
@@ -1722,11 +1730,6 @@ export interface TronScanResourceInfo {
    * @example 10000000
    */
   frozenBalance: number;
-  /**
-   * @description expire time
-   * @example 1662177963000
-   */
-  expireTime: number;
   /**
    * @description Resource value
    * @example '103.794414'
@@ -1749,6 +1752,56 @@ export interface TronScanAccountResourcesListResponse {
    * @description Resources list
    */
   data: TronScanResourceInfo[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetAccountResourcesStake2ListOptions extends TronScanGetAccountResourcesListOptions {}
+
+export interface TronScanResourceInfoStake2 extends TronScanResourceInfoCommon {
+  /**
+   * @description Balance
+   * @example 2000000
+   */
+  balance: number;
+  /**
+   * @description Resource type
+   * @example 1
+   */
+  resource: number;
+  /**
+   * @description Lock balance
+   * @example 0
+   */
+  lockBalance: number;
+  /**
+   * @description Lock resource value
+   * @example 0
+   */
+  lockResourceValue: number;
+  /**
+   * @description Resource value
+   * @example 20.76
+   */
+  resourceValue: number;
+  /**
+   * @description Operation time
+   * @example 1687159323000
+   */
+  operationTime: number;
+}
+
+export interface TronScanAccountResourcesStake2ListResponse {
+  total: number;
+  rangeTotal: number;
+  contractMap: TronScanContractMap;
+  contractInfo: {
+    [key: string]: TronScanContractInfo;
+  };
+  normalAddressInfo: {
+    [key: string]: TronScanRiskInfo;
+  };
+  data: TronScanResourceInfoStake2[];
 }
 
 // ----------------------------------------------------------------------------------------------------
