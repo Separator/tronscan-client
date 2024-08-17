@@ -43,6 +43,12 @@ const votedList = await tronScanClient.getVotedList({
   candidate: ADDRESS
 });
 console.log(votedList.data);
+
+// Get a list of account resources:
+const resourcesList = await tronScanClient.getAccountResourcesList({
+  address: ADDRESS
+});
+console.log(resourcesList.data);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
