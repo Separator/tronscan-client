@@ -52,4 +52,11 @@ describe('Account', () => {
     });
     expect(response).toHaveProperty('data');
   });
+
+  test('Get approval list', async () => {
+    const response = await tronScanClient.getApprovalList({
+      address: ADDRESS!
+    });
+    expect(response).toHaveProperty('data');
+  });
 });
