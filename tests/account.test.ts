@@ -31,4 +31,11 @@ describe('Account', () => {
     },
     TEST_TIMEOUT
   );
+
+  test('Get the voted list', async () => {
+    const response = await tronScanClient.getVotedList({
+      candidate: ADDRESS
+    });
+    expect(response).toHaveProperty('data');
+  });
 });

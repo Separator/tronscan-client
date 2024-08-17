@@ -16,6 +16,7 @@ import {
   TronScanGetTrxTransfersOptions,
   TronScanGetTrxTrc10TransferListOptions,
   TronScanGetTxDetailByHashOptions,
+  TronScanGetVotedListOptions,
   TronScanTokenListResponse,
   TronScanTransactionsListResponse,
   TronScanTrc10TransfersResponse,
@@ -23,7 +24,8 @@ import {
   TronScanTrc20Trc721TransfersResponse,
   TronScanTrxTransfersResponse,
   TronScanTrxTrc10TransfersResponse,
-  TronScanTxDetailByHashResponse
+  TronScanTxDetailByHashResponse,
+  TronScanVotedListResponse
 } from '../types/tronscan';
 
 export interface TronScanClientOptions {
@@ -60,6 +62,11 @@ export class TronScanClient {
 
   public async getAccountDetailInformation(params: TronScanGetAccountDetailInformationOptions) {
     const response = await this.transport.get<TronScanAccountDetailInformationResponse>('accountv2', params);
+    return response.data;
+  }
+
+  public async getVotedList(params: TronScanGetVotedListOptions): Promise<TronScanVotedListResponse> {
+    const response = await this.transport.get<TronScanVotedListResponse>('vote', params);
     return response.data;
   }
 

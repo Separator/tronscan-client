@@ -28,13 +28,21 @@ const tronScanClient = new TronScanClient({
 ```javascript
 const ADDRESS = 'tron_address';
 
+// Get account list:
 const response = await tronScanClient.getAccountList();
 console.log(response.data);
 
+// Get account detail information:
 const account = await tronScanClient.getAccountDetailInformation({
   address: ADDRESS
 });
 console.log(account);
+
+// Get the voted list:
+const votedList = await tronScanClient.getVotedList({
+  candidate: ADDRESS
+});
+console.log(votedList.data);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
