@@ -57,21 +57,61 @@ export class TronScanClient {
     this.transport = new AxiosTransport(url, apiKey, axiosOptions);
   }
 
+  /**
+   * Get account list.
+   * **Note**: The value sum of **start** and **limit** must be less than or equal to **10000**.
+   * @param params TronScanGetAccountListOptions
+   * @returns List of accounts
+   */
   public async getAccountList(params: TronScanGetAccountListOptions = {}) {
     const response = await this.transport.get<TronScanAccountListResponse>('account/list', params);
     return response.data;
   }
 
+  /**
+   * Get account detail information.
+   * @param params TronScanGetAccountDetailInformationOptions
+   * @returns Detail information of an account
+   */
   public async getAccountDetailInformation(params: TronScanGetAccountDetailInformationOptions) {
     const response = await this.transport.get<TronScanAccountDetailInformationResponse>('accountv2', params);
     return response.data;
   }
 
+  /**
+   * Get account's token list.
+   * **Note** : The maximum value for **limit** is **200**.
+   * @param params TronScanGetTokenListOptions
+   * @returns Returns a list of tokens held by the account with a balance greater than 0.
+   */
+  public async getTokenList(params: TronScanGetTokenListOptions): Promise<TronScanTokenListResponse> {
+    const { address, hidden = 0, show = 0, sortType = 0, sortBy = 0 } = params;
+    const response = await this.transport.get<TronScanTokenListResponse>('account/tokens', {
+      address,
+      hidden,
+      show,
+      sortBy,
+      sortType
+    });
+    return response.data;
+  }
+
+  /**
+   * Get the voted list.
+   * **Note**: The maximum value for **limit** is **200**.
+   * @param params TronScanGetVotedListOptions
+   * @returns Voter list of a certain SR or the voted list of a certain account involving all SRs
+   */
   public async getVotedList(params: TronScanGetVotedListOptions): Promise<TronScanVotedListResponse> {
     const response = await this.transport.get<TronScanVotedListResponse>('vote', params);
     return response.data;
   }
 
+  /**
+   * Get a list of account resources
+   * @param params TronScanGetAccountResourcesListOptions
+   * @returns Resource list of an account that has resources in Stake 1.0.
+   */
   public async getAccountResourcesList(
     params: TronScanGetAccountResourcesListOptions
   ): Promise<TronScanAccountResourcesListResponse> {
@@ -81,16 +121,31 @@ export class TronScanClient {
 
   // Transactions and transfers:
 
+  /**
+   * Get a list of transactions
+   * @param params TronScanGetTransactionsListOptions
+   * @returns List of transactions
+   */
   public async getTransactionsList(params: TronScanGetTransactionsListOptions): Promise<TronScanTransactionsListResponse> {
     const response = await this.transport.get<TronScanTransactionsListResponse>('transaction', params);
     return response.data;
   }
 
+  /**
+   * Get transaction detail information by transaction hash.
+   * @param params TronScanGetTxDetailByHashOptions
+   * @returns Transaction information
+   */
   public async getTransactionDetailByHash(params: TronScanGetTxDetailByHashOptions): Promise<TronScanTxDetailByHashResponse> {
     const response = await this.transport.get<TronScanTxDetailByHashResponse>('transaction-info', params);
     return response.data;
   }
 
+  /**
+   * Get trx&trc10 transfer list
+   * @param params TronScanGetTrxTrc10TransferListOptions
+   * @returns Account's transfer list
+   */
   public async getTrxTrc10TransferList(
     params: TronScanGetTrxTrc10TransferListOptions
   ): Promise<TronScanTrxTrc10TransfersResponse> {
@@ -101,24 +156,17 @@ export class TronScanClient {
     return response.data;
   }
 
+  /**
+   * Get trc20&721 transfers list.
+   * @param params TronScanGetTrc20Trc721TransferListOptions
+   * @returns Transfer list of TRC20 and TRC721 tokens.
+   */
   public async getTrc20Trc721TransferList(
     params: TronScanGetTrc20Trc721TransferListOptions
   ): Promise<TronScanTrc20Trc721TransfersResponse> {
     const response = await this.transport.get<TronScanTrc20Trc721TransfersResponse>('token_trc20/transfers', {
       ...params,
       filterTokenValue: 1
-    });
-    return response.data;
-  }
-
-  public async getTokenList(params: TronScanGetTokenListOptions): Promise<TronScanTokenListResponse> {
-    const { address, hidden = 0, show = 0, sortType = 0, sortBy = 0 } = params;
-    const response = await this.transport.get<TronScanTokenListResponse>('account/tokens', {
-      address,
-      hidden,
-      show,
-      sortBy,
-      sortType
     });
     return response.data;
   }
@@ -147,6 +195,12 @@ export class TronScanClient {
     return response.data;
   }
 
+  /**
+   * Get the list of blocks or details of one block.
+   * **Note**: The value sum of **start** and **limit** must be less than or equal to **10000**.
+   * @param params TronScanGetBlocksListOptions
+   * @returns Blocks info.
+   */
   public async getBlocks(params?: TronScanGetBlocksListOptions): Promise<TronScanBlockListResponse> {
     const response = await this.transport.get<TronScanBlockListResponse>('block', params);
     return response.data;
