@@ -45,4 +45,11 @@ describe('Account', () => {
     });
     expect(response).toHaveProperty('data');
   });
+
+  test('Get a list of stake 2.0 account resources', async () => {
+    const response = await tronScanClient.getAccountResourcesStake2List({
+      address: ADDRESS!
+    });
+    expect(response).toHaveProperty('data');
+  });
 });

@@ -5,10 +5,12 @@ import {
   TronScanAccountDetailInformationResponse,
   TronScanAccountListResponse,
   TronScanAccountResourcesListResponse,
+  TronScanAccountResourcesStake2ListResponse,
   TronScanBlockListResponse,
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
+  TronScanGetAccountResourcesStake2ListOptions,
   TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
   TronScanGetTransactionsListOptions,
@@ -59,6 +61,7 @@ export class TronScanClient {
 
   /**
    * Get account list.
+   *
    * **Note**: The value sum of **start** and **limit** must be less than or equal to **10000**.
    * @param params TronScanGetAccountListOptions
    * @returns List of accounts
@@ -80,6 +83,7 @@ export class TronScanClient {
 
   /**
    * Get account's token list.
+   *
    * **Note** : The maximum value for **limit** is **200**.
    * @param params TronScanGetTokenListOptions
    * @returns Returns a list of tokens held by the account with a balance greater than 0.
@@ -98,6 +102,7 @@ export class TronScanClient {
 
   /**
    * Get the voted list.
+   *
    * **Note**: The maximum value for **limit** is **200**.
    * @param params TronScanGetVotedListOptions
    * @returns Voter list of a certain SR or the voted list of a certain account involving all SRs
@@ -108,7 +113,7 @@ export class TronScanClient {
   }
 
   /**
-   * Get a list of account resources
+   * Get a list of account resources.
    * @param params TronScanGetAccountResourcesListOptions
    * @returns Resource list of an account that has resources in Stake 1.0.
    */
@@ -119,12 +124,25 @@ export class TronScanClient {
     return response.data;
   }
 
-  // Transactions and transfers:
-
   /**
-   * Get a list of transactions
+   * Get a list of stake 2.0 account resources.
+   *
+   * **Note**: The maximum value for **limit** is **200**.
+   * @param params TronScanGetAccountResourcesStake2ListOptions
+   * @returns Resource list of an account that has resources in Stake 2.0.
+   */
+  public async getAccountResourcesStake2List(
+    params: TronScanGetAccountResourcesStake2ListOptions
+  ): Promise<TronScanAccountResourcesStake2ListResponse> {
+    const response = await this.transport.get<TronScanAccountResourcesStake2ListResponse>('account/resourcev2', params);
+    return response.data;
+  }
+
+  // Transactions and transfers:
+  /**
+   * Get a list of transactions.
    * @param params TronScanGetTransactionsListOptions
-   * @returns List of transactions
+   * @returns List of transactions.
    */
   public async getTransactionsList(params: TronScanGetTransactionsListOptions): Promise<TronScanTransactionsListResponse> {
     const response = await this.transport.get<TronScanTransactionsListResponse>('transaction', params);
@@ -197,6 +215,7 @@ export class TronScanClient {
 
   /**
    * Get the list of blocks or details of one block.
+   *
    * **Note**: The value sum of **start** and **limit** must be less than or equal to **10000**.
    * @param params TronScanGetBlocksListOptions
    * @returns Blocks info.
