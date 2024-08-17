@@ -6,11 +6,13 @@ import {
   TronScanAccountListResponse,
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
+  TronScanApprovalListResponse,
   TronScanBlockListResponse,
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
+  TronScanGetApprovalListOptions,
   TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
   TronScanGetTransactionsListOptions,
@@ -135,6 +137,18 @@ export class TronScanClient {
     params: TronScanGetAccountResourcesStake2ListOptions
   ): Promise<TronScanAccountResourcesStake2ListResponse> {
     const response = await this.transport.get<TronScanAccountResourcesStake2ListResponse>('account/resourcev2', params);
+    return response.data;
+  }
+
+  /**
+   * Get approval list.
+   *
+   * **Note**: The maximum value for **limit** is **200**.
+   * @param params TronScanGetApprovalListOptions
+   * @returns Approval list of the specified account.
+   */
+  public async getApprovalList(params: TronScanGetApprovalListOptions): Promise<TronScanApprovalListResponse> {
+    const response = await this.transport.get<TronScanApprovalListResponse>('account/approve/list', params);
     return response.data;
   }
 

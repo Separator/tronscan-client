@@ -55,6 +55,12 @@ const resourcesStake2List = await tronScanClient.getAccountResourcesStake2List({
   address: ADDRESS
 });
 console.log(resourcesStake2List.data);
+
+// Get approval list:
+const approvalList = await tronScanClient.getApprovalList({
+  address: ADDRESS
+});
+console.log(approvalList);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)

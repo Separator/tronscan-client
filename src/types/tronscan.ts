@@ -1806,6 +1806,54 @@ export interface TronScanAccountResourcesStake2ListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
+export enum TronScanAggregationType {
+  Project = 'project',
+  Token = 'token'
+}
+
+export enum TronScanTransferType {
+  Mobile = 'mobile'
+}
+
+export interface TronScanGetApprovalListOptions extends TronScanPaginationOptions {
+  /**
+   * @description Address
+   * @example 'TRX6Q82wMqWNbCCiLqejbZe43wk1h1zJHm'
+   */
+  address: string;
+  /**
+   * @description Aggregation type. By **project** or **token**
+   * @example 'project'
+   */
+  type?: TronScanAggregationType;
+  /**
+   * @description Used when requesting mobile data, transfer=mobile
+   * @example 'mobile'
+   */
+  transfer?: TronScanTransferType;
+  /**
+   * @description Used when requesting mobile data, the parameter specifies the associated ID, which works together with the type parameter.
+   * When type=project, the field value indicates the specified project_id.
+   * When type=token, the field value indicates the specified token_id.
+   */
+  relatedId?: string;
+}
+
+export interface TronScanApprovalListResponse {
+  total: number;
+  data: any[];
+  contractMap: TronScanContractMap;
+  rangeTotal: number;
+  contractInfo: {
+    [key: string]: TronScanContractInfo;
+  };
+  normalAddressInfo: {
+    [key: string]: TronScanRiskInfo;
+  };
+}
+
+// ----------------------------------------------------------------------------------------------------
+
 export interface TronScanGetBlocksListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
   /**
    * @description Super representative address

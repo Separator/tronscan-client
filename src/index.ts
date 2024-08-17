@@ -23,6 +23,7 @@ import {
   TronScanGetVotedListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
+  TronScanGetApprovalListOptions,
   // Tx types
   TronScanTxSimple,
   TronScanTxNative,
@@ -41,7 +42,8 @@ import {
   TronScanTxDetailByHashResponse,
   TronScanVotedListResponse,
   TronScanAccountResourcesListResponse,
-  TronScanAccountResourcesStake2ListResponse
+  TronScanAccountResourcesStake2ListResponse,
+  TronScanApprovalListResponse
 } from './types/tronscan';
 
 import { TronScanClient } from './classes/TronScanClient';
@@ -71,6 +73,7 @@ export {
   TronScanGetVotedListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
+  TronScanGetApprovalListOptions,
   // Tx types
   TronScanTxSimple,
   TronScanTxNative,
@@ -90,6 +93,7 @@ export {
   TronScanVotedListResponse,
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
+  TronScanApprovalListResponse,
   // Client
   TronScanClient
 };
