@@ -131,6 +131,58 @@ const response = await tronScanClient.getBlocks();
 const blocks = response.data;
 ```
 
+## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
+
+```javascript
+const ADDRESS = 'tron_address';
+const TOKEN_ADDRESS = 'token_address';
+const TX_HASH = 'some_tx_hash';
+const URL = 'www.google.com.hk';
+
+// Check account security:
+const accountSecurity = await tronScanClient.checkAccountSecurity({
+  address: ADDRESS
+});
+console.log(accountSecurity);
+
+// Check token security:
+const tokenSecurity = await tronScanClient.checkTokenSecurity({
+  address: TOKEN_ADDRESS
+});
+console.log(tokenSecurity);
+
+// Check url security:
+const urlSecurity = await tronScanClient.checkUrlSecurity({
+  url: URL
+});
+console.log(urlSecurity);
+
+// Check transactions security:
+const txsSecurity = await tronScanClient.checkTransactionsSecurity({
+  hashes: TX_HASH
+});
+console.log(txsSecurity);
+
+// Check multi sign security:
+const multiSignSecurity = await tronScanClient.checkMultiSignSecurity({
+  address: ADDRESS
+});
+console.log(multiSignSecurity);
+
+// Check account authorization security:
+const accountAuthSecurity = await tronScanClient.checkAccountAuthSecurity({
+  address: ADDRESS
+});
+console.log(accountAuthSecurity);
+
+// Get all tokens in TronScan:
+const tokensList = await tronScanClient.getAllTokens({
+  limit: 1,
+  start: 0
+});
+console.log(tokensList);
+```
+
 ## Supported networks table
 
 **You must use the API key!!!**  
