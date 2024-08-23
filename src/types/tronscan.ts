@@ -2604,3 +2604,76 @@ export interface TronScanGetAccountAuthChangeRecordsResponse {
 }
 
 // ----------------------------------------------------------------------------------------------------
+
+export enum AnalyticType {
+  Balance = 0,
+  Transfer = 1,
+  EnergyConsumption = 2,
+  BandwidthConsumption = 3,
+  Transaction = 4
+}
+
+export interface TronScanDailyAnalyticsItem {
+  /**
+   * @description Day
+   * @example '2023-04-02'
+   */
+  day: string;
+  /**
+   * @description Trx amount
+   * @example '0.924655'
+   */
+  trx_amount: string;
+  /**
+   * @description Usdt amount
+   * @example '0.060391'
+   */
+  usdt_amount: string;
+  /**
+   * @description Price
+   * @example 0.06531234843567024
+   */
+  price: number;
+}
+
+export interface TronScanGetAccountDailyAnalyticsOptions {
+  /**
+   * @description Account address
+   * @example 'TUD4YXYdj2t1gP5th3A7t97mx1AUmrrQRt'
+   */
+  address: string;
+  /**
+   * @description Start time, accurate to milliseconds
+   * @example 1514764800000
+   */
+  start_timestamp: number;
+  /**
+   * @description End time, accurate to milliseconds
+   * @example 1680508422169
+   */
+  end_timestamp?: number;
+  /**
+   * @description Analytic type. See: Remarks for details:
+   * * 0: Balance (TRX balance, price of TRX on that day, calculated using USDT);
+   * * 1: Token transfers (number of transfers [trx, trc10, trc20] and number of tokens transferred [need to be de-duplicated]);
+   * * 2: Energy consumption ([transaction triggered by current account] consumes Energy from frozen TRX, consumes Energy from TRX burning, consumes Energy provided by contract deployers, total Energy consumed);
+   * * 3: Bandwidth consumption ([transaction triggered by current account] consumes Bandwidth from frozen TRX or free Bandwidth, consumes Bandwidth from burning TRX);
+   * * 4: Transactions (number of transactions initiated, and received by the current account).
+   * @example 0
+   */
+  type?: AnalyticType;
+}
+
+export interface TronScanGetAccountDailyAnalyticsResponse {
+  /**
+   * @description Size
+   * @example 1
+   */
+  size: number;
+  /**
+   * @description Daily analytics items
+   */
+  data: TronScanDailyAnalyticsItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------

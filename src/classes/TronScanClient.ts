@@ -22,6 +22,8 @@ import {
   TronScanCheckUrlSecurityResponse,
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountAuthChangeRecordsResponse,
+  TronScanGetAccountDailyAnalyticsOptions,
+  TronScanGetAccountDailyAnalyticsResponse,
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
@@ -177,6 +179,18 @@ export class TronScanClient {
     params: TronScanGetAccountAuthChangeRecordsOptions
   ): Promise<TronScanGetAccountAuthChangeRecordsResponse> {
     const response = await this.transport.get<TronScanGetAccountAuthChangeRecordsResponse>('account/approve/change', params);
+    return response.data;
+  }
+
+  /**
+   * Get list of daily analytics data for an account over time
+   * @param params TronScanGetAccountDailyAnalyticsOptions
+   * @returns Returns a list of daily analytics data for an account within the specified period.
+   */
+  public async getAccountDailyAnalytics(
+    params: TronScanGetAccountDailyAnalyticsOptions
+  ): Promise<TronScanGetAccountDailyAnalyticsResponse> {
+    const response = await this.transport.get<TronScanGetAccountDailyAnalyticsResponse>('account/analysis', params);
     return response.data;
   }
 

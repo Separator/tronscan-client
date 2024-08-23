@@ -75,4 +75,12 @@ describe('Account', () => {
       rangeTotal: 0
     });
   });
+
+  test('Get list of daily analytics data for an account over time', async () => {
+    const response = await tronScanClient.getAccountDailyAnalytics({
+      address: ADDRESS!,
+      start_timestamp: Date.now() - 1000 * 60 * 60 * 24
+    });
+    expect(response.size).toBe(0);
+  });
 });

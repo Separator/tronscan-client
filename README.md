@@ -78,6 +78,13 @@ const accountAccessChangeRecords = await tronScanClient.getAccountAuthChangeReco
   type: 'approve'
 });
 console.log(accountAccessChangeRecords);
+
+// Get list of daily analytics data for an account over time:
+const accountDailyAnalytics = await tronScanClient.getAccountDailyAnalytics({
+  address: ADDRESS,
+  start_timestamp: 1514764800000
+});
+console.log(accountDailyAnalytics);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
