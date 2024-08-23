@@ -38,6 +38,12 @@ const account = await tronScanClient.getAccountDetailInformation({
 });
 console.log(account);
 
+// Get token list:
+const accountTokensList = await tronScanClient.getTokenList({
+  address: ADDRESS
+});
+console.log(accountTokensList);
+
 // Get the voted list:
 const votedList = await tronScanClient.getVotedList({
   candidate: ADDRESS
@@ -66,11 +72,7 @@ console.log(approvalList);
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
 
 ```javascript
-// Get token list:
-const response = await tronScanClient.getTokenList({
-  address: ADDRESS
-});
-const tokens = response.data;
+
 ```
 
 ## [Transactions and transfers section](https://docs.tronscan.org/api-endpoints/transactions-and-transfers)
