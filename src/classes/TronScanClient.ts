@@ -20,6 +20,8 @@ import {
   TronScanCheckTxsSecurityResponse,
   TronScanCheckUrlSecurityOptions,
   TronScanCheckUrlSecurityResponse,
+  TronScanGetAccountAuthChangeRecordsOptions,
+  TronScanGetAccountAuthChangeRecordsResponse,
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
@@ -163,6 +165,18 @@ export class TronScanClient {
    */
   public async getApprovalList(params: TronScanGetApprovalListOptions): Promise<TronScanApprovalListResponse> {
     const response = await this.transport.get<TronScanApprovalListResponse>('account/approve/list', params);
+    return response.data;
+  }
+
+  /**
+   * Get account authorization change records
+   * @param params TronScanGetAccountAuthChangeRecordsOptions
+   * @returns Account authorization change records
+   */
+  public async getAccountAuthChangeRecords(
+    params: TronScanGetAccountAuthChangeRecordsOptions
+  ): Promise<TronScanGetAccountAuthChangeRecordsResponse> {
+    const response = await this.transport.get<TronScanGetAccountAuthChangeRecordsResponse>('account/approve/change', params);
     return response.data;
   }
 
