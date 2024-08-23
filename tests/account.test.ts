@@ -4,7 +4,7 @@ import { TronScanClient } from '../src';
 config();
 
 const TEST_TIMEOUT = 60000;
-const { ADDRESS, API_KEY, URL } = process.env;
+const { ADDRESS, API_KEY, URL, TOKEN_ADDRESS, FROM_ADDRESS } = process.env;
 
 const tronScanClient = new TronScanClient({
   url: URL!,
@@ -58,5 +58,21 @@ describe('Account', () => {
       address: ADDRESS!
     });
     expect(response).toHaveProperty('data');
+  });
+
+  test('Get account authorization change records', async () => {
+    const response = await tronScanClient.getAccountAuthChangeRecords({
+      contract_address: TOKEN_ADDRESS!,
+      from_address: FROM_ADDRESS!,
+      to_address: ADDRESS!,
+      type: 'approve'
+    });
+    expect(response).toEqual({
+      total: 0,
+      contractMap: {},
+      data: [],
+      contractInfo: {},
+      rangeTotal: 0
+    });
   });
 });
