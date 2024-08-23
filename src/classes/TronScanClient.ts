@@ -8,10 +8,24 @@ import {
   TronScanAccountResourcesStake2ListResponse,
   TronScanApprovalListResponse,
   TronScanBlockListResponse,
+  TronScanCheckAccountAuthSecurityOptions,
+  TronScanCheckAccountAuthSecurityResponse,
+  TronScanCheckAccountSecurityOptions,
+  TronScanCheckAccountSecurityResponse,
+  TronScanCheckMultiSignSecurityOptions,
+  TronScanCheckMultiSignSecurityResponse,
+  TronScanCheckTokenSecurityOptions,
+  TronScanCheckTokenSecurityResponse,
+  TronScanCheckTxsSecurityOptions,
+  TronScanCheckTxsSecurityResponse,
+  TronScanCheckUrlSecurityOptions,
+  TronScanCheckUrlSecurityResponse,
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
+  TronScanGetAllTokensOptions,
+  TronScanGetAllTokensResponse,
   TronScanGetApprovalListOptions,
   TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
@@ -236,6 +250,77 @@ export class TronScanClient {
    */
   public async getBlocks(params?: TronScanGetBlocksListOptions): Promise<TronScanBlockListResponse> {
     const response = await this.transport.get<TronScanBlockListResponse>('block', params);
+    return response.data;
+  }
+
+  // Security Service API
+
+  /**
+   * Check account security
+   * @param params TronScanCheckAccountSecurityOptions
+   * @returns Account security parameters
+   */
+  public async checkAccountSecurity(params: TronScanCheckAccountSecurityOptions): Promise<TronScanCheckAccountSecurityResponse> {
+    const response = await this.transport.get<TronScanCheckAccountSecurityResponse>('security/account/data', params);
+    return response.data;
+  }
+
+  /**
+   * Check token security
+   * @param params TronScanCheckTokenSecurityOptions
+   * @returns Token security parameters
+   */
+  public async checkTokenSecurity(params: TronScanCheckTokenSecurityOptions): Promise<TronScanCheckTokenSecurityResponse> {
+    const response = await this.transport.get<TronScanCheckTokenSecurityResponse>('security/token/data', params);
+    return response.data;
+  }
+
+  /**
+   * Check url security
+   * @param params TronScanCheckUrlSecurityOptions
+   * @returns Url security status
+   */
+  public async checkUrlSecurity(params: TronScanCheckUrlSecurityOptions): Promise<TronScanCheckUrlSecurityResponse> {
+    const response = await this.transport.get<TronScanCheckUrlSecurityResponse>('security/url/data', params);
+    return response.data;
+  }
+
+  /**
+   * Check transactions security
+   * @param params TronScanCheckTxsSecurityOptions
+   * @returns Transactions security statuses
+   */
+  public async checkTransactionsSecurity(params: TronScanCheckTxsSecurityOptions): Promise<TronScanCheckTxsSecurityResponse> {
+    const response = await this.transport.get<TronScanCheckTxsSecurityResponse>('security/transaction/data', params);
+    return response.data;
+  }
+
+  /**
+   * Check multi sign security
+   * @param params TronScanCheckMultiSignSecurityOptions
+   * @returns Multi sign security status
+   */
+  public async checkMultiSignSecurity(
+    params: TronScanCheckMultiSignSecurityOptions
+  ): Promise<TronScanCheckMultiSignSecurityResponse> {
+    const response = await this.transport.get<TronScanCheckMultiSignSecurityResponse>('security/sign/data', params);
+    return response.data;
+  }
+
+  /**
+   * Check account authorization security
+   * @param params TronScanCheckAccountAuthSecurityOptions
+   * @returns Account authorization security
+   */
+  public async checkAccountAuthSecurity(
+    params: TronScanCheckAccountAuthSecurityOptions
+  ): Promise<TronScanCheckAccountAuthSecurityResponse> {
+    const response = await this.transport.get<TronScanCheckAccountAuthSecurityResponse>('security/auth/data', params);
+    return response.data;
+  }
+
+  public async getAllTokens(params: TronScanGetAllTokensOptions): Promise<TronScanGetAllTokensResponse> {
+    const response = await this.transport.get<TronScanGetAllTokensResponse>('token/all', params);
     return response.data;
   }
 }
