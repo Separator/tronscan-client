@@ -1,4 +1,3 @@
-import { TronScanDailyAnalyticsItem } from './analytics';
 import { AnalyticType, TronScanAccountAthTokenType } from './params';
 import { TronScanTokenBalanceInfo, TronScanTokenInfo } from './token-info';
 import {
@@ -11,9 +10,28 @@ import {
   TronScanRepresentative
 } from './tronscan';
 
-/**
- * Account data types
- */
+export interface TronScanDailyAnalyticsItem {
+  /**
+   * @description Day
+   * @example '2023-04-02'
+   */
+  day: string;
+  /**
+   * @description Trx amount
+   * @example '0.924655'
+   */
+  trx_amount: string;
+  /**
+   * @description Usdt amount
+   * @example '0.060391'
+   */
+  usdt_amount: string;
+  /**
+   * @description Price
+   * @example 0.06531234843567024
+   */
+  price: number;
+}
 
 export interface TronScanAccountAuthChangeRecord {
   /**
@@ -87,9 +105,7 @@ export interface TronScanAccountAuthChangeRecord {
   hash: string;
 }
 
-/**
- * Account option types
- */
+// ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetAccountDetailInformationOptions {
   /**
@@ -98,70 +114,6 @@ export interface TronScanGetAccountDetailInformationOptions {
    */
   address: string;
 }
-
-export interface TronScanGetAccountDailyAnalyticsOptions {
-  /**
-   * @description Account address
-   * @example 'TUD4YXYdj2t1gP5th3A7t97mx1AUmrrQRt'
-   */
-  address: string;
-  /**
-   * @description Start time, accurate to milliseconds
-   * @example 1514764800000
-   */
-  start_timestamp: number;
-  /**
-   * @description End time, accurate to milliseconds
-   * @example 1680508422169
-   */
-  end_timestamp?: number;
-  /**
-   * @description Analytic type. See: Remarks for details:
-   * * 0: Balance (TRX balance, price of TRX on that day, calculated using USDT);
-   * * 1: Token transfers (number of transfers [trx, trc10, trc20] and number of tokens transferred [need to be de-duplicated]);
-   * * 2: Energy consumption ([transaction triggered by current account] consumes Energy from frozen TRX, consumes Energy from TRX burning, consumes Energy provided by contract deployers, total Energy consumed);
-   * * 3: Bandwidth consumption ([transaction triggered by current account] consumes Bandwidth from frozen TRX or free Bandwidth, consumes Bandwidth from burning TRX);
-   * * 4: Transactions (number of transactions initiated, and received by the current account).
-   * @example 0
-   */
-  type?: AnalyticType;
-}
-
-export interface TronScanGetAccountAuthChangeRecordsOptions extends TronScanPaginationOptions {
-  /**
-   * @description Contract address
-   * @example 'TUpMhErZL2fhh4sVNULAbNKLokS4GjC1F4'
-   */
-  contract_address: string;
-  /**
-   * @description Type must be set to **approve**
-   * @example 'approve'
-   */
-  type: 'approve';
-  /**
-   * @description Token type:
-   * * 1: TRC20;
-   * * 2: TRC721;
-   * * 3: ALL(default);
-   * * 4: TRC1155.
-   * @example 1
-   */
-  show?: TronScanAccountAthTokenType;
-  /**
-   * @description Originator address
-   * @example 'TRX6Q82wMqWNbCCiLqejbZe43wk1h1zJHm'
-   */
-  from_address: string;
-  /**
-   * @description Recipient address
-   * @example 'TKcEU8ekq2ZoFzLSGFYCUY6aocJBX9X31b'
-   */
-  to_address: string;
-}
-
-/**
- * Account response types
- */
 
 export interface TronScanAccountDetailInformationResponse {
   /**
@@ -425,6 +377,36 @@ export interface TronScanAccountDetailInformationResponse {
   acquiredDelegateFrozenForEnergy: number;
 }
 
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetAccountDailyAnalyticsOptions {
+  /**
+   * @description Account address
+   * @example 'TUD4YXYdj2t1gP5th3A7t97mx1AUmrrQRt'
+   */
+  address: string;
+  /**
+   * @description Start time, accurate to milliseconds
+   * @example 1514764800000
+   */
+  start_timestamp: number;
+  /**
+   * @description End time, accurate to milliseconds
+   * @example 1680508422169
+   */
+  end_timestamp?: number;
+  /**
+   * @description Analytic type. See: Remarks for details:
+   * * 0: Balance (TRX balance, price of TRX on that day, calculated using USDT);
+   * * 1: Token transfers (number of transfers [trx, trc10, trc20] and number of tokens transferred [need to be de-duplicated]);
+   * * 2: Energy consumption ([transaction triggered by current account] consumes Energy from frozen TRX, consumes Energy from TRX burning, consumes Energy provided by contract deployers, total Energy consumed);
+   * * 3: Bandwidth consumption ([transaction triggered by current account] consumes Bandwidth from frozen TRX or free Bandwidth, consumes Bandwidth from burning TRX);
+   * * 4: Transactions (number of transactions initiated, and received by the current account).
+   * @example 0
+   */
+  type?: AnalyticType;
+}
+
 export interface TronScanGetAccountDailyAnalyticsResponse {
   /**
    * @description Size
@@ -435,6 +417,40 @@ export interface TronScanGetAccountDailyAnalyticsResponse {
    * @description Daily analytics items
    */
   data: TronScanDailyAnalyticsItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetAccountAuthChangeRecordsOptions extends TronScanPaginationOptions {
+  /**
+   * @description Contract address
+   * @example 'TUpMhErZL2fhh4sVNULAbNKLokS4GjC1F4'
+   */
+  contract_address: string;
+  /**
+   * @description Type must be set to **approve**
+   * @example 'approve'
+   */
+  type: 'approve';
+  /**
+   * @description Token type:
+   * * 1: TRC20;
+   * * 2: TRC721;
+   * * 3: ALL(default);
+   * * 4: TRC1155.
+   * @example 1
+   */
+  show?: TronScanAccountAthTokenType;
+  /**
+   * @description Originator address
+   * @example 'TRX6Q82wMqWNbCCiLqejbZe43wk1h1zJHm'
+   */
+  from_address: string;
+  /**
+   * @description Recipient address
+   * @example 'TKcEU8ekq2ZoFzLSGFYCUY6aocJBX9X31b'
+   */
+  to_address: string;
 }
 
 export interface TronScanGetAccountAuthChangeRecordsResponse {
