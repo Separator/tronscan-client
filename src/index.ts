@@ -1,3 +1,5 @@
+import { TronScanTxSimple, TronScanTxNative, TronScanTxToken } from './types/tx';
+
 import {
   TronScanSort,
   TronScanOrder,
@@ -40,10 +42,6 @@ import {
   TronScanGetAllTokensOptions,
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountDailyAnalyticsOptions,
-  // Tx types
-  TronScanTxSimple,
-  TronScanTxNative,
-  TronScanTxToken,
   TronScanRiskApprove,
   // Response types
   TronScanTransactionsListResponse,
