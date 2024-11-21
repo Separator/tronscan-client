@@ -1,13 +1,37 @@
 import { TronScanTxSimple, TronScanTxNative, TronScanTxToken } from './types/tx';
 
 import {
+  // Options:
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
+
+  // Responses:
   TronScanAccountDetailInformationResponse,
   TronScanGetAccountDailyAnalyticsResponse,
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountAuthChangeRecordsResponse
 } from './types/account';
+
+import {
+  // Options:
+  TronScanCheckAccountSecurityOptions,
+  TronScanCheckTokenSecurityOptions,
+  TronScanCheckUrlSecurityOptions,
+  TronScanCheckTxsSecurityOptions,
+  TronScanCheckMultiSignSecurityOptions,
+  TronScanCheckAccountAuthSecurityOptions,
+  TronScanGetAllTokensOptions,
+  TronScanRiskApprove,
+
+  // Responses:
+  TronScanCheckAccountSecurityResponse,
+  TronScanCheckTokenSecurityResponse,
+  TronScanCheckUrlSecurityResponse,
+  TronScanCheckTxsSecurityResponse,
+  TronScanCheckMultiSignSecurityResponse,
+  TronScanCheckAccountAuthSecurityResponse,
+  TronScanGetAllTokensResponse
+} from './types/security';
 
 import {
   TronScanSort,
@@ -41,14 +65,6 @@ import {
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
   TronScanGetApprovalListOptions,
-  TronScanCheckAccountSecurityOptions,
-  TronScanCheckTokenSecurityOptions,
-  TronScanCheckUrlSecurityOptions,
-  TronScanCheckTxsSecurityOptions,
-  TronScanCheckMultiSignSecurityOptions,
-  TronScanCheckAccountAuthSecurityOptions,
-  TronScanGetAllTokensOptions,
-  TronScanRiskApprove,
 
   // Response types
   TronScanTransactionsListResponse,
@@ -64,14 +80,7 @@ import {
   TronScanVotedListResponse,
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
-  TronScanApprovalListResponse,
-  TronScanCheckAccountSecurityResponse,
-  TronScanCheckTokenSecurityResponse,
-  TronScanCheckUrlSecurityResponse,
-  TronScanCheckTxsSecurityResponse,
-  TronScanCheckMultiSignSecurityResponse,
-  TronScanCheckAccountAuthSecurityResponse,
-  TronScanGetAllTokensResponse
+  TronScanApprovalListResponse
 } from './types/tronscan';
 
 import { TronScanClient } from './classes/TronScanClient';

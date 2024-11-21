@@ -1,37 +1,48 @@
 import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
+
 import {
+  // Options:
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
+  TronScanGetAccountAuthChangeRecordsOptions,
+
+  // Responses:
   TronScanAccountDetailInformationResponse,
   TronScanGetAccountDailyAnalyticsResponse,
-  TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountAuthChangeRecordsResponse
 } from '../types/account';
+
+import {
+  // Options:
+  TronScanCheckAccountAuthSecurityOptions,
+  TronScanCheckAccountSecurityOptions,
+  TronScanCheckMultiSignSecurityOptions,
+  TronScanCheckTokenSecurityOptions,
+  TronScanCheckTxsSecurityOptions,
+  TronScanCheckUrlSecurityOptions,
+  TronScanGetAllTokensOptions,
+
+  // Responses:
+  TronScanCheckAccountAuthSecurityResponse,
+  TronScanCheckAccountSecurityResponse,
+  TronScanCheckMultiSignSecurityResponse,
+  TronScanCheckTokenSecurityResponse,
+  TronScanCheckTxsSecurityResponse,
+  TronScanCheckUrlSecurityResponse,
+  TronScanGetAllTokensResponse
+} from '../types/security';
+
 import {
   TronScanAccountListResponse,
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
   TronScanApprovalListResponse,
   TronScanBlockListResponse,
-  TronScanCheckAccountAuthSecurityOptions,
-  TronScanCheckAccountAuthSecurityResponse,
-  TronScanCheckAccountSecurityOptions,
-  TronScanCheckAccountSecurityResponse,
-  TronScanCheckMultiSignSecurityOptions,
-  TronScanCheckMultiSignSecurityResponse,
-  TronScanCheckTokenSecurityOptions,
-  TronScanCheckTokenSecurityResponse,
-  TronScanCheckTxsSecurityOptions,
-  TronScanCheckTxsSecurityResponse,
-  TronScanCheckUrlSecurityOptions,
-  TronScanCheckUrlSecurityResponse,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
-  TronScanGetAllTokensOptions,
-  TronScanGetAllTokensResponse,
   TronScanGetApprovalListOptions,
   TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
