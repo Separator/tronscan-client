@@ -1,8 +1,9 @@
 import { AxiosRequestConfig } from 'axios';
 
+import { TronScanGetAccountDetailInformationOptions } from '../types/options';
+import { TronScanAccountDetailInformationResponse } from '../types/responses';
 import { AxiosTransport, Transport } from './Transport';
 import {
-  TronScanAccountDetailInformationResponse,
   TronScanAccountListResponse,
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
@@ -24,7 +25,6 @@ import {
   TronScanGetAccountAuthChangeRecordsResponse,
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanGetAccountDailyAnalyticsResponse,
-  TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,

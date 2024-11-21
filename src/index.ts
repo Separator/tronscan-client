@@ -1,5 +1,9 @@
 import { TronScanTxSimple, TronScanTxNative, TronScanTxToken } from './types/tx';
 
+import { TronScanGetAccountDetailInformationOptions } from './types/options';
+
+import { TronScanAccountDetailInformationResponse } from './types/responses';
+
 import {
   TronScanSort,
   TronScanOrder,
@@ -25,7 +29,6 @@ import {
   TronScanGetTrxTransfersOptions,
   TronScanGetTrc10TransfersOptions,
   TronScanGetTrc20TransfersOptions,
-  TronScanGetAccountDetailInformationOptions,
   TronScanGetBlocksListOptions,
   TronScanGetAccountListOptions,
   TronScanGetTxDetailByHashOptions,
@@ -51,7 +54,6 @@ import {
   TronScanTrxTransfersResponse,
   TronScanTrc10TransfersResponse,
   TronScanTrc20TransfersResponse,
-  TronScanAccountDetailInformationResponse,
   TronScanBlockListResponse,
   TronScanAccountListResponse,
   TronScanTxDetailByHashResponse,
