@@ -195,6 +195,7 @@ export class TronScanClient {
   }
 
   // Transactions and transfers:
+
   /**
    * Get a list of transactions.
    * @param params TronScanGetTransactionsListOptions
@@ -281,7 +282,10 @@ export class TronScanClient {
     return response.data;
   }
 
-  // Security Service API
+  /**
+   * Security Service API
+   * https://docs.tronscan.org/security-service/security-service-api
+   */
 
   /**
    * Check account security
@@ -347,6 +351,11 @@ export class TronScanClient {
     return response.data;
   }
 
+  /**
+   * Get all tokens in TronScan
+   * @param params TronScanGetAllTokensOptions
+   * @returns All tokens list in TronScan
+   */
   public async getAllTokens(params: TronScanGetAllTokensOptions): Promise<TronScanGetAllTokensResponse> {
     const response = await this.transport.get<TronScanGetAllTokensResponse>('token/all', params);
     return response.data;

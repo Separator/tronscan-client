@@ -1,5 +1,4 @@
 import {
-  // Search types
   TronScanSort,
   TronScanOrder,
   TronScanTokenFilter,
@@ -12,7 +11,10 @@ import {
   IncreaseTotalSupply,
   TokenLevel,
   TronScanAccountAthTokenType,
-  AnalyticType,
+  AnalyticType
+} from './types/params';
+
+import {
   // Options
   TronScanPaginationOptions,
   TronScanGetTransactionsListOptions,
