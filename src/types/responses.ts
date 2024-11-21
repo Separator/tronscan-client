@@ -1,4 +1,5 @@
 import { TronScanTokenBalanceInfo } from './token-info';
+import { TronScanDailyAnalyticsItem } from './analytics';
 import { TronScanBandwidth, TronScanFrozen, TronScanPermission, TronScanRepresentative } from './tronscan';
 
 export interface TronScanAccountDetailInformationResponse {
@@ -261,4 +262,16 @@ export interface TronScanAccountDetailInformationResponse {
    * @example 0
    */
   acquiredDelegateFrozenForEnergy: number;
+}
+
+export interface TronScanGetAccountDailyAnalyticsResponse {
+  /**
+   * @description Size
+   * @example 1
+   */
+  size: number;
+  /**
+   * @description Daily analytics items
+   */
+  data: TronScanDailyAnalyticsItem[];
 }
