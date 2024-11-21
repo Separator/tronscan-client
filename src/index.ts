@@ -1,8 +1,11 @@
 import { TronScanTxSimple, TronScanTxNative, TronScanTxToken } from './types/tx';
 
-import { TronScanGetAccountDetailInformationOptions, TronScanGetAccountDailyAnalyticsOptions } from './types/options';
-
-import { TronScanAccountDetailInformationResponse, TronScanGetAccountDailyAnalyticsResponse } from './types/responses';
+import {
+  TronScanGetAccountDetailInformationOptions,
+  TronScanGetAccountDailyAnalyticsOptions,
+  TronScanAccountDetailInformationResponse,
+  TronScanGetAccountDailyAnalyticsResponse
+} from './types/account';
 
 import {
   TronScanSort,
