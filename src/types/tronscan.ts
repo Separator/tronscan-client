@@ -104,7 +104,7 @@ import {
   TronScanTransferType
 } from './params';
 import { TronScanTokenInfo, TronScanTokenBalanceInfo } from './token-info';
-import { TronScanTxNative, TronScanTxSimple, TronScanTxToken } from './tx';
+import { TronScanTxNative, TronScanTxSimple, TronScanTxToken } from './transactions';
 
 export interface TronScanTrc20TransferInfo {
   /**

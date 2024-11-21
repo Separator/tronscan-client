@@ -1,4 +1,4 @@
-import { TronScanTxSimple, TronScanTxNative, TronScanTxToken } from './types/tx';
+import { TronScanTxSimple, TronScanTxNative, TronScanTxToken } from './types/transactions';
 
 import {
   // Options:
