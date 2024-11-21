@@ -93,7 +93,6 @@
 // ----------------------------------------------------------------------------------------------------
 
 import {
-  AnalyticType,
   BlackListType,
   IncreaseTotalSupply,
   TokenLevel,
@@ -531,7 +530,7 @@ interface TronScanRiskInfo {
   risk: boolean;
 }
 
-interface TronScanContractInfo extends TronScanRiskInfo {
+export interface TronScanContractInfo extends TronScanRiskInfo {
   /**
    * @description Is token or not
    * @example true
@@ -1790,137 +1789,4 @@ export interface TronScanGetAllTokensResponse {
    * @description Tokens list
    */
   data: TronScanTokenRiskInfo[];
-}
-
-// ----------------------------------------------------------------------------------------------------
-
-export interface TronScanAccountAuthChangeRecord {
-  /**
-   * @description Date created
-   * @example 1622129703000
-   */
-  date_created: number;
-  /**
-   * @description Unlimited status
-   * @example true
-   */
-  unlimited: boolean;
-  /**
-   * @description Revert status
-   * @example false
-   */
-  revert: boolean;
-  /**
-   * @description Owner address
-   * @example 'TRX6Q82wMqWNbCCiLqejbZe43wk1h1zJHm'
-   */
-  owner_address: string;
-  /**
-   * @description To address
-   * @example 'TKcEU8ekq2ZoFzLSGFYCUY6aocJBX9X31b'
-   */
-  to_address: string;
-  /**
-   * @description Type
-   * @example 'approve'
-   */
-  type: string;
-  /**
-   * @description Contract address
-   * @example 'TUpMhErZL2fhh4sVNULAbNKLokS4GjC1F4'
-   */
-  contract_address: string;
-  /**
-   * @description Confirmed status
-   * @example true
-   */
-  confirmed: boolean;
-  /**
-   * @description Token info
-   */
-  tokenInfo: TronScanTokenInfo;
-  /**
-   * @description Block
-   * @example 30558415
-   */
-  block: number;
-  /**
-   * @description Contract return status
-   * @example 'SUCCESS'
-   */
-  contract_ret: string;
-  /**
-   * @description Amount str
-   * @example '115792089237316195423570985008687907853269984665640564039457584007913129639935'
-   */
-  amount_str: string;
-  /**
-   * @description From address
-   * @example 'TRX6Q82wMqWNbCCiLqejbZe43wk1h1zJHm'
-   */
-  from_address: string;
-  /**
-   * @description Hash
-   * @example '292e134e8a641dea9c51c58eb492c6c5459e825e85967f8ab2290ee79e964304'
-   */
-  hash: string;
-}
-
-export interface TronScanGetAccountAuthChangeRecordsOptions extends TronScanPaginationOptions {
-  /**
-   * @description Contract address
-   * @example 'TUpMhErZL2fhh4sVNULAbNKLokS4GjC1F4'
-   */
-  contract_address: string;
-  /**
-   * @description Type must be set to **approve**
-   * @example 'approve'
-   */
-  type: 'approve';
-  /**
-   * @description Token type:
-   * * 1: TRC20;
-   * * 2: TRC721;
-   * * 3: ALL(default);
-   * * 4: TRC1155.
-   * @example 1
-   */
-  show?: TronScanAccountAthTokenType;
-  /**
-   * @description Originator address
-   * @example 'TRX6Q82wMqWNbCCiLqejbZe43wk1h1zJHm'
-   */
-  from_address: string;
-  /**
-   * @description Recipient address
-   * @example 'TKcEU8ekq2ZoFzLSGFYCUY6aocJBX9X31b'
-   */
-  to_address: string;
-}
-
-export interface TronScanGetAccountAuthChangeRecordsResponse {
-  /**
-   * @description Total
-   * @example 1
-   */
-  total: number;
-  /**
-   * @description Contract
-   */
-  contractMap: TronScanContractMap;
-  /**
-   * @description Records list
-   */
-  data: TronScanAccountAuthChangeRecord[];
-  /**
-   * @description Contract info
-   */
-  contractInfo: {
-    [key: string]: TronScanContractInfo;
-  };
-  /**
-   * @description Range total
-   * @example 1
-   */
-  rangeTotal: number;
 }

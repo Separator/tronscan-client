@@ -5,7 +5,9 @@ import {
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanAccountDetailInformationResponse,
-  TronScanGetAccountDailyAnalyticsResponse
+  TronScanGetAccountDailyAnalyticsResponse,
+  TronScanGetAccountAuthChangeRecordsOptions,
+  TronScanGetAccountAuthChangeRecordsResponse
 } from '../types/account';
 import {
   TronScanAccountListResponse,
@@ -25,8 +27,6 @@ import {
   TronScanCheckTxsSecurityResponse,
   TronScanCheckUrlSecurityOptions,
   TronScanCheckUrlSecurityResponse,
-  TronScanGetAccountAuthChangeRecordsOptions,
-  TronScanGetAccountAuthChangeRecordsResponse,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,

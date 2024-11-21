@@ -1,6 +1,10 @@
 import { TronScanTokenInfo } from './token-info';
 import { TronScanContractData, TronScanCost, TronScanTriggerInfo } from './tronscan';
 
+/**
+ * Tx info types
+ */
+
 interface TronScanTxCore {
   /**
    * @description Block id

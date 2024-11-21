@@ -1,3 +1,7 @@
+/**
+ * Analytic data types
+ */
+
 export interface TronScanDailyAnalyticsItem {
   /**
    * @description Day

@@ -4,7 +4,9 @@ import {
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanAccountDetailInformationResponse,
-  TronScanGetAccountDailyAnalyticsResponse
+  TronScanGetAccountDailyAnalyticsResponse,
+  TronScanGetAccountAuthChangeRecordsOptions,
+  TronScanGetAccountAuthChangeRecordsResponse
 } from './types/account';
 
 import {
@@ -46,8 +48,8 @@ import {
   TronScanCheckMultiSignSecurityOptions,
   TronScanCheckAccountAuthSecurityOptions,
   TronScanGetAllTokensOptions,
-  TronScanGetAccountAuthChangeRecordsOptions,
   TronScanRiskApprove,
+
   // Response types
   TronScanTransactionsListResponse,
   TronScanTrxTrc10TransfersResponse,
@@ -69,8 +71,7 @@ import {
   TronScanCheckTxsSecurityResponse,
   TronScanCheckMultiSignSecurityResponse,
   TronScanCheckAccountAuthSecurityResponse,
-  TronScanGetAllTokensResponse,
-  TronScanGetAccountAuthChangeRecordsResponse
+  TronScanGetAllTokensResponse
 } from './types/tronscan';
 
 import { TronScanClient } from './classes/TronScanClient';
