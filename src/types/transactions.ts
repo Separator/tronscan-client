@@ -1,3 +1,4 @@
+import { TronScanSort } from './params';
 import { TronScanTokenInfo } from './token-info';
 import {
   TronScanContractData,
@@ -293,5 +294,41 @@ export interface TronScanGetTrc20Trc721TransferListOptions extends TronScanPagin
 }
 
 export interface TronScanTrc20Trc721TransfersResponse extends TronScanTransfersCommonResponse {
+  token_transfers: TronScanTxToken[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrxTransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+  address?: string;
+  sort?: TronScanSort;
+}
+
+export interface TronScanTrxTransfersResponse extends TronScanTransfersCommonResponse {
+  data: TronScanTxSimple[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc10TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+  address?: string;
+  tokens?: string;
+  sort?: TronScanSort;
+  // filterTokenValue=0 +
+}
+
+export interface TronScanTrc10TransfersResponse extends TronScanTransfersCommonResponse {
+  data: TronScanTxSimple[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc20TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+  relatedAddress?: string;
+  contract_address?: string;
+  // filterTokenValue=0 +
+}
+
+export interface TronScanTrc20TransfersResponse extends TronScanTransfersCommonResponse {
   token_transfers: TronScanTxToken[];
 }

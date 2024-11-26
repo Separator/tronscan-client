@@ -92,19 +92,8 @@
 
 // ----------------------------------------------------------------------------------------------------
 
-import {
-  BlackListType,
-  IncreaseTotalSupply,
-  TokenLevel,
-  TronScanAccountAthTokenType,
-  TronScanAggregationType,
-  TronScanResourceType,
-  TronScanSort,
-  TronScanStakeType,
-  TronScanTransferType
-} from './params';
 import { TronScanTokenInfo, TronScanTokenBalanceInfo } from './token-info';
-import { TronScanTxNative, TronScanTxSimple, TronScanTxToken } from './transactions';
+import { TronScanAggregationType, TronScanResourceType, TronScanSort, TronScanStakeType, TronScanTransferType } from './params';
 
 export interface TronScanTrc20TransferInfo {
   /**
@@ -847,42 +836,6 @@ export interface TronScanGetTokenListOptions extends TronScanPaginationOptions {
 
 export interface TronScanTokenListResponse extends TronScanTransfersCommonResponse {
   data: TronScanTokenBalanceInfo[];
-}
-
-// ----------------------------------------------------------------------------------------------------
-
-export interface TronScanGetTrxTransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  address?: string;
-  sort?: TronScanSort;
-}
-
-export interface TronScanTrxTransfersResponse extends TronScanTransfersCommonResponse {
-  data: TronScanTxSimple[];
-}
-
-// ----------------------------------------------------------------------------------------------------
-
-export interface TronScanGetTrc10TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  address?: string;
-  tokens?: string;
-  sort?: TronScanSort;
-  // filterTokenValue=0 +
-}
-
-export interface TronScanTrc10TransfersResponse extends TronScanTransfersCommonResponse {
-  data: TronScanTxSimple[];
-}
-
-// ----------------------------------------------------------------------------------------------------
-
-export interface TronScanGetTrc20TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  relatedAddress?: string;
-  contract_address?: string;
-  // filterTokenValue=0 +
-}
-
-export interface TronScanTrc20TransfersResponse extends TronScanTransfersCommonResponse {
-  token_transfers: TronScanTxToken[];
 }
 
 // ----------------------------------------------------------------------------------------------------

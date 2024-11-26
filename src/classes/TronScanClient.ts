@@ -19,11 +19,17 @@ import {
   TronScanGetTransactionsListOptions,
   TronScanGetTrc20Trc721TransferListOptions,
   TronScanGetTrxTrc10TransferListOptions,
+  TronScanGetTrc10TransfersOptions,
+  TronScanGetTrc20TransfersOptions,
+  TronScanGetTrxTransfersOptions,
 
   // Responses:
   TronScanTransactionsListResponse,
   TronScanTrc20Trc721TransfersResponse,
-  TronScanTrxTrc10TransfersResponse
+  TronScanTrxTrc10TransfersResponse,
+  TronScanTrc10TransfersResponse,
+  TronScanTrc20TransfersResponse,
+  TronScanTrxTransfersResponse
 } from '../types/transactions';
 
 import {
@@ -58,15 +64,9 @@ import {
   TronScanGetApprovalListOptions,
   TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
-  TronScanGetTrc10TransfersOptions,
-  TronScanGetTrc20TransfersOptions,
-  TronScanGetTrxTransfersOptions,
   TronScanGetTxDetailByHashOptions,
   TronScanGetVotedListOptions,
   TronScanTokenListResponse,
-  TronScanTrc10TransfersResponse,
-  TronScanTrc20TransfersResponse,
-  TronScanTrxTransfersResponse,
   TronScanTxDetailByHashResponse,
   TronScanVotedListResponse
 } from '../types/tronscan';
