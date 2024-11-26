@@ -1,53 +1,72 @@
 import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
+
 import {
+  // Options:
+  TronScanGetAccountDetailInformationOptions,
+  TronScanGetAccountDailyAnalyticsOptions,
+  TronScanGetAccountAuthChangeRecordsOptions,
+
+  // Responses:
   TronScanAccountDetailInformationResponse,
+  TronScanGetAccountDailyAnalyticsResponse,
+  TronScanGetAccountAuthChangeRecordsResponse
+} from '../types/account';
+
+import {
+  // Options:
+  TronScanGetTransactionsListOptions,
+  TronScanGetTrc20Trc721TransferListOptions,
+  TronScanGetTrxTrc10TransferListOptions,
+  TronScanGetTrc10TransfersOptions,
+  TronScanGetTrc20TransfersOptions,
+  TronScanGetTrxTransfersOptions,
+
+  // Responses:
+  TronScanTransactionsListResponse,
+  TronScanTrc20Trc721TransfersResponse,
+  TronScanTrxTrc10TransfersResponse,
+  TronScanTrc10TransfersResponse,
+  TronScanTrc20TransfersResponse,
+  TronScanTrxTransfersResponse
+} from '../types/transactions';
+
+import {
+  // Options:
+  TronScanCheckAccountAuthSecurityOptions,
+  TronScanCheckAccountSecurityOptions,
+  TronScanCheckMultiSignSecurityOptions,
+  TronScanCheckTokenSecurityOptions,
+  TronScanCheckTxsSecurityOptions,
+  TronScanCheckUrlSecurityOptions,
+  TronScanGetAllTokensOptions,
+
+  // Responses:
+  TronScanCheckAccountAuthSecurityResponse,
+  TronScanCheckAccountSecurityResponse,
+  TronScanCheckMultiSignSecurityResponse,
+  TronScanCheckTokenSecurityResponse,
+  TronScanCheckTxsSecurityResponse,
+  TronScanCheckUrlSecurityResponse,
+  TronScanGetAllTokensResponse
+} from '../types/security';
+
+import {
   TronScanAccountListResponse,
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
   TronScanApprovalListResponse,
   TronScanBlockListResponse,
-  TronScanCheckAccountAuthSecurityOptions,
-  TronScanCheckAccountAuthSecurityResponse,
-  TronScanCheckAccountSecurityOptions,
-  TronScanCheckAccountSecurityResponse,
-  TronScanCheckMultiSignSecurityOptions,
-  TronScanCheckMultiSignSecurityResponse,
-  TronScanCheckTokenSecurityOptions,
-  TronScanCheckTokenSecurityResponse,
-  TronScanCheckTxsSecurityOptions,
-  TronScanCheckTxsSecurityResponse,
-  TronScanCheckUrlSecurityOptions,
-  TronScanCheckUrlSecurityResponse,
-  TronScanGetAccountAuthChangeRecordsOptions,
-  TronScanGetAccountAuthChangeRecordsResponse,
-  TronScanGetAccountDailyAnalyticsOptions,
-  TronScanGetAccountDailyAnalyticsResponse,
-  TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
-  TronScanGetAllTokensOptions,
-  TronScanGetAllTokensResponse,
   TronScanGetApprovalListOptions,
   TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
-  TronScanGetTransactionsListOptions,
-  TronScanGetTrc10TransfersOptions,
-  TronScanGetTrc20TransfersOptions,
-  TronScanGetTrc20Trc721TransferListOptions,
-  TronScanGetTrxTransfersOptions,
-  TronScanGetTrxTrc10TransferListOptions,
   TronScanGetTxDetailByHashOptions,
   TronScanGetVotedListOptions,
   TronScanTokenListResponse,
-  TronScanTransactionsListResponse,
-  TronScanTrc10TransfersResponse,
-  TronScanTrc20TransfersResponse,
-  TronScanTrc20Trc721TransfersResponse,
-  TronScanTrxTransfersResponse,
-  TronScanTrxTrc10TransfersResponse,
   TronScanTxDetailByHashResponse,
   TronScanVotedListResponse
 } from '../types/tronscan';
@@ -195,6 +214,7 @@ export class TronScanClient {
   }
 
   // Transactions and transfers:
+
   /**
    * Get a list of transactions.
    * @param params TronScanGetTransactionsListOptions
@@ -281,7 +301,10 @@ export class TronScanClient {
     return response.data;
   }
 
-  // Security Service API
+  /**
+   * Security Service API
+   * https://docs.tronscan.org/security-service/security-service-api
+   */
 
   /**
    * Check account security
@@ -347,6 +370,11 @@ export class TronScanClient {
     return response.data;
   }
 
+  /**
+   * Get all tokens in TronScan
+   * @param params TronScanGetAllTokensOptions
+   * @returns All tokens list in TronScan
+   */
   public async getAllTokens(params: TronScanGetAllTokensOptions): Promise<TronScanGetAllTokensResponse> {
     const response = await this.transport.get<TronScanGetAllTokensResponse>('token/all', params);
     return response.data;

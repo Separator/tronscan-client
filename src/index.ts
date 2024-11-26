@@ -1,5 +1,62 @@
+import { TronScanClient } from './classes/TronScanClient';
+
 import {
-  // Search types
+  // Options:
+  TronScanGetAccountDetailInformationOptions,
+  TronScanGetAccountDailyAnalyticsOptions,
+
+  // Responses:
+  TronScanAccountDetailInformationResponse,
+  TronScanGetAccountDailyAnalyticsResponse,
+  TronScanGetAccountAuthChangeRecordsOptions,
+  TronScanGetAccountAuthChangeRecordsResponse
+} from './types/account';
+
+import {
+  // Entities:
+  TronScanTxSimple,
+  TronScanTxNative,
+  TronScanTxToken,
+
+  // Options:
+  TronScanGetTransactionsListOptions,
+  TronScanGetTrxTrc10TransferListOptions,
+  TronScanGetTrc20Trc721TransferListOptions,
+  TronScanGetTrxTransfersOptions,
+  TronScanGetTrc10TransfersOptions,
+  TronScanGetTrc20TransfersOptions,
+
+  // Responses:
+  TronScanTransactionsListResponse,
+  TronScanTrxTrc10TransfersResponse,
+  TronScanTrc20Trc721TransfersResponse,
+  TronScanTrxTransfersResponse,
+  TronScanTrc10TransfersResponse,
+  TronScanTrc20TransfersResponse
+} from './types/transactions';
+
+import {
+  // Options:
+  TronScanCheckAccountSecurityOptions,
+  TronScanCheckTokenSecurityOptions,
+  TronScanCheckUrlSecurityOptions,
+  TronScanCheckTxsSecurityOptions,
+  TronScanCheckMultiSignSecurityOptions,
+  TronScanCheckAccountAuthSecurityOptions,
+  TronScanGetAllTokensOptions,
+  TronScanRiskApprove,
+
+  // Responses:
+  TronScanCheckAccountSecurityResponse,
+  TronScanCheckTokenSecurityResponse,
+  TronScanCheckUrlSecurityResponse,
+  TronScanCheckTxsSecurityResponse,
+  TronScanCheckMultiSignSecurityResponse,
+  TronScanCheckAccountAuthSecurityResponse,
+  TronScanGetAllTokensResponse
+} from './types/security';
+
+import {
   TronScanSort,
   TronScanOrder,
   TronScanTokenFilter,
@@ -12,16 +69,12 @@ import {
   IncreaseTotalSupply,
   TokenLevel,
   TronScanAccountAthTokenType,
-  AnalyticType,
+  AnalyticType
+} from './types/params';
+
+import {
   // Options
   TronScanPaginationOptions,
-  TronScanGetTransactionsListOptions,
-  TronScanGetTrxTrc10TransferListOptions,
-  TronScanGetTrc20Trc721TransferListOptions,
-  TronScanGetTrxTransfersOptions,
-  TronScanGetTrc10TransfersOptions,
-  TronScanGetTrc20TransfersOptions,
-  TronScanGetAccountDetailInformationOptions,
   TronScanGetBlocksListOptions,
   TronScanGetAccountListOptions,
   TronScanGetTxDetailByHashOptions,
@@ -29,29 +82,9 @@ import {
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
   TronScanGetApprovalListOptions,
-  TronScanCheckAccountSecurityOptions,
-  TronScanCheckTokenSecurityOptions,
-  TronScanCheckUrlSecurityOptions,
-  TronScanCheckTxsSecurityOptions,
-  TronScanCheckMultiSignSecurityOptions,
-  TronScanCheckAccountAuthSecurityOptions,
-  TronScanGetAllTokensOptions,
-  TronScanGetAccountAuthChangeRecordsOptions,
-  TronScanGetAccountDailyAnalyticsOptions,
-  // Tx types
-  TronScanTxSimple,
-  TronScanTxNative,
-  TronScanTxToken,
-  TronScanRiskApprove,
+
   // Response types
-  TronScanTransactionsListResponse,
-  TronScanTrxTrc10TransfersResponse,
-  TronScanTrc20Trc721TransfersResponse,
   TronScanTokenListResponse,
-  TronScanTrxTransfersResponse,
-  TronScanTrc10TransfersResponse,
-  TronScanTrc20TransfersResponse,
-  TronScanAccountDetailInformationResponse,
   TronScanBlockListResponse,
   TronScanAccountListResponse,
   TronScanTxDetailByHashResponse,
@@ -59,18 +92,10 @@ import {
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
   TronScanApprovalListResponse,
-  TronScanCheckAccountSecurityResponse,
-  TronScanCheckTokenSecurityResponse,
-  TronScanCheckUrlSecurityResponse,
-  TronScanCheckTxsSecurityResponse,
-  TronScanCheckMultiSignSecurityResponse,
-  TronScanCheckAccountAuthSecurityResponse,
-  TronScanGetAllTokensResponse,
-  TronScanGetAccountAuthChangeRecordsResponse,
-  TronScanGetAccountDailyAnalyticsResponse
-} from './types/tronscan';
 
-import { TronScanClient } from './classes/TronScanClient';
+  // Entities:
+  TronScanBlockSimple
+} from './types/tronscan';
 
 export {
   // Search types
@@ -87,6 +112,7 @@ export {
   TokenLevel,
   TronScanAccountAthTokenType,
   AnalyticType,
+
   // Options
   TronScanPaginationOptions,
   TronScanGetTransactionsListOptions,
@@ -112,11 +138,13 @@ export {
   TronScanGetAllTokensOptions,
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountDailyAnalyticsOptions,
+
   // Tx types
   TronScanTxSimple,
   TronScanTxNative,
   TronScanTxToken,
   TronScanRiskApprove,
+
   // Response types
   TronScanTransactionsListResponse,
   TronScanTrxTrc10TransfersResponse,
@@ -142,6 +170,10 @@ export {
   TronScanGetAllTokensResponse,
   TronScanGetAccountAuthChangeRecordsResponse,
   TronScanGetAccountDailyAnalyticsResponse,
+
   // Client
-  TronScanClient
+  TronScanClient,
+
+  // Entities:
+  TronScanBlockSimple
 };

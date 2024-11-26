@@ -1,3 +1,7 @@
+/**
+ * Token info types
+ */
+
 interface TronScanTokenInfoCommon {
   /**
    * @description Token id (address or _ for native)
