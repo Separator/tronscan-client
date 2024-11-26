@@ -1,5 +1,3 @@
-import { TronScanTxSimple, TronScanTxNative, TronScanTxToken } from './types/transactions';
-
 import {
   // Options:
   TronScanGetAccountDetailInformationOptions,
@@ -11,6 +9,23 @@ import {
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountAuthChangeRecordsResponse
 } from './types/account';
+
+import {
+  // Entities:
+  TronScanTxSimple,
+  TronScanTxNative,
+  TronScanTxToken,
+
+  // Options:
+  TronScanGetTransactionsListOptions,
+  TronScanGetTrxTrc10TransferListOptions,
+  TronScanGetTrc20Trc721TransferListOptions,
+
+  // Responses:
+  TronScanTransactionsListResponse,
+  TronScanTrxTrc10TransfersResponse,
+  TronScanTrc20Trc721TransfersResponse
+} from './types/transactions';
 
 import {
   // Options:
@@ -52,9 +67,6 @@ import {
 import {
   // Options
   TronScanPaginationOptions,
-  TronScanGetTransactionsListOptions,
-  TronScanGetTrxTrc10TransferListOptions,
-  TronScanGetTrc20Trc721TransferListOptions,
   TronScanGetTrxTransfersOptions,
   TronScanGetTrc10TransfersOptions,
   TronScanGetTrc20TransfersOptions,
@@ -67,9 +79,6 @@ import {
   TronScanGetApprovalListOptions,
 
   // Response types
-  TronScanTransactionsListResponse,
-  TronScanTrxTrc10TransfersResponse,
-  TronScanTrc20Trc721TransfersResponse,
   TronScanTokenListResponse,
   TronScanTrxTransfersResponse,
   TronScanTrc10TransfersResponse,

@@ -558,7 +558,7 @@ export interface TronScanContractInfo extends TronScanRiskInfo {
   vip: boolean;
 }
 
-interface TronScanTransfersCommonResponse {
+export interface TronScanTransfersCommonResponse {
   /**
    * @description Tx total count
    * @example 1
@@ -829,66 +829,6 @@ export interface TronScanAccountListResponse {
   normalAddressInfo?: {
     [key: string]: TronScanRiskInfo;
   };
-}
-
-// ----------------------------------------------------------------------------------------------------
-
-export interface TronScanGetTransactionsListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  /**
-   * @description Wallet address
-   * @example 'TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w'
-   */
-  address: string;
-}
-
-export interface TronScanTransactionsListResponse extends TronScanTransfersCommonResponse {
-  data: TronScanTxNative[];
-}
-
-// ----------------------------------------------------------------------------------------------------
-
-export interface TronScanGetTrxTrc10TransferListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  /**
-   * @description Address , like contract address
-   * @example 'TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7'
-   */
-  address: string;
-  /**
-   * @description Block number
-   * @example 0
-   */
-  block?: number;
-}
-
-export interface TronScanTrxTrc10TransfersResponse extends TronScanTransfersCommonResponse {
-  /**
-   * @description Tx array
-   */
-  data: TronScanTxSimple[];
-}
-
-// ----------------------------------------------------------------------------------------------------
-
-export interface TronScanGetTrc20Trc721TransferListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  /**
-   * @description Contract address
-   * @example 'TMwFHYXLJaRUPeW6421aqXL4ZEzPRFGkGT'
-   */
-  contract_address?: string;
-  /**
-   * @description Whether to return confirmed transfers only. Default: true
-   * @example true
-   */
-  confirm?: boolean;
-  /**
-   * @description Account address
-   * @example 'TMwFHYXLJaRUPeW6421aqXL4ZEzPRFGkGT'
-   */
-  relatedAddress?: string;
-}
-
-export interface TronScanTrc20Trc721TransfersResponse extends TronScanTransfersCommonResponse {
-  token_transfers: TronScanTxToken[];
 }
 
 // ----------------------------------------------------------------------------------------------------
