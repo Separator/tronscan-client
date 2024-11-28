@@ -91,6 +91,12 @@ const projectParticipateInfo = await tronScanClient.getAccountParticipateProject
   address: ADDRESS
 });
 console.log(projectParticipateInfo);
+
+// Get account wallet token overview:
+const tokenOverview = await tronScanClient.getAccountWalletTokenOverview({
+  address: ADDRESS
+});
+console.log(tokenOverview);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)

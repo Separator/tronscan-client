@@ -16,13 +16,15 @@ import {
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanGetAccountParticipateProjectOptions,
+  TronScanGetAccountWalletTokenOverviewOptions,
 
   // Responses:
   TronScanAccountDetailInformationResponse,
   TronScanGetAccountDailyAnalyticsResponse,
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountAuthChangeRecordsResponse,
-  TronScanGetAccountParticipateProjectResponse
+  TronScanGetAccountParticipateProjectResponse,
+  TronScanGetAccountWalletTokenOverviewResponse
 } from './types/account';
 
 import {
@@ -153,6 +155,7 @@ export {
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanGetAccountParticipateProjectOptions,
+  TronScanGetAccountWalletTokenOverviewOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -186,6 +189,7 @@ export {
   TronScanGetAccountAuthChangeRecordsResponse,
   TronScanGetAccountDailyAnalyticsResponse,
   TronScanGetAccountParticipateProjectResponse,
+  TronScanGetAccountWalletTokenOverviewResponse,
 
   // Client
   TronScanClient,

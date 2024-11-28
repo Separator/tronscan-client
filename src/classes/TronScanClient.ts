@@ -21,7 +21,9 @@ import {
   TronScanGetAccountDailyAnalyticsResponse,
   TronScanGetAccountAuthChangeRecordsResponse,
   TronScanGetAccountParticipateProjectOptions,
-  TronScanGetAccountParticipateProjectResponse
+  TronScanGetAccountParticipateProjectResponse,
+  TronScanGetAccountWalletTokenOverviewOptions,
+  TronScanGetAccountWalletTokenOverviewResponse
 } from '../types/account';
 
 import {
@@ -105,6 +107,11 @@ export class TronScanClient {
 
     this.transport = new AxiosTransport(url, apiKey, axiosOptions);
   }
+
+  /**
+   * Account section
+   * https://docs.tronscan.org/api-endpoints/account
+   */
 
   /**
    * Get account list.
@@ -233,7 +240,25 @@ export class TronScanClient {
     return response.data;
   }
 
-  // Transactions and transfers:
+  /**
+   * Get account wallet token overview
+   * @param params TronScanGetAccountWalletTokenOverviewOptions
+   * @returns Returns overview of tokens in the account wallet
+   */
+  public async getAccountWalletTokenOverview(
+    params: TronScanGetAccountWalletTokenOverviewOptions
+  ): Promise<TronScanGetAccountWalletTokenOverviewResponse> {
+    const response = await this.transport.get<TronScanGetAccountWalletTokenOverviewResponse>(
+      'account/token_asset_overview',
+      params
+    );
+    return response.data;
+  }
+
+  /**
+   * Transactions and transfers
+   * https://docs.tronscan.org/api-endpoints/transactions-and-transfers
+   */
 
   /**
    * Get a list of transactions.
