@@ -19,7 +19,9 @@ import {
   // Responses:
   TronScanAccountDetailInformationResponse,
   TronScanGetAccountDailyAnalyticsResponse,
-  TronScanGetAccountAuthChangeRecordsResponse
+  TronScanGetAccountAuthChangeRecordsResponse,
+  TronScanGetAccountParticipateProjectOptions,
+  TronScanGetAccountParticipateProjectResponse
 } from '../types/account';
 
 import {
@@ -216,6 +218,18 @@ export class TronScanClient {
     params: TronScanGetAccountDailyAnalyticsOptions
   ): Promise<TronScanGetAccountDailyAnalyticsResponse> {
     const response = await this.transport.get<TronScanGetAccountDailyAnalyticsResponse>('account/analysis', params);
+    return response.data;
+  }
+
+  /**
+   * Get an account to participate in the project
+   * @param params TronScanGetAccountParticipateProjectOptions
+   * @returns Returns the project that an account has participated in
+   */
+  public async getAccountParticipateProject(
+    params: TronScanGetAccountParticipateProjectOptions
+  ): Promise<TronScanGetAccountParticipateProjectResponse> {
+    const response = await this.transport.get<TronScanGetAccountParticipateProjectResponse>('participate_project', params);
     return response.data;
   }
 

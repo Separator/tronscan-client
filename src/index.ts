@@ -15,12 +15,14 @@ import {
   // Options:
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
+  TronScanGetAccountParticipateProjectOptions,
 
   // Responses:
   TronScanAccountDetailInformationResponse,
   TronScanGetAccountDailyAnalyticsResponse,
   TronScanGetAccountAuthChangeRecordsOptions,
-  TronScanGetAccountAuthChangeRecordsResponse
+  TronScanGetAccountAuthChangeRecordsResponse,
+  TronScanGetAccountParticipateProjectResponse
 } from './types/account';
 
 import {
@@ -80,7 +82,10 @@ import {
   IncreaseTotalSupply,
   TokenLevel,
   TronScanAccountAthTokenType,
-  AnalyticType
+  AnalyticType,
+  TronScanAggregationType,
+  TronScanJustLendFilter,
+  TronScanTransferType
 } from './types/params';
 
 import {
@@ -118,6 +123,9 @@ export {
   TokenLevel,
   TronScanAccountAthTokenType,
   AnalyticType,
+  TronScanAggregationType,
+  TronScanJustLendFilter,
+  TronScanTransferType,
 
   // Options
   TronScanPaginationOptions,
@@ -144,6 +152,7 @@ export {
   TronScanGetAllTokensOptions,
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountDailyAnalyticsOptions,
+  TronScanGetAccountParticipateProjectOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -176,6 +185,7 @@ export {
   TronScanGetAllTokensResponse,
   TronScanGetAccountAuthChangeRecordsResponse,
   TronScanGetAccountDailyAnalyticsResponse,
+  TronScanGetAccountParticipateProjectResponse,
 
   // Client
   TronScanClient,

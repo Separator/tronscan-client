@@ -85,6 +85,12 @@ const accountDailyAnalytics = await tronScanClient.getAccountDailyAnalytics({
   start_timestamp: 1514764800000
 });
 console.log(accountDailyAnalytics);
+
+// Get an account to participate in the project:
+const projectParticipateInfo = await tronScanClient.getAccountParticipateProject({
+  address: ADDRESS
+});
+console.log(projectParticipateInfo);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
