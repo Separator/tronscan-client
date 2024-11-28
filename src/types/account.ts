@@ -1,5 +1,5 @@
-import { TronScanTokenBalanceInfo, TronScanTokenInfo } from './token-info';
 import { AnalyticType, TronScanAccountAthTokenType, TronScanJustLendFilter } from './params';
+import { TronScanTokenBalanceInfo, TronScanTokenInfo, TronScanTokenOverviewInfo } from './token-info';
 import {
   TronScanBandwidth,
   TronScanContractInfo,
@@ -594,6 +594,19 @@ export interface TronScanProjectInfo {
   percent: number;
 }
 
+export interface TronScanRefreshTimeInfo {
+  /**
+   * @description refresh time info type
+   * @example 'realtime'
+   */
+  type: string;
+  /**
+   * @description Refresh time info last update time
+   * @example 1732804964
+   */
+  lastUpdateTime: number;
+}
+
 export interface TronScanGetAccountParticipateProjectResponse {
   /**
    * @description Total
@@ -617,16 +630,41 @@ export interface TronScanGetAccountParticipateProjectResponse {
   /**
    * @description Refresh time info
    */
-  refreshTimeInfo: {
-    /**
-     * @description refresh time info type
-     * @example 'realtime'
-     */
-    type: string;
-    /**
-     * @description Refresh time info last update time
-     * @example 1732804964
-     */
-    lastUpdateTime: number;
-  };
+  refreshTimeInfo: TronScanRefreshTimeInfo;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetAccountWalletTokenOverviewOptions {
+  /**
+   * @description Account address
+   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
+   */
+  address: string;
+}
+
+export interface TronScanGetAccountWalletTokenOverviewResponse {
+  /**
+   * @description Total asset in trx
+   * @example 55.002484
+   */
+  totalAssetInTrx: number;
+  /**
+   * @description Token data list
+   */
+  data: TronScanTokenOverviewInfo[];
+  /**
+   * @description Total token count
+   * @example 2
+   */
+  totalTokenCount: number;
+  /**
+   * @description Refresh time info
+   */
+  refreshTimeInfo: TronScanRefreshTimeInfo;
+  /**
+   * @description Total asset in usd
+   * @example 11.0839768802715
+   */
+  totalAssetInUsd: number;
 }

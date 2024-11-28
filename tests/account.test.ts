@@ -118,4 +118,15 @@ describe('Account', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get account wallet token overview',
+    async () => {
+      const response = await tronScanClient.getAccountWalletTokenOverview({
+        address: ADDRESS!
+      });
+      expect(response.totalAssetInTrx).toBeGreaterThan(0);
+    },
+    TEST_TIMEOUT
+  );
 });

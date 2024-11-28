@@ -58,6 +58,39 @@ export interface TronScanTokenInfo extends TronScanTokenInfoCommon {
   issuerAddr?: string;
 }
 
+export interface TronScanTokenOverviewInfo extends TronScanTokenInfoCommon {
+  /**
+   * @description Balance
+   * @example '55002484'
+   */
+  balance: string;
+  /**
+   * @description Token price in trx
+   * @example 1
+   */
+  tokenPriceInTrx: number;
+  /**
+   * @description Token price in usd
+   * @example 0.201517751094141
+   */
+  tokenPriceInUsd: number;
+  /**
+   * @description Asset in trx
+   * @example 55.002484
+   */
+  assetInTrx: number;
+  /**
+   * @description Asset in usd
+   * @example 11.0839768802715
+   */
+  assetInUsd: number;
+  /**
+   * @description Percent
+   * @example 1
+   */
+  percent: number;
+}
+
 export interface TronScanTokenBalanceInfo extends TronScanTokenInfoCommon {
   /**
    * @description Amount in trx
