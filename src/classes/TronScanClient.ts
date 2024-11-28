@@ -4,6 +4,14 @@ import { AxiosTransport, Transport } from './Transport';
 
 import {
   // Options:
+  TronScanGetBlocksListOptions,
+
+  // Responses:
+  TronScanBlockListResponse
+} from '../types/block';
+
+import {
+  // Options:
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanGetAccountAuthChangeRecordsOptions,
@@ -57,12 +65,10 @@ import {
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
   TronScanApprovalListResponse,
-  TronScanBlockListResponse,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
   TronScanGetApprovalListOptions,
-  TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
   TronScanGetTxDetailByHashOptions,
   TronScanGetVotedListOptions,

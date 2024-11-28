@@ -2,6 +2,17 @@ import { TronScanClient } from './classes/TronScanClient';
 
 import {
   // Options:
+  TronScanGetBlocksListOptions,
+
+  // Responses:
+  TronScanBlockListResponse,
+
+  // Entities:
+  TronScanBlockSimple
+} from './types/block';
+
+import {
+  // Options:
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
 
@@ -75,7 +86,6 @@ import {
 import {
   // Options
   TronScanPaginationOptions,
-  TronScanGetBlocksListOptions,
   TronScanGetAccountListOptions,
   TronScanGetTxDetailByHashOptions,
   TronScanGetVotedListOptions,
@@ -85,16 +95,12 @@ import {
 
   // Response types
   TronScanTokenListResponse,
-  TronScanBlockListResponse,
   TronScanAccountListResponse,
   TronScanTxDetailByHashResponse,
   TronScanVotedListResponse,
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
-  TronScanApprovalListResponse,
-
-  // Entities:
-  TronScanBlockSimple
+  TronScanApprovalListResponse
 } from './types/tronscan';
 
 export {
