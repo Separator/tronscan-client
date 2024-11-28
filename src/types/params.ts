@@ -93,3 +93,9 @@ export enum AnalyticType {
   BandwidthConsumption = 3,
   Transaction = 4
 }
+
+export enum TronScanJustLendFilter {
+  All = 0,
+  SupplyType = 1,
+  BorrowType = 2
+}

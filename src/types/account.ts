@@ -1,5 +1,5 @@
-import { AnalyticType, TronScanAccountAthTokenType } from './params';
 import { TronScanTokenBalanceInfo, TronScanTokenInfo } from './token-info';
+import { AnalyticType, TronScanAccountAthTokenType, TronScanJustLendFilter } from './params';
 import {
   TronScanBandwidth,
   TronScanContractInfo,
@@ -478,4 +478,155 @@ export interface TronScanGetAccountAuthChangeRecordsResponse {
    * @example 1
    */
   rangeTotal: number;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetAccountParticipateProjectOptions {
+  /**
+   * @description Account address
+   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
+   */
+  address: string;
+  /**
+   * @description Filter JustLend DAO transactions of a certain type
+   * @example 0
+   */
+  justLendFilter?: TronScanJustLendFilter;
+}
+
+export interface TronScanProjectData {
+  /**
+   * @description Sc type
+   * @example 'Staking'
+   */
+  sc_type: string;
+  /**
+   * @description Type
+   * @example ''
+   */
+  type: string;
+  /**
+   * @description Currency
+   * @example '_'
+   */
+  currency: string;
+  /**
+   * @description Currency info
+   */
+  currency_info: TronScanTokenInfo;
+  /**
+   * @description Balance
+   * @example 10
+   */
+  balance: number;
+  /**
+   * @description Value
+   * @example 10
+   */
+  value: number;
+  /**
+   * @description Value in usd
+   * @example 2.02
+   */
+  value_in_usd: number;
+  /**
+   * @description Value detail
+   * @example 10
+   */
+  value_detail: number;
+  /**
+   * @description Value in usd detail
+   * @example 2.02016809745462
+   */
+  value_in_usd_detail: number;
+  /**
+   * @description Version
+   * @example 1
+   */
+  version: number;
+}
+
+export interface TronScanProjectInfo {
+  /**
+   * @description Project name
+   * @example 'TRX Staking Governance'
+   */
+  project_name: string;
+  /**
+   * @description Project logo
+   * @example 'https://static.tronscan.org/production/logo/trx.png'
+   */
+  logo: string;
+  /**
+   * @description Project url
+   * @example ''
+   */
+  url: string;
+  /**
+   * @description Total value
+   * @example 10
+   */
+  total_value: number;
+  /**
+   * @description Total value in usd
+   * @example 2.02
+   */
+  total_value_in_usd: number;
+  /**
+   * @description Data list
+   */
+  data: TronScanProjectData[];
+  /**
+   * @description Total value detail
+   * @example 10
+   */
+  total_value_detail: number;
+  /**
+   * @description Total value in usd detail
+   * @example 2.02016809745462
+   */
+  total_value_in_usd_detail: number;
+  /**
+   * @description Percent
+   * @example 1
+   */
+  percent: number;
+}
+
+export interface TronScanGetAccountParticipateProjectResponse {
+  /**
+   * @description Total
+   * @example 1
+   */
+  total: number;
+  /**
+   * @description Projects list
+   */
+  projects: TronScanProjectInfo[];
+  /**
+   * @description Total asset in trx
+   * @example 10
+   */
+  total_asset_in_trx: number;
+  /**
+   * @description Total asset in usd
+   * @example 2.02016809745462
+   */
+  total_asset_in_usd: number;
+  /**
+   * @description Refresh time info
+   */
+  refreshTimeInfo: {
+    /**
+     * @description refresh time info type
+     * @example 'realtime'
+     */
+    type: string;
+    /**
+     * @description Refresh time info last update time
+     * @example 1732804964
+     */
+    lastUpdateTime: number;
+  };
 }

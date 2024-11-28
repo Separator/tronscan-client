@@ -4,6 +4,14 @@ import { AxiosTransport, Transport } from './Transport';
 
 import {
   // Options:
+  TronScanGetBlocksListOptions,
+
+  // Responses:
+  TronScanBlockListResponse
+} from '../types/block';
+
+import {
+  // Options:
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanGetAccountAuthChangeRecordsOptions,
@@ -11,7 +19,9 @@ import {
   // Responses:
   TronScanAccountDetailInformationResponse,
   TronScanGetAccountDailyAnalyticsResponse,
-  TronScanGetAccountAuthChangeRecordsResponse
+  TronScanGetAccountAuthChangeRecordsResponse,
+  TronScanGetAccountParticipateProjectOptions,
+  TronScanGetAccountParticipateProjectResponse
 } from '../types/account';
 
 import {
@@ -57,12 +67,10 @@ import {
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
   TronScanApprovalListResponse,
-  TronScanBlockListResponse,
   TronScanGetAccountListOptions,
   TronScanGetAccountResourcesListOptions,
   TronScanGetAccountResourcesStake2ListOptions,
   TronScanGetApprovalListOptions,
-  TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
   TronScanGetTxDetailByHashOptions,
   TronScanGetVotedListOptions,
@@ -210,6 +218,18 @@ export class TronScanClient {
     params: TronScanGetAccountDailyAnalyticsOptions
   ): Promise<TronScanGetAccountDailyAnalyticsResponse> {
     const response = await this.transport.get<TronScanGetAccountDailyAnalyticsResponse>('account/analysis', params);
+    return response.data;
+  }
+
+  /**
+   * Get an account to participate in the project
+   * @param params TronScanGetAccountParticipateProjectOptions
+   * @returns Returns the project that an account has participated in
+   */
+  public async getAccountParticipateProject(
+    params: TronScanGetAccountParticipateProjectOptions
+  ): Promise<TronScanGetAccountParticipateProjectResponse> {
+    const response = await this.transport.get<TronScanGetAccountParticipateProjectResponse>('participate_project', params);
     return response.data;
   }
 

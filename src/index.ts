@@ -2,14 +2,27 @@ import { TronScanClient } from './classes/TronScanClient';
 
 import {
   // Options:
+  TronScanGetBlocksListOptions,
+
+  // Responses:
+  TronScanBlockListResponse,
+
+  // Entities:
+  TronScanBlockSimple
+} from './types/block';
+
+import {
+  // Options:
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
+  TronScanGetAccountParticipateProjectOptions,
 
   // Responses:
   TronScanAccountDetailInformationResponse,
   TronScanGetAccountDailyAnalyticsResponse,
   TronScanGetAccountAuthChangeRecordsOptions,
-  TronScanGetAccountAuthChangeRecordsResponse
+  TronScanGetAccountAuthChangeRecordsResponse,
+  TronScanGetAccountParticipateProjectResponse
 } from './types/account';
 
 import {
@@ -69,13 +82,15 @@ import {
   IncreaseTotalSupply,
   TokenLevel,
   TronScanAccountAthTokenType,
-  AnalyticType
+  AnalyticType,
+  TronScanAggregationType,
+  TronScanJustLendFilter,
+  TronScanTransferType
 } from './types/params';
 
 import {
   // Options
   TronScanPaginationOptions,
-  TronScanGetBlocksListOptions,
   TronScanGetAccountListOptions,
   TronScanGetTxDetailByHashOptions,
   TronScanGetVotedListOptions,
@@ -85,16 +100,12 @@ import {
 
   // Response types
   TronScanTokenListResponse,
-  TronScanBlockListResponse,
   TronScanAccountListResponse,
   TronScanTxDetailByHashResponse,
   TronScanVotedListResponse,
   TronScanAccountResourcesListResponse,
   TronScanAccountResourcesStake2ListResponse,
-  TronScanApprovalListResponse,
-
-  // Entities:
-  TronScanBlockSimple
+  TronScanApprovalListResponse
 } from './types/tronscan';
 
 export {
@@ -112,6 +123,9 @@ export {
   TokenLevel,
   TronScanAccountAthTokenType,
   AnalyticType,
+  TronScanAggregationType,
+  TronScanJustLendFilter,
+  TronScanTransferType,
 
   // Options
   TronScanPaginationOptions,
@@ -138,6 +152,7 @@ export {
   TronScanGetAllTokensOptions,
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountDailyAnalyticsOptions,
+  TronScanGetAccountParticipateProjectOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -170,6 +185,7 @@ export {
   TronScanGetAllTokensResponse,
   TronScanGetAccountAuthChangeRecordsResponse,
   TronScanGetAccountDailyAnalyticsResponse,
+  TronScanGetAccountParticipateProjectResponse,
 
   // Client
   TronScanClient,
