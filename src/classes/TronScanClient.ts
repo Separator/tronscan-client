@@ -23,7 +23,9 @@ import {
   TronScanGetAccountParticipateProjectOptions,
   TronScanGetAccountParticipateProjectResponse,
   TronScanGetAccountWalletTokenOverviewOptions,
-  TronScanGetAccountWalletTokenOverviewResponse
+  TronScanGetAccountWalletTokenOverviewResponse,
+  TronScanFindAddressOnOtherChainOptions,
+  TronScanFindAddressOnOtherChainResponse
 } from '../types/account';
 
 import {
@@ -252,6 +254,18 @@ export class TronScanClient {
       'account/token_asset_overview',
       params
     );
+    return response.data;
+  }
+
+  /**
+   * Find the address if exist on other chain
+   * @param params TronScanFindAddressOnOtherChainOptions
+   * @returns Returns the address if exist on other chain
+   */
+  public async findAddressOnOtherChain(
+    params: TronScanFindAddressOnOtherChainOptions
+  ): Promise<TronScanFindAddressOnOtherChainResponse> {
+    const response = await this.transport.get<TronScanFindAddressOnOtherChainResponse>('multiple/chain/query', params);
     return response.data;
   }
 

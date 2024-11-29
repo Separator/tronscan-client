@@ -129,4 +129,15 @@ describe('Account', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Find the address if exist on other chain',
+    async () => {
+      const response = await tronScanClient.findAddressOnOtherChain({
+        address: ADDRESS!
+      });
+      expect(response.isToken).toEqual(false);
+    },
+    TEST_TIMEOUT
+  );
 });

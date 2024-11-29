@@ -97,6 +97,12 @@ const tokenOverview = await tronScanClient.getAccountWalletTokenOverview({
   address: ADDRESS
 });
 console.log(tokenOverview);
+
+// Find the address if exist on other chain:
+const otherChainInfo = await tronScanClient.findAddressOnOtherChain({
+  address: ADDRESS!
+});
+console.log(otherChainInfo);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)

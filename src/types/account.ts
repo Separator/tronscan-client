@@ -668,3 +668,88 @@ export interface TronScanGetAccountWalletTokenOverviewResponse {
    */
   totalAssetInUsd: number;
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanMultipleChainItem {
+  /**
+   * @description Exists
+   * @example true
+   */
+  exist: boolean;
+  /**
+   * @description Chain
+   * @example 'BitTorrent Chain'
+   */
+  chain: string;
+  /**
+   * @description Address
+   * @example '0x59f5c66c3d9e2065b60bf4a8634cd57fd6a4acd0'
+   */
+  address: string;
+  /**
+   * @description Chain name
+   * @example 'bttc'
+   */
+  name: string;
+  /**
+   * @description Chain logo
+   * @example 'https://static.tronscan.org/production/upload/logo/new/chain/bttc.svg'
+   */
+  logo: string;
+  /**
+   * @description Title
+   * @example 'BTTCSCAN'
+   */
+  title: string;
+  /**
+   * @description Url
+   * @example 'https://bttcscan.com/address/0x59f5c66c3d9e2065b60bf4a8634cd57fd6a4acd0'
+   */
+  url: string;
+}
+
+export interface TronScanFindAddressOnOtherChainOptions {
+  /**
+   * @description Account address
+   * @example 'TJAsZtFdFdkME5dAF12UMZzK9Vpqp4ri4Q'
+   */
+  address: string;
+}
+
+export interface TronScanFindAddressOnOtherChainResponse {
+  /**
+   * @description Is token
+   * @example false
+   */
+  isToken: boolean;
+  /**
+   * @description Is contract
+   * @example false
+   */
+  isContract: boolean;
+  /**
+   * @description Tron logo
+   * @example 'https://static.tronscan.org/production/upload/logo/new/chain/tron.svg'
+   */
+  tronLogo: string;
+  /**
+   * @description Tron address
+   * @example 'TJAsZtFdFdkME5dAF12UMZzK9Vpqp4ri4Q'
+   */
+  tronAddress: string;
+  /**
+   * @description Multiple chain list
+   */
+  multipleChain: TronScanMultipleChainItem[];
+  /**
+   * @description Red tag
+   * @example ''
+   */
+  redTag: string;
+  /**
+   * @description Public tag
+   * @example ''
+   */
+  publicTag: string;
+}
