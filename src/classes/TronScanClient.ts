@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
+import { TronScanGetContractsListOptions, TronScanGetContractsListResponse } from '../types/contract';
 
 import {
   // Options:
@@ -270,7 +271,22 @@ export class TronScanClient {
   }
 
   /**
-   * Transactions and transfers
+   * Contract section
+   * https://docs.tronscan.org/api-endpoints/contract
+   */
+
+  /**
+   * Get list of contracts
+   * @param params TronScanGetContractsListOptions
+   * @returns Returns a list of contracts
+   */
+  public async getListOfContracts(params: TronScanGetContractsListOptions = {}): Promise<TronScanGetContractsListResponse> {
+    const response = await this.transport.get<TronScanGetContractsListResponse>('contracts', params);
+    return response.data;
+  }
+
+  /**
+   * Transactions and transfers section
    * https://docs.tronscan.org/api-endpoints/transactions-and-transfers
    */
 

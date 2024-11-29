@@ -29,6 +29,7 @@ const tronScanClient = new TronScanClient({
 const ADDRESS = 'tron_address';
 const FROM_ADDRESS = 'from_address';
 const TOKEN_ADDRESS = 'token_address';
+const START_TIMESTAMP = 1514764800000;
 
 // Get account list:
 const response = await tronScanClient.getAccountList();
@@ -82,7 +83,7 @@ console.log(accountAccessChangeRecords);
 // Get list of daily analytics data for an account over time:
 const accountDailyAnalytics = await tronScanClient.getAccountDailyAnalytics({
   address: ADDRESS,
-  start_timestamp: 1514764800000
+  start_timestamp: START_TIMESTAMP
 });
 console.log(accountDailyAnalytics);
 
@@ -100,9 +101,17 @@ console.log(tokenOverview);
 
 // Find the address if exist on other chain:
 const otherChainInfo = await tronScanClient.findAddressOnOtherChain({
-  address: ADDRESS!
+  address: ADDRESS
 });
 console.log(otherChainInfo);
+```
+
+## [Contract section](https://docs.tronscan.org/api-endpoints/contract)
+
+```javascript
+// Get list of contracts:
+const contractsList = await tronScanClient.getListOfContracts();
+console.log(contractsList);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
@@ -115,6 +124,9 @@ console.log(otherChainInfo);
 
 ```javascript
 const ADDRESS = 'tron_address';
+const START_TIMESTAMP = 1715855574000;
+const END_TIMESTAMP = 1715855574000;
+const CONTRACT_ADDRESS = 'contract_address';
 
 // Get a list of transactions:
 const response = await tronScanClient.getTransactionsList({
@@ -131,8 +143,8 @@ const txDetails = await tronScanClient.getTransactionDetailByHash({
 // Get trx&trc10 transfer list:
 const response = await tronScanClient.getTrxTrc10TransferList({
   address: ADDRESS,
-  start_timestamp: 1715855574000,
-  end_timestamp: 1715855574000
+  start_timestamp: START_TIMESTAMP,
+  end_timestamp: END_TIMESTAMP
 });
 const txs = response.data;
 
@@ -157,7 +169,7 @@ const transfers = response.data;
 // Get only trc20 transfers:
 const response = await tronScanClient.getTrc20Transfers({
   relatedAddress: ADDRESS,
-  contract_address: 'contract_address'
+  contract_address: CONTRACT_ADDRESS
 });
 const transfers = response.data;
 ```

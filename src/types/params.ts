@@ -38,6 +38,12 @@ export enum TronScanTokenSort {
   HolderCount = 'holderCount'
 }
 
+export enum TronScanContractSort {
+  TrxCountDesc = '-trxCount',
+  BalanceDesc = '-balance',
+  TimestampDesc = '-timestamp'
+}
+
 export enum TronScanResourceType {
   BandwidthAndEnergy = 0,
   Bandwidth = 1,
