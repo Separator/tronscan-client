@@ -13,6 +13,14 @@ import {
 
 import {
   // Options:
+  TronScanGetContractsListOptions,
+
+  // Responses:
+  TronScanGetContractsListResponse
+} from './types/contract';
+
+import {
+  // Options:
   TronScanGetAccountDetailInformationOptions,
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanGetAccountParticipateProjectOptions,
@@ -89,7 +97,8 @@ import {
   AnalyticType,
   TronScanAggregationType,
   TronScanJustLendFilter,
-  TronScanTransferType
+  TronScanTransferType,
+  TronScanContractSort
 } from './types/params';
 
 import {
@@ -130,6 +139,7 @@ export {
   TronScanAggregationType,
   TronScanJustLendFilter,
   TronScanTransferType,
+  TronScanContractSort,
 
   // Options
   TronScanPaginationOptions,
@@ -159,6 +169,7 @@ export {
   TronScanGetAccountParticipateProjectOptions,
   TronScanGetAccountWalletTokenOverviewOptions,
   TronScanFindAddressOnOtherChainOptions,
+  TronScanGetContractsListOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -194,6 +205,7 @@ export {
   TronScanGetAccountParticipateProjectResponse,
   TronScanGetAccountWalletTokenOverviewResponse,
   TronScanFindAddressOnOtherChainResponse,
+  TronScanGetContractsListResponse,
 
   // Client
   TronScanClient,

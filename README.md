@@ -106,6 +106,14 @@ const otherChainInfo = await tronScanClient.findAddressOnOtherChain({
 console.log(otherChainInfo);
 ```
 
+## [Contract section](https://docs.tronscan.org/api-endpoints/contract)
+
+```javascript
+// Get list of contracts:
+const contractsList = await tronScanClient.getListOfContracts();
+console.log(contractsList);
+```
+
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
 
 ```javascript
