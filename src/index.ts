@@ -17,6 +17,7 @@ import {
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanGetAccountParticipateProjectOptions,
   TronScanGetAccountWalletTokenOverviewOptions,
+  TronScanFindAddressOnOtherChainOptions,
 
   // Responses:
   TronScanAccountDetailInformationResponse,
@@ -24,7 +25,8 @@ import {
   TronScanGetAccountAuthChangeRecordsOptions,
   TronScanGetAccountAuthChangeRecordsResponse,
   TronScanGetAccountParticipateProjectResponse,
-  TronScanGetAccountWalletTokenOverviewResponse
+  TronScanGetAccountWalletTokenOverviewResponse,
+  TronScanFindAddressOnOtherChainResponse
 } from './types/account';
 
 import {
@@ -156,6 +158,7 @@ export {
   TronScanGetAccountDailyAnalyticsOptions,
   TronScanGetAccountParticipateProjectOptions,
   TronScanGetAccountWalletTokenOverviewOptions,
+  TronScanFindAddressOnOtherChainOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -190,6 +193,7 @@ export {
   TronScanGetAccountDailyAnalyticsResponse,
   TronScanGetAccountParticipateProjectResponse,
   TronScanGetAccountWalletTokenOverviewResponse,
+  TronScanFindAddressOnOtherChainResponse,
 
   // Client
   TronScanClient,
