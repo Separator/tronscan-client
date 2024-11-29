@@ -1,7 +1,12 @@
 import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
-import { TronScanGetContractsListOptions, TronScanGetContractsListResponse } from '../types/contract';
+import {
+  TronScanGetContractDetailInformationOptions,
+  TronScanGetContractDetailInformationResponse,
+  TronScanGetContractsListOptions,
+  TronScanGetContractsListResponse
+} from '../types/contract';
 
 import {
   // Options:
@@ -282,6 +287,20 @@ export class TronScanClient {
    */
   public async getListOfContracts(params: TronScanGetContractsListOptions = {}): Promise<TronScanGetContractsListResponse> {
     const response = await this.transport.get<TronScanGetContractsListResponse>('contracts', params);
+    return response.data;
+  }
+
+  /**
+   * Get contract detail information
+   *
+   * **Note** : The maximum value for **limit** is **200**
+   * @param params TronScanGetContractDetailInformationOptions
+   * @returns Returns contract detail information
+   */
+  public async getContractDetailInformation(
+    params: TronScanGetContractDetailInformationOptions
+  ): Promise<TronScanGetContractDetailInformationResponse> {
+    const response = await this.transport.get<TronScanGetContractDetailInformationResponse>('contract', params);
     return response.data;
   }
 

@@ -1,5 +1,19 @@
 import { TronScanContractSort } from './params';
+import { TronScanTokenInfo } from './token-info';
 import { TronScanPaginationOptions } from './tronscan';
+
+export interface TronScanContractInfoStatus {
+  /**
+   * @description Status code
+   * @example 0
+   */
+  code: number;
+  /**
+   * @description Status message
+   * @example 'SUCCESS'
+   */
+  message: string;
+}
 
 export interface TronScanTopContractInfo {
   /**
@@ -219,6 +233,230 @@ export interface TronScanContractListItem {
   trc20token?: TronScanContractTrc20Info;
 }
 
+export interface TronScanContractInfoCreator {
+  /**
+   * @description Address
+   * @example 'TRX6Q82wMqWNbCCiLqejbZe43wk1h1zJHm'
+   */
+  address: string;
+  /**
+   * @description Address is contract
+   * @example false
+   */
+  address_is_contract: boolean;
+  /**
+   * @description Tx hash
+   * @example '1836ff59e1f9c46dd1682ede7824d08db922ba10162b7f69feefd76fd83c017f'
+   */
+  txHash: string;
+  /**
+   * @description Token balance
+   * @example 0
+   */
+  token_balance: number;
+  /**
+   * @description Consume user resource percent
+   * @example 0
+   */
+  consume_user_resource_percent: number;
+  /**
+   * @description Energy remaining
+   * @example 0
+   */
+  energy_remaining: number;
+  /**
+   * @description Energy limit
+   * @example 0
+   */
+  energy_limit: number;
+}
+
+export interface TronScanContractInfoStatusItem {
+  /**
+   * @description Address
+   * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
+   */
+  address: string;
+  /**
+   * @description Balance
+   * @example 24770077347
+   */
+  balance: number;
+  /**
+   * @description Verify status
+   * @example 2
+   */
+  verify_status: number;
+  /**
+   * @description Is proxy status
+   * @example false
+   */
+  is_proxy: boolean;
+  /**
+   * @description Proxy implementation
+   * @example ''
+   */
+  proxy_implementation: string;
+  /**
+   * @description Old proxy implementation
+   * @example ''
+   */
+  old_proxy_implementation: string;
+  /**
+   * @description Balance in usd
+   * @example 0
+   */
+  balanceInUsd: number;
+  /**
+   * @description Trx count
+   * @example 929563
+   */
+  trxCount: number;
+  /**
+   * @description Date created
+   * @example 1621864512000
+   */
+  date_created: number;
+  /**
+   * @description Call value
+   * @example 0
+   */
+  call_value: number;
+  /**
+   * @description Call token value
+   * @example 0
+   */
+  call_token_value: number;
+  /**
+   * @description Call token id
+   * @example 0
+   */
+  call_token_id: number;
+  /**
+   * @description Call token info
+   */
+  call_token_info: {
+    tokenInfo: TronScanTokenInfo;
+  };
+  /**
+   * @description Name
+   * @example 'SunToken'
+   */
+  name: string;
+  /**
+   * @description Description
+   * @example ''
+   */
+  description: string;
+  /**
+   * @description Tag
+   * @example 'SUN Token'
+   */
+  tag1: string;
+  /**
+   * @description Tag url
+   * @example 'https://sun.io/'
+   */
+  tag1Url: string;
+  /**
+   * @description Vip status
+   * @example true
+   */
+  vip: boolean;
+  /**
+   * @description Feedback risk
+   * @example false
+   */
+  feedbackRisk: boolean;
+  /**
+   * @description Announcement
+   * @example ''
+   */
+  announcement: string;
+  /**
+   * @description License
+   * @example '1'
+   */
+  license: string;
+  /**
+   * @description Blue tag
+   * @example ''
+   */
+  blueTag: string;
+  /**
+   * @description Blue tag url
+   * @example ''
+   */
+  blueTagUrl: string;
+  /**
+   * @description Grey tag
+   * @example ''
+   */
+  greyTag: string;
+  /**
+   * @description Red tag
+   * @example ''
+   */
+  redTag: string;
+  /**
+   * @description Public tag
+   * @example 'SUN Token'
+   */
+  publicTag: string;
+  /**
+   * @description Public tag desc
+   * @example ''
+   */
+  publicTagDesc: string;
+  /**
+   * @description Creator info
+   */
+  creator: TronScanContractInfoCreator;
+  /**
+   * @description Audit report url
+   * @example ''
+   */
+  auditReportUrl: string;
+  /**
+   * @description Audit dep
+   * @example ''
+   */
+  auditDep: string;
+  /**
+   * @description Audit date
+   * @example ''
+   */
+  auditDate: string;
+  /**
+   * @description Method map
+   * @example { a9059cbb: 'transfer(address,uint256)' }
+   */
+  methodMap: {
+    [key: string]: string;
+  };
+  /**
+   * @description Energy factor
+   * @example 0
+   */
+  energy_factor: number;
+  /**
+   * @description Token info
+   */
+  tokenInfo: TronScanTokenInfo;
+  /**
+   * @description Balance with tokens
+   * @example 120330.659523898
+   */
+  balanceWithTokens: number;
+  /**
+   * @description Balance with token in usd
+   * @example 24620.703615111
+   */
+  balanceWithTokensInUsd: number;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
 export interface TronScanGetContractsListOptions extends TronScanPaginationOptions {
   /**
    * @description Search by contract name, contract address
@@ -293,16 +531,36 @@ export interface TronScanGetContractsListResponse {
   /**
    * @description Status
    */
-  status: {
-    /**
-     * @description Status code
-     * @example 0
-     */
-    code: number;
-    /**
-     * @description Status message
-     * @example 'SUCCESS'
-     */
-    message: string;
-  };
+  status: TronScanContractInfoStatus;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetContractDetailInformationOptions {
+  /**
+   * @description Contract address
+   * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
+   */
+  contract?: string;
+}
+
+export interface TronScanGetContractDetailInformationResponse {
+  /**
+   * @description Type
+   * @example 'null'
+   */
+  type: string;
+  /**
+   * @description Count
+   * @example 0
+   */
+  count: number;
+  /**
+   * @description Status
+   */
+  status: TronScanContractInfoStatus;
+  /**
+   * @description Data list
+   */
+  data: TronScanContractInfoStatusItem[];
 }

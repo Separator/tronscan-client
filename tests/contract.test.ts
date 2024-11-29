@@ -4,7 +4,7 @@ import { TronScanClient } from '../src';
 config();
 
 const TEST_TIMEOUT = 60000;
-const { API_KEY, URL } = process.env;
+const { API_KEY, URL, TOKEN_ADDRESS } = process.env;
 
 const tronScanClient = new TronScanClient({
   url: URL!,
@@ -13,10 +13,21 @@ const tronScanClient = new TronScanClient({
 
 describe('Contract', () => {
   test(
-    '',
+    'Get list of contracts',
     async () => {
       const response = await tronScanClient.getListOfContracts();
       expect(response.triggerTop7.length).toBeGreaterThan(0);
+    },
+    TEST_TIMEOUT
+  );
+
+  test(
+    'Get contract detail information',
+    async () => {
+      const response = await tronScanClient.getContractDetailInformation({
+        contract: TOKEN_ADDRESS
+      });
+      expect(response.data.length).toEqual(1);
     },
     TEST_TIMEOUT
   );

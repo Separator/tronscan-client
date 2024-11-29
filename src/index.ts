@@ -14,9 +14,11 @@ import {
 import {
   // Options:
   TronScanGetContractsListOptions,
+  TronScanGetContractDetailInformationOptions,
 
   // Responses:
-  TronScanGetContractsListResponse
+  TronScanGetContractsListResponse,
+  TronScanGetContractDetailInformationResponse
 } from './types/contract';
 
 import {
@@ -170,6 +172,7 @@ export {
   TronScanGetAccountWalletTokenOverviewOptions,
   TronScanFindAddressOnOtherChainOptions,
   TronScanGetContractsListOptions,
+  TronScanGetContractDetailInformationOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -206,6 +209,7 @@ export {
   TronScanGetAccountWalletTokenOverviewResponse,
   TronScanFindAddressOnOtherChainResponse,
   TronScanGetContractsListResponse,
+  TronScanGetContractDetailInformationResponse,
 
   // Client
   TronScanClient,

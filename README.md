@@ -109,9 +109,16 @@ console.log(otherChainInfo);
 ## [Contract section](https://docs.tronscan.org/api-endpoints/contract)
 
 ```javascript
+const CONTRACT_ADDRESS = 'contract_address';
+
 // Get list of contracts:
 const contractsList = await tronScanClient.getListOfContracts();
 console.log(contractsList);
+
+const contractDetailInformation = await tronScanClient.getContractDetailInformation({
+  contract: CONTRACT_ADDRESS
+});
+console.log(contractDetailInformation);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
