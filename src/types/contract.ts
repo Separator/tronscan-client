@@ -455,6 +455,161 @@ export interface TronScanContractInfoStatusItem {
   balanceWithTokensInUsd: number;
 }
 
+export interface TronScanContractEventListItem {
+  /**
+   * @description Block number
+   * @example 67432802
+   */
+  block_number: number;
+  /**
+   * @description Block timestamp
+   * @example 1732948485000
+   */
+  block_timestamp: number;
+  /**
+   * @description Caller contract address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  caller_contract_address: string;
+  /**
+   * @description Contract address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  contract_address: string;
+  /**
+   * @description Event index
+   * @example 0
+   */
+  event_index: number;
+  /**
+   * @description Event name
+   * @example 'Transfer'
+   */
+  event_name: string;
+  /**
+   * @description Result with topic
+   */
+  result_with_topic: {
+    /**
+     * @description Index
+     */
+    index: { param: string; value: string }[];
+    /**
+     * @description Topic
+     * @example 'ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
+     */
+    topic: string;
+    /**
+     * @description Data in arr
+     */
+    dataInArr: { param: string; value: string }[];
+  };
+  /**
+   * @description Result
+   */
+  result: {
+    [key: string]: string;
+  };
+  /**
+   * @description Result type
+   */
+  result_type: {
+    /**
+     * @description From
+     * @example 'address'
+     */
+    from: string;
+    /**
+     * @description To
+     * @example 'address'
+     */
+    to: string;
+    /**
+     * @description Value
+     * @example 'uint256'
+     */
+    value: string;
+  };
+  /**
+   * @description Event
+   * @example 'Transfer(address indexed from, address indexed to, uint256 value)'
+   */
+  event: string;
+  /**
+   * @description Tx id
+   * @example 'e80602a1f026d190b0c90cbd10feea08aba36c7189e070946a74caedd6662a87'
+   */
+  transaction_id: string;
+}
+
+export interface TronScanContractEventItem {
+  /**
+   * @description Owner address
+   * @example 'TEh2ggBb6bU97odubkYjgYMX5t25yYzEGe'
+   */
+  owner_address: string;
+  /**
+   * @description Block
+   * @example 67432802
+   */
+  block: number;
+  /**
+   * @description Hash
+   * @example 'e80602a1f026d190b0c90cbd10feea08aba36c7189e070946a74caedd6662a87'
+   */
+  hash: string;
+  /**
+   * @description Date created
+   * @example 1732948485000
+   */
+  date_created: number;
+  /**
+   * @description Contract address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  contract_address: string;
+  /**
+   * @description Token id
+   * @example 0
+   */
+  token_id: number;
+  /**
+   * @description Token value
+   * @example 0
+   */
+  token_value: number;
+  /**
+   * @description Call value
+   * @example 0
+   */
+  call_value: number;
+  /**
+   * @description Data
+   * @example 'a9059cbb0000000000000000000000411924312f5d44981888849edccb7d03e84a9c7359000000000000000000000000000000000000000000000000000000001d9f9e40'
+   */
+  data: string;
+  /**
+   * @description Confirmed status
+   * @example false
+   */
+  confirmed: boolean;
+  /**
+   * @description Method
+   * @example 'transfer(address _to,uint256 _value)'
+   */
+  method: string;
+  /**
+   * @description Parameters
+   * @example '{"0":"TCG9FXaLB9kc25pxBzruEGv6KS2isJxqRc","1":"497000000","_value":"497000000","_to":"TCG9FXaLB9kc25pxBzruEGv6KS2isJxqRc"}'
+   */
+  parameter: string;
+  /**
+   * @description Day
+   * @example '2024-11-30'
+   */
+  day: string;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetContractsListOptions extends TronScanPaginationOptions {
@@ -563,4 +718,39 @@ export interface TronScanGetContractDetailInformationResponse {
    * @description Data list
    */
   data: TronScanContractInfoStatusItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetContractEventInformationOptions {
+  /**
+   * @description Contract address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  contractAddress: string;
+  /**
+   * @description Hash list
+   * @example []
+   */
+  hashList?: string[];
+  /**
+   * @description Limit
+   */
+  limit?: number;
+  /**
+   * @description Fields list
+   * @example 'hash,method'
+   */
+  fields?: string;
+}
+
+export interface TronScanGetContractEventInformationResponse {
+  /**
+   * @description Event list items
+   */
+  event_list: TronScanContractEventListItem[];
+  /**
+   * @description Event list
+   */
+  list: TronScanContractEventItem[];
 }

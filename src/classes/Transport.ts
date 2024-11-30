@@ -4,6 +4,7 @@ export interface Transport {
   apiKey: string;
 
   get<T>(uri: string, options: any): Promise<AxiosResponse<T>>;
+  post<T>(uri: string, options: any): Promise<AxiosResponse<T>>;
 }
 
 export class AxiosTransport implements Transport {
@@ -24,6 +25,20 @@ export class AxiosTransport implements Transport {
       },
       params: {
         ...options
+      }
+    });
+
+    return response;
+  }
+
+  async post<T>(uri: string, options: any): Promise<AxiosResponse<T>> {
+    const { apiKey } = this;
+    const url = `${this.url}/${uri}`;
+
+    const response = await axios.post<T>(url, options, {
+      ...this.options,
+      headers: {
+        'TRON-PRO-API-KEY': apiKey
       }
     });
 

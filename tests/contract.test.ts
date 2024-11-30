@@ -31,4 +31,15 @@ describe('Contract', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get event information of the contract',
+    async () => {
+      const response = await tronScanClient.getContractEventInformation({
+        contractAddress: TOKEN_ADDRESS!
+      });
+      expect(response.event_list.length).toBeGreaterThan(1);
+    },
+    TEST_TIMEOUT
+  );
 });

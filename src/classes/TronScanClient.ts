@@ -4,6 +4,8 @@ import { AxiosTransport, Transport } from './Transport';
 import {
   TronScanGetContractDetailInformationOptions,
   TronScanGetContractDetailInformationResponse,
+  TronScanGetContractEventInformationOptions,
+  TronScanGetContractEventInformationResponse,
   TronScanGetContractsListOptions,
   TronScanGetContractsListResponse
 } from '../types/contract';
@@ -301,6 +303,21 @@ export class TronScanClient {
     params: TronScanGetContractDetailInformationOptions
   ): Promise<TronScanGetContractDetailInformationResponse> {
     const response = await this.transport.get<TronScanGetContractDetailInformationResponse>('contract', params);
+    return response.data;
+  }
+
+  /**
+   * Get event information of the contract
+   * @param params TronScanGetContractEventInformationOptions
+   * @returns Returns a list of event information for the contract
+   */
+  public async getContractEventInformation(
+    params: TronScanGetContractEventInformationOptions
+  ): Promise<TronScanGetContractEventInformationResponse> {
+    const response = await this.transport.post<TronScanGetContractEventInformationResponse>(
+      'contracts/smart-contract-triggers-batch',
+      params
+    );
     return response.data;
   }
 
