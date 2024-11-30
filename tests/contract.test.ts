@@ -53,4 +53,15 @@ describe('Contract', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get contract call statistics',
+    async () => {
+      const response = await tronScanClient.getContractCallStatistics({
+        contract_address: TOKEN_ADDRESS!
+      });
+      expect(response.timeLong).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });

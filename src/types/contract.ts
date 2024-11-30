@@ -1,6 +1,6 @@
 import { TronScanContractSort } from './params';
 import { TronScanTokenInfo } from './token-info';
-import { TronScanPaginationOptions } from './tronscan';
+import { TronScanContractInfo, TronScanContractMap, TronScanPaginationOptions } from './tronscan';
 
 export interface TronScanContractInfoStatus {
   /**
@@ -637,6 +637,37 @@ export interface TronScanGetContractEnergyStatisticsItem {
   trx: number;
 }
 
+export interface TronScanContractCallStatisticsTopAddressItem {
+  /**
+   * @description Address
+   * @example 'TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf'
+   */
+  address: string;
+  /**
+   * @description Address tag
+   * @example 'Binance-Hot 7'
+   */
+  addressTag?: string;
+  /**
+   * @description Count
+   * @example 1087
+   */
+  count: number;
+}
+
+export interface TronScanContractCallStatisticsTopMethodsItem {
+  /**
+   * @description Times
+   * @example 12416
+   */
+  times: number;
+  /**
+   * @description Method id
+   * @example 'a9059cbb'
+   */
+  methodId: string;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetContractsListOptions extends TronScanPaginationOptions {
@@ -807,4 +838,55 @@ export interface TronScanGetContractEnergyStatisticsResponse {
    * @description Data list
    */
   data: TronScanGetContractEnergyStatisticsItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetContractCallStatisticsOptions {
+  /**
+   * @description Contract address
+   * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
+   */
+  contract_address: string;
+}
+
+export interface TronScanGetContractCallStatisticsResponse {
+  /**
+   * @description Recent call times
+   * @example 13240
+   */
+  recentCallTimes: number;
+  /**
+   * @description Time long
+   * @example 1732924800000
+   */
+  timeLong: number;
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Contract info
+   */
+  contractInfo: {
+    [key: string]: TronScanContractInfo;
+  };
+  /**
+   * @description Top address
+   */
+  topAddress: TronScanContractCallStatisticsTopAddressItem[];
+  /**
+   * @description Total address
+   * @example 3091
+   */
+  totalAddress: number;
+  /**
+   * @description Total call times
+   * @example 929932
+   */
+  totalCallTimes: number;
+  /**
+   * @description Top methods list
+   */
+  topMethods: TronScanContractCallStatisticsTopMethodsItem[];
 }
