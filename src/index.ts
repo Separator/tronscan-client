@@ -17,12 +17,14 @@ import {
   TronScanGetContractDetailInformationOptions,
   TronScanGetContractEventInformationOptions,
   TronScanGetContractEnergyStatisticsOptions,
+  TronScanGetContractCallStatisticsOptions,
 
   // Responses:
   TronScanGetContractsListResponse,
   TronScanGetContractDetailInformationResponse,
   TronScanGetContractEventInformationResponse,
-  TronScanGetContractEnergyStatisticsResponse
+  TronScanGetContractEnergyStatisticsResponse,
+  TronScanGetContractCallStatisticsResponse
 } from './types/contract';
 
 import {
@@ -179,6 +181,7 @@ export {
   TronScanGetContractDetailInformationOptions,
   TronScanGetContractEventInformationOptions,
   TronScanGetContractEnergyStatisticsOptions,
+  TronScanGetContractCallStatisticsOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -218,6 +221,7 @@ export {
   TronScanGetContractDetailInformationResponse,
   TronScanGetContractEventInformationResponse,
   TronScanGetContractEnergyStatisticsResponse,
+  TronScanGetContractCallStatisticsResponse,
 
   // Client
   TronScanClient,

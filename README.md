@@ -1,4 +1,4 @@
-# ![https://tronscan.org/](https://tronscan.org/static/media/logo_left.75928ad1b469e9b7f18200c4605d3396.svg) Tronscan client
+# [<img src="https://static.tronscan.org/production/logo/share_logo.png" alt="drawing" width="40"/> Tronscan client](https://tronscan.org/)
 
 Client for receiving blockchain data through block explorers (in particular, tronscan).  
 At the moment, the number of available methods is limited to those indicated in the examples below.
@@ -130,6 +130,12 @@ const energyStatistics = await tronScanClient.getContractEnergyStatistics({
   address: CONTRACT_ADDRESS
 });
 console.log(energyStatistics);
+
+// Get contract call statistics:
+const callStatistics = await tronScanClient.getContractCallStatistics({
+  contract_address: TOKEN_ADDRESS!
+});
+console.log(callStatistics);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
