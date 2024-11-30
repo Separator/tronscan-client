@@ -64,4 +64,15 @@ describe('Contract', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the number of unique addresses called per day for a contract over a certain period of time',
+    async () => {
+      const response = await tronScanClient.getContractUniqueAddressesNumberPerDay({
+        address: TOKEN_ADDRESS
+      });
+      expect(response.total).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });

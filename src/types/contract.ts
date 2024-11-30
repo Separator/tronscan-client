@@ -890,3 +890,40 @@ export interface TronScanGetContractCallStatisticsResponse {
    */
   topMethods: TronScanContractCallStatisticsTopMethodsItem[];
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetContractUniqueAddressesNumberPerDayOptions {
+  /**
+   * @description Contract address
+   * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
+   */
+  address?: string;
+  /**
+   * @description Start timestamp
+   * @example 1621900800000
+   */
+  start_timestamp?: number;
+  /**
+   * @description End timestamp
+   * @example 1621987200000
+   */
+  end_timestamp?: number;
+}
+
+export interface TronScanGetContractUniqueAddressesNumberPerDayResponse {
+  /**
+   * @description Total
+   * @example 2
+   */
+  total: number;
+  /**
+   * @description Total caller amount
+   * @example 143
+   */
+  totalCallerAmount: number;
+  /**
+   * @description Data list
+   */
+  data: { amount: number; day: number }[];
+}
