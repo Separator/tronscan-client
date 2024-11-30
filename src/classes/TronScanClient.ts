@@ -4,6 +4,8 @@ import { AxiosTransport, Transport } from './Transport';
 import {
   TronScanGetContractDetailInformationOptions,
   TronScanGetContractDetailInformationResponse,
+  TronScanGetContractEnergyStatisticsOptions,
+  TronScanGetContractEnergyStatisticsResponse,
   TronScanGetContractEventInformationOptions,
   TronScanGetContractEventInformationResponse,
   TronScanGetContractsListOptions,
@@ -318,6 +320,18 @@ export class TronScanClient {
       'contracts/smart-contract-triggers-batch',
       params
     );
+    return response.data;
+  }
+
+  /**
+   * Get contract energy statistics
+   * @param params TronScanGetContractEnergyStatisticsOptions
+   * @returns Returns Energy statistic data of a contract
+   */
+  public async getContractEnergyStatistics(
+    params: TronScanGetContractEnergyStatisticsOptions
+  ): Promise<TronScanGetContractEnergyStatisticsResponse> {
+    const response = await this.transport.get<TronScanGetContractEnergyStatisticsResponse>('onecontractenergystatistic', params);
     return response.data;
   }
 

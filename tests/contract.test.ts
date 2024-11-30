@@ -42,4 +42,15 @@ describe('Contract', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get contract energy statistics',
+    async () => {
+      const response = await tronScanClient.getContractEnergyStatistics({
+        address: TOKEN_ADDRESS
+      });
+      expect(response.total).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });
