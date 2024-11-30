@@ -138,6 +138,12 @@ const callStatistics = await tronScanClient.getContractCallStatistics({
   contract_address: CONTRACT_ADDRESS
 });
 console.log(callStatistics);
+
+// Get the number of unique addresses called per day for a contract over a certain period of time:
+const uniqueAddressCount = await tronScanClient.getContractUniqueAddressesNumberPerDay({
+  address: CONTRACT_ADDRESS
+});
+console.log(uniqueAddressCount);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)

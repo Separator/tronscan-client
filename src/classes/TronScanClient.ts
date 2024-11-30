@@ -11,7 +11,9 @@ import {
   TronScanGetContractEventInformationOptions,
   TronScanGetContractEventInformationResponse,
   TronScanGetContractsListOptions,
-  TronScanGetContractsListResponse
+  TronScanGetContractsListResponse,
+  TronScanGetContractUniqueAddressesNumberPerDayOptions,
+  TronScanGetContractUniqueAddressesNumberPerDayResponse
 } from '../types/contract';
 
 import {
@@ -346,6 +348,21 @@ export class TronScanClient {
     params: TronScanGetContractCallStatisticsOptions
   ): Promise<TronScanGetContractCallStatisticsResponse> {
     const response = await this.transport.get<TronScanGetContractCallStatisticsResponse>('contracts/top_call', params);
+    return response.data;
+  }
+
+  /**
+   * Get the number of unique addresses called per day for a contract over a certain period of time
+   * @param params TronScanGetContractUniqueAddressesNumberPerDayOptions
+   * @returns Returns the number of unique addresses called per day for a contract over a certain period of time
+   */
+  public async getContractUniqueAddressesNumberPerDay(
+    params: TronScanGetContractUniqueAddressesNumberPerDayOptions
+  ): Promise<TronScanGetContractUniqueAddressesNumberPerDayResponse> {
+    const response = await this.transport.get<TronScanGetContractUniqueAddressesNumberPerDayResponse>(
+      'onecontractcallerstatistic',
+      params
+    );
     return response.data;
   }
 
