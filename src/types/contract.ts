@@ -610,6 +610,33 @@ export interface TronScanContractEventItem {
   day: string;
 }
 
+export interface TronScanGetContractEnergyStatisticsItem {
+  /**
+   * @description Day
+   * @example 1732838400000
+   */
+  day: number;
+  /**
+   * @description Total energy
+   * @example 5970142
+   */
+  total_energy: number;
+  /**
+   * @description Energy
+   * @example 4260456
+   */
+  energy: number;
+  /**
+   * @description 0
+   */
+  contract_supplied: number;
+  /**
+   * @description Trx
+   * @example 1709686
+   */
+  trx: number;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetContractsListOptions extends TronScanPaginationOptions {
@@ -753,4 +780,31 @@ export interface TronScanGetContractEventInformationResponse {
    * @description Event list
    */
   list: TronScanContractEventItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetContractEnergyStatisticsOptions {
+  /**
+   * @description Contract address
+   * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
+   */
+  address?: string;
+}
+
+export interface TronScanGetContractEnergyStatisticsResponse {
+  /**
+   * @description Total
+   * @example 1000
+   */
+  total: number;
+  /**
+   * @description Total energy
+   * @example 6013077583
+   */
+  totalEnergy: number;
+  /**
+   * @description Data list
+   */
+  data: TronScanGetContractEnergyStatisticsItem[];
 }
