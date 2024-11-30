@@ -115,10 +115,17 @@ const CONTRACT_ADDRESS = 'contract_address';
 const contractsList = await tronScanClient.getListOfContracts();
 console.log(contractsList);
 
+// Get contract detail information:
 const contractDetailInformation = await tronScanClient.getContractDetailInformation({
   contract: CONTRACT_ADDRESS
 });
 console.log(contractDetailInformation);
+
+// Get event information of the contract:
+const contractEventInfo = await tronScanClient.getContractEventInformation({
+  contractAddress: CONTRACT_ADDRESS
+});
+console.log(contractEventInfo);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)

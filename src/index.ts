@@ -15,10 +15,12 @@ import {
   // Options:
   TronScanGetContractsListOptions,
   TronScanGetContractDetailInformationOptions,
+  TronScanGetContractEventInformationOptions,
 
   // Responses:
   TronScanGetContractsListResponse,
-  TronScanGetContractDetailInformationResponse
+  TronScanGetContractDetailInformationResponse,
+  TronScanGetContractEventInformationResponse
 } from './types/contract';
 
 import {
@@ -173,6 +175,7 @@ export {
   TronScanFindAddressOnOtherChainOptions,
   TronScanGetContractsListOptions,
   TronScanGetContractDetailInformationOptions,
+  TronScanGetContractEventInformationOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -210,6 +213,7 @@ export {
   TronScanFindAddressOnOtherChainResponse,
   TronScanGetContractsListResponse,
   TronScanGetContractDetailInformationResponse,
+  TronScanGetContractEventInformationResponse,
 
   // Client
   TronScanClient,
