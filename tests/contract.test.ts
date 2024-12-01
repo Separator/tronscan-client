@@ -75,4 +75,15 @@ describe('Contract', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the list of the number of calls per day of the contract',
+    async () => {
+      const response = await tronScanClient.getContractCallsNumberPerDay({
+        address: TOKEN_ADDRESS!
+      });
+      expect(response.data.length).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });
