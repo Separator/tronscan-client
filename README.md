@@ -161,12 +161,10 @@ const callersList = await tronScanClient.getContractCallersList({
   address: CONTRACT_ADDRESS
 });
 console.log(callersList);
-```
 
-## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
-
-```javascript
-
+// Get the list of trigger transactions for a certain time period:
+const triggerTransactions = await tronScanClient.getTriggerTransactionsList();
+console.log(triggerTransactions);
 ```
 
 ## [Transactions and transfers section](https://docs.tronscan.org/api-endpoints/transactions-and-transfers)

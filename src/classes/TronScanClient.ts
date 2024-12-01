@@ -19,7 +19,9 @@ import {
   TronScanGetContractsListOptions,
   TronScanGetContractsListResponse,
   TronScanGetContractUniqueAddressesNumberPerDayOptions,
-  TronScanGetContractUniqueAddressesNumberPerDayResponse
+  TronScanGetContractUniqueAddressesNumberPerDayResponse,
+  TronScanGetTriggerTransactionsListOptions,
+  TronScanGetTriggerTransactionsListResponse
 } from '../types/contract';
 
 import {
@@ -408,6 +410,20 @@ export class TronScanClient {
     params: TronScanGetContractCallersListOptions
   ): Promise<TronScanGetContractCallersListResponse> {
     const response = await this.transport.get<TronScanGetContractCallersListResponse>('onecontractcallers', params);
+    return response.data;
+  }
+
+  /**
+   * Get the list of trigger transactions for a certain time period
+   *
+   * **Note** : The maximum value for **limit** is **200**
+   * @param params TronScanGetTriggerTransactionsListOptions
+   * @returns Returns a list of trigger transactions for a certain time period
+   */
+  public async getTriggerTransactionsList(
+    params: TronScanGetTriggerTransactionsListOptions = {}
+  ): Promise<TronScanGetTriggerTransactionsListResponse> {
+    const response = await this.transport.get<TronScanGetTriggerTransactionsListResponse>('contracts/trigger', params);
     return response.data;
   }
 

@@ -992,6 +992,64 @@ export interface TronScanContractCallersListItem {
   amount: number;
 }
 
+export interface TronScanTriggerTransactionsListItem {
+  /**
+   * @description Block
+   * @example 49965178
+   */
+  block: number;
+  /**
+   * @description Call data
+   * @example '23b872dd000000000000000000000041acd40aa681afe4fed382a8883f1300277c650c8f0000000000000000000000415da402a8d68655a5d93ef5e7f1204332665860d10000000000000000000000000000000000000000000000000000000000000000'
+   */
+  callData: string;
+  /**
+   * @description Call value
+   * @example 0
+   */
+  callValue: number;
+  /**
+   * @description Confirmed
+   * @example true
+   */
+  confirmed: boolean;
+  /**
+   * @description Contract address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  contractAddress: string;
+  /**
+   * @description Contract type
+   * @example 'IntendedLeaveEmpty'
+   */
+  contractType: string;
+  /**
+   * @description Hash
+   * @example '5d8b9023513dd8e13c0d3b282133661c05654a4808d731c678ea298d9eace5a7'
+   */
+  hash: string;
+  /**
+   * @description Owner address
+   * @example 'TGwaLG8wsB9UHytN5WKzdHn5KiMV8cCccC'
+   */
+  ownerAddress: string;
+  /**
+   * @description Timestamp
+   * @example 1680508302000
+   */
+  timestamp: number;
+  /**
+   * @description Result
+   * @example 'IntendedLeaveEmpty'
+   */
+  result: string;
+  /**
+   * @description Token
+   * @example ''
+   */
+  token: string;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetContractUniqueAddressesNumberPerDayOptions {
@@ -1145,6 +1203,58 @@ export interface TronScanGetContractCallersListResponse {
    * @description Contract map
    */
   contractMap: TronScanContractMap;
+  /**
+   * @description Contract info
+   */
+  contractInfo: {
+    [key: string]: TronScanContractInfo;
+  };
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTriggerTransactionsListOptions {
+  /**
+   * @description Start number. Default 0
+   * @example 0
+   */
+  start?: number;
+  /**
+   * @description Number of items per page. Default 10
+   * @example 1
+   */
+  limit?: number;
+  /**
+   * @description Start time, accurate to milliseconds
+   * @example 1680430566127
+   */
+  start_timestamp?: number;
+  /**
+   * @description End time, accurate to milliseconds
+   * @example 1680508302533
+   */
+  end_timestamp?: number;
+}
+
+export interface TronScanGetTriggerTransactionsListResponse {
+  /**
+   * @description Total
+   * @example 10000
+   */
+  total: number;
+  /**
+   * @description Data list
+   */
+  data: TronScanTriggerTransactionsListItem[];
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Range total
+   * @example 4450349
+   */
+  rangeTotal: number;
   /**
    * @description Contract info
    */
