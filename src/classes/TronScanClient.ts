@@ -2,6 +2,8 @@ import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
 import {
+  TronScanGetContractCallersListOptions,
+  TronScanGetContractCallersListResponse,
   TronScanGetContractCallsNumberPerDayOptions,
   TronScanGetContractCallsNumberPerDayResponse,
   TronScanGetContractCallStatisticsOptions,
@@ -394,6 +396,18 @@ export class TronScanClient {
     params: TronScanGetContractDailyAnalyticsListOptions
   ): Promise<TronScanGetContractDailyAnalyticsListResponse> {
     const response = await this.transport.get<TronScanGetContractDailyAnalyticsListResponse>('contract/analysis', params);
+    return response.data;
+  }
+
+  /**
+   * Get the list of all callers of the contract and the statistics of the number of calls
+   * @param params TronScanGetContractCallersListOptions
+   * @returns Returns a list of all callers of the contract and the statistics of the number of calls
+   */
+  public async getContractCallersList(
+    params: TronScanGetContractCallersListOptions
+  ): Promise<TronScanGetContractCallersListResponse> {
+    const response = await this.transport.get<TronScanGetContractCallersListResponse>('onecontractcallers', params);
     return response.data;
   }
 

@@ -21,6 +21,7 @@ import {
   TronScanGetContractUniqueAddressesNumberPerDayOptions,
   TronScanGetContractCallsNumberPerDayOptions,
   TronScanGetContractDailyAnalyticsListOptions,
+  TronScanGetContractCallersListOptions,
 
   // Responses:
   TronScanGetContractsListResponse,
@@ -30,7 +31,8 @@ import {
   TronScanGetContractCallStatisticsResponse,
   TronScanGetContractUniqueAddressesNumberPerDayResponse,
   TronScanGetContractCallsNumberPerDayResponse,
-  TronScanGetContractDailyAnalyticsListResponse
+  TronScanGetContractDailyAnalyticsListResponse,
+  TronScanGetContractCallersListResponse
 } from './types/contract';
 
 import {
@@ -191,6 +193,7 @@ export {
   TronScanGetContractUniqueAddressesNumberPerDayOptions,
   TronScanGetContractCallsNumberPerDayOptions,
   TronScanGetContractDailyAnalyticsListOptions,
+  TronScanGetContractCallersListOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -234,6 +237,7 @@ export {
   TronScanGetContractUniqueAddressesNumberPerDayResponse,
   TronScanGetContractCallsNumberPerDayResponse,
   TronScanGetContractDailyAnalyticsListResponse,
+  TronScanGetContractCallersListResponse,
 
   // Client
   TronScanClient,

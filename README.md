@@ -156,6 +156,11 @@ const dailyAnalytics = await tronScanClient.getContractDailyAnalyticsList({
   address: CONTRACT_ADDRESS
 });
 console.log(dailyAnalytics);
+
+const callersList = await tronScanClient.getContractCallersList({
+  address: CONTRACT_ADDRESS
+});
+console.log(callersList);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
