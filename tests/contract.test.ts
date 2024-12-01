@@ -108,4 +108,13 @@ describe('Contract', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the list of trigger transactions for a certain time period',
+    async () => {
+      const response = await tronScanClient.getTriggerTransactionsList();
+      expect(response.total).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });
