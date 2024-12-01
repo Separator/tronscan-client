@@ -97,4 +97,15 @@ describe('Contract', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the list of all callers of the contract and the statistics of the number of calls',
+    async () => {
+      const response = await tronScanClient.getContractCallersList({
+        address: TOKEN_ADDRESS
+      });
+      expect(response.total).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });

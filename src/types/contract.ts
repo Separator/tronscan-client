@@ -974,6 +974,24 @@ export interface TronScanGetContractCallStatisticsResponse {
   topMethods: TronScanContractCallStatisticsTopMethodsItem[];
 }
 
+export interface TronScanContractCallersListItem {
+  /**
+   * @description Caller address
+   * @example 'TV6MuMXfmLbBqPZvBHdwFsDnQeVfnmiuSi'
+   */
+  caller_address: string;
+  /**
+   * @description Caller address tag
+   * @example 'Binance-Hot 2'
+   */
+  callerAddressTag?: string;
+  /**
+   * @description Amount
+   * @example 20
+   */
+  amount: number;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetContractUniqueAddressesNumberPerDayOptions {
@@ -1082,4 +1100,55 @@ export interface TronScanGetContractDailyAnalyticsListResponse {
    * @description Data list
    */
   data: TronScanContractDailyAnalyticItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetContractCallersListOptions {
+  /**
+   * @description Contract address
+   * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
+   */
+  address?: string;
+  /**
+   * @description Query the number of days, from the current time in a backforward way. Default: **yesterday**
+   * @example '1680429735649'
+   */
+  day?: string;
+  /**
+   * @description Start number. Default 0
+   * @example 0
+   */
+  start?: number;
+  /**
+   * @description Number of items per page. Default 10
+   * @example 2
+   */
+  limit?: number;
+}
+
+export interface TronScanGetContractCallersListResponse {
+  /**
+   * @description 93
+   */
+  total: number;
+  /**
+   * @description Total caller amount
+   * @example 243
+   */
+  totalCallerAmount: number;
+  /**
+   * @description Data list
+   */
+  data: TronScanContractCallersListItem[];
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Contract info
+   */
+  contractInfo: {
+    [key: string]: TronScanContractInfo;
+  };
 }
