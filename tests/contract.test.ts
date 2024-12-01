@@ -86,4 +86,15 @@ describe('Contract', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the list of daily analysis data for the contract over a period of time',
+    async () => {
+      const response = await tronScanClient.getContractDailyAnalyticsList({
+        address: TOKEN_ADDRESS!
+      });
+      expect(response.size).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });

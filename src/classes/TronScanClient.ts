@@ -6,6 +6,8 @@ import {
   TronScanGetContractCallsNumberPerDayResponse,
   TronScanGetContractCallStatisticsOptions,
   TronScanGetContractCallStatisticsResponse,
+  TronScanGetContractDailyAnalyticsListOptions,
+  TronScanGetContractDailyAnalyticsListResponse,
   TronScanGetContractDetailInformationOptions,
   TronScanGetContractDetailInformationResponse,
   TronScanGetContractEnergyStatisticsOptions,
@@ -380,6 +382,18 @@ export class TronScanClient {
       'onecontracttriggerstatistic',
       params
     );
+    return response.data;
+  }
+
+  /**
+   * Get the list of daily analysis data for the contract over a period of time
+   * @param params TronScanGetContractDailyAnalyticsListOptions
+   * @returns Returns a list of daily analysis data for the contract over a period of time
+   */
+  public async getContractDailyAnalyticsList(
+    params: TronScanGetContractDailyAnalyticsListOptions
+  ): Promise<TronScanGetContractDailyAnalyticsListResponse> {
+    const response = await this.transport.get<TronScanGetContractDailyAnalyticsListResponse>('contract/analysis', params);
     return response.data;
   }
 

@@ -1,4 +1,4 @@
-import { TronScanContractSort } from './params';
+import { TronScanContractSort, TronScanQueryDataType } from './params';
 import { TronScanTokenInfo } from './token-info';
 import { TronScanContractInfo, TronScanContractMap, TronScanPaginationOptions } from './tronscan';
 
@@ -668,6 +668,89 @@ export interface TronScanContractCallStatisticsTopMethodsItem {
   methodId: string;
 }
 
+export interface TronScanContractDailyAnalyticItem {
+  /**
+   * @description Day
+   * @example '2023-04-02'
+   */
+  day: string;
+  /**
+   * @description Trx amount (type 0)
+   * @example '19957.105809'
+   */
+  trx_amount?: string;
+  /**
+   * @description Usdt amount (type 0)
+   * @example '1303.445448'
+   */
+  usdt_amount?: string;
+  /**
+   * @description Price (type 0)
+   * @example 0.0653123484356702
+   */
+  price?: number;
+  /**
+   * @description Transfer count (type 1)
+   * @example 0
+   */
+  transfer_count?: number;
+  /**
+   * @description Token count (type 1)
+   * @example 0
+   */
+  token_count?: number;
+  /**
+   * @description Energy usage (type 2)
+   * @example 2499257
+   */
+  energy_usage?: number;
+  /**
+   * @description Energy burn (type 2)
+   * @example 969003
+   */
+  energy_burn?: number;
+  /**
+   * @description Origin energy usage (type 2)
+   * @example 0
+   */
+  origin_energy_usage?: number;
+  /**
+   * @description Energy usage total (type 2)
+   * @example 3468260
+   */
+  energy_usage_total?: number;
+  /**
+   * @description Energy usage as deploy (type 2)
+   * @example 0
+   */
+  energy_usage_as_deploy?: number;
+  /**
+   * @description Net usage (type 3)
+   * @example 53403
+   */
+  net_usage?: number;
+  /**
+   * @description Net burn (type 3)
+   * @example 8276
+   */
+  net_burn?: number;
+  /**
+   * @description Net usage total (type 3)
+   * @example 61679
+   */
+  net_usage_total?: number;
+  /**
+   * @description Trigger count (type 4)
+   * @example 179
+   */
+  trigger_count?: number;
+  /**
+   * @description Account count
+   * @example 93
+   */
+  account_count?: number;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetContractsListOptions extends TronScanPaginationOptions {
@@ -963,4 +1046,40 @@ export interface TronScanGetContractCallsNumberPerDayResponse {
    * @description Data list
    */
   data: { amount: number; day: number }[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetContractDailyAnalyticsListOptions {
+  /**
+   * @description Contract address
+   * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
+   */
+  address: string;
+  /**
+   * @description Start timestamp
+   * @example 1680430566127
+   */
+  start_timestamp?: number;
+  /**
+   * @description End timestamp
+   * @example 1680516966127
+   */
+  end_timestamp?: number;
+  /**
+   * @description Analytic type
+   */
+  type?: TronScanQueryDataType;
+}
+
+export interface TronScanGetContractDailyAnalyticsListResponse {
+  /**
+   * @description Size
+   * @example 2
+   */
+  size: number;
+  /**
+   * @description Data list
+   */
+  data: TronScanContractDailyAnalyticItem[];
 }
