@@ -150,6 +150,12 @@ const callsNumber = await tronScanClient.getContractCallsNumberPerDay({
   address: CONTRACT_ADDRESS
 });
 console.log(callsNumber);
+
+// Get the list of daily analysis data for the contract over a period of time:
+const dailyAnalytics = await tronScanClient.getContractDailyAnalyticsList({
+  address: CONTRACT_ADDRESS
+});
+console.log(dailyAnalytics);
 ```
 
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)

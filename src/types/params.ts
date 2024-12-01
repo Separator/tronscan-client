@@ -105,3 +105,11 @@ export enum TronScanJustLendFilter {
   SupplyType = 1,
   BorrowType = 2
 }
+
+export enum TronScanQueryDataType {
+  Balance = 0,
+  TokenTransfers = 1,
+  EnergyConsumption = 2,
+  BandwidthConsumption = 3,
+  ContractCalling = 4
+}
