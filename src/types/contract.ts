@@ -927,3 +927,40 @@ export interface TronScanGetContractUniqueAddressesNumberPerDayResponse {
    */
   data: { amount: number; day: number }[];
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetContractCallsNumberPerDayOptions {
+  /**
+   * @description Contract address
+   * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
+   */
+  address: string;
+  /**
+   * @description Start time, accurate to seconds (in milliseconds)
+   * @example 1621900800000
+   */
+  start_timestamp?: number;
+  /**
+   * @description End time, accurate to seconds (in milliseconds)
+   * @example 1621987200000
+   */
+  end_timestamp?: number;
+}
+
+export interface TronScanGetContractCallsNumberPerDayResponse {
+  /**
+   * @description Total
+   * @example 2
+   */
+  total: number;
+  /**
+   * @description Total amount
+   * @example 166
+   */
+  totalAmount: number;
+  /**
+   * @description Data list
+   */
+  data: { amount: number; day: number }[];
+}
