@@ -7,7 +7,8 @@ import {
   TronScanFrozen,
   TronScanPaginationOptions,
   TronScanPermission,
-  TronScanRepresentative
+  TronScanRepresentative,
+  TronScanTimestampOptions
 } from './tronscan';
 
 export interface TronScanDailyAnalyticsItem {
@@ -379,22 +380,12 @@ export interface TronScanAccountDetailInformationResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetAccountDailyAnalyticsOptions {
+export interface TronScanGetAccountDailyAnalyticsOptions extends TronScanTimestampOptions {
   /**
    * @description Account address
    * @example 'TUD4YXYdj2t1gP5th3A7t97mx1AUmrrQRt'
    */
   address: string;
-  /**
-   * @description Start time, accurate to milliseconds
-   * @example 1514764800000
-   */
-  start_timestamp: number;
-  /**
-   * @description End time, accurate to milliseconds
-   * @example 1680508422169
-   */
-  end_timestamp?: number;
   /**
    * @description Analytic type. See: Remarks for details:
    * * 0: Balance (TRX balance, price of TRX on that day, calculated using USDT);

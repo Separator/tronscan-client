@@ -453,21 +453,6 @@ export class TronScanClient {
   }
 
   /**
-   * Get trx&trc10 transfer list
-   * @param params TronScanGetTrxTrc10TransferListOptions
-   * @returns Account's transfer list
-   */
-  public async getTrxTrc10TransferList(
-    params: TronScanGetTrxTrc10TransferListOptions
-  ): Promise<TronScanTrxTrc10TransfersResponse> {
-    const response = await this.transport.get<TronScanTrxTrc10TransfersResponse>('transfer', {
-      ...params,
-      filterTokenValue: 1
-    });
-    return response.data;
-  }
-
-  /**
    * Get trc20&721 transfers list.
    * @param params TronScanGetTrc20Trc721TransferListOptions
    * @returns Transfer list of TRC20 and TRC721 tokens.
@@ -476,6 +461,21 @@ export class TronScanClient {
     params: TronScanGetTrc20Trc721TransferListOptions
   ): Promise<TronScanTrc20Trc721TransfersResponse> {
     const response = await this.transport.get<TronScanTrc20Trc721TransfersResponse>('token_trc20/transfers', {
+      ...params,
+      filterTokenValue: 1
+    });
+    return response.data;
+  }
+
+  /**
+   * Get trx&trc10 transfer list
+   * @param params TronScanGetTrxTrc10TransferListOptions
+   * @returns Account's transfer list
+   */
+  public async getTrxTrc10TransferList(
+    params: TronScanGetTrxTrc10TransferListOptions
+  ): Promise<TronScanTrxTrc10TransfersResponse> {
+    const response = await this.transport.get<TronScanTrxTrc10TransfersResponse>('transfer', {
       ...params,
       filterTokenValue: 1
     });

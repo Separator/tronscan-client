@@ -1,6 +1,6 @@
-import { TronScanContractSort, TronScanQueryDataType } from './params';
 import { TronScanTokenInfo } from './token-info';
-import { TronScanContractInfo, TronScanContractMap, TronScanPaginationOptions } from './tronscan';
+import { TronScanContractSort, TronScanQueryDataType } from './params';
+import { TronScanContractInfo, TronScanContractMap, TronScanPaginationOptions, TronScanTimestampOptions } from './tronscan';
 
 export interface TronScanContractInfoStatus {
   /**
@@ -1052,22 +1052,12 @@ export interface TronScanTriggerTransactionsListItem {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetContractUniqueAddressesNumberPerDayOptions {
+export interface TronScanGetContractUniqueAddressesNumberPerDayOptions extends TronScanTimestampOptions {
   /**
    * @description Contract address
    * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
    */
   address?: string;
-  /**
-   * @description Start timestamp
-   * @example 1621900800000
-   */
-  start_timestamp?: number;
-  /**
-   * @description End timestamp
-   * @example 1621987200000
-   */
-  end_timestamp?: number;
 }
 
 export interface TronScanGetContractUniqueAddressesNumberPerDayResponse {
@@ -1089,22 +1079,12 @@ export interface TronScanGetContractUniqueAddressesNumberPerDayResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetContractCallsNumberPerDayOptions {
+export interface TronScanGetContractCallsNumberPerDayOptions extends TronScanTimestampOptions {
   /**
    * @description Contract address
    * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
    */
   address: string;
-  /**
-   * @description Start time, accurate to seconds (in milliseconds)
-   * @example 1621900800000
-   */
-  start_timestamp?: number;
-  /**
-   * @description End time, accurate to seconds (in milliseconds)
-   * @example 1621987200000
-   */
-  end_timestamp?: number;
 }
 
 export interface TronScanGetContractCallsNumberPerDayResponse {
@@ -1126,22 +1106,12 @@ export interface TronScanGetContractCallsNumberPerDayResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetContractDailyAnalyticsListOptions {
+export interface TronScanGetContractDailyAnalyticsListOptions extends TronScanTimestampOptions {
   /**
    * @description Contract address
    * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
    */
   address: string;
-  /**
-   * @description Start timestamp
-   * @example 1680430566127
-   */
-  start_timestamp?: number;
-  /**
-   * @description End timestamp
-   * @example 1680516966127
-   */
-  end_timestamp?: number;
   /**
    * @description Analytic type
    */
@@ -1213,7 +1183,7 @@ export interface TronScanGetContractCallersListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetTriggerTransactionsListOptions {
+export interface TronScanGetTriggerTransactionsListOptions extends TronScanTimestampOptions {
   /**
    * @description Start number. Default 0
    * @example 0
@@ -1224,16 +1194,6 @@ export interface TronScanGetTriggerTransactionsListOptions {
    * @example 1
    */
   limit?: number;
-  /**
-   * @description Start time, accurate to milliseconds
-   * @example 1680430566127
-   */
-  start_timestamp?: number;
-  /**
-   * @description End time, accurate to milliseconds
-   * @example 1680508302533
-   */
-  end_timestamp?: number;
 }
 
 export interface TronScanGetTriggerTransactionsListResponse {
