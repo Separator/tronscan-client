@@ -51,4 +51,15 @@ describe('Transactions and Transfers', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get trc1155 transfer list',
+    async () => {
+      const response = await tronScanClient.getTrc1155TransferList({
+        relatedAddress: ADDRESS
+      });
+      expect(response.total).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });

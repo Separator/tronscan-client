@@ -1,7 +1,9 @@
-import { TronScanSort } from './params';
 import { TronScanTokenInfo } from './token-info';
+import { TronScanSort, TronScanTxDirection } from './params';
 import {
   TronScanContractData,
+  TronScanContractInfo,
+  TronScanContractMap,
   TronScanCost,
   TronScanPaginationOptions,
   TronScanTimestampOptions,
@@ -166,17 +168,12 @@ export interface TronScanTxNative extends TronScanTxCommon {
   trigger_info?: TronScanTriggerInfo;
 }
 
-export interface TronScanTxToken extends TronScanTxCore {
+export interface TronScanTxTokenCommon {
   /**
    * @description Tx id
    * @example 'eeb22aac707cae38a908d324515a5f69a9db4bb00a3523ef5eeff4709b37f338'
    */
   transaction_id: string;
-  /**
-   * @description Tx status
-   * @example 0
-   */
-  status: number;
   /**
    * @description Block timestamp
    * @example 1710235950000
@@ -190,7 +187,18 @@ export interface TronScanTxToken extends TronScanTxCore {
   /**
    * @description From address tag
    */
-  from_address_tag: {};
+  from_address_tag: {
+    /**
+     * @description From address tag
+     * @example ''
+     */
+    from_address_tag?: string;
+    /**
+     * @description From address tag logo
+     * @example ''
+     */
+    from_address_tag_logo?: string;
+  };
   /**
    * @description To address
    * @example 'TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw'
@@ -199,7 +207,18 @@ export interface TronScanTxToken extends TronScanTxCore {
   /**
    * @description To address tag
    */
-  to_address_tag: {};
+  to_address_tag: {
+    /**
+     * @description To address tag
+     * @example ''
+     */
+    to_address_tag?: string;
+    /**
+     * @description To address tag logo
+     * @example ''
+     */
+    to_address_tag_logo?: string;
+  };
   /**
    * @description Contract address
    * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
@@ -211,20 +230,15 @@ export interface TronScanTxToken extends TronScanTxCore {
    */
   quant: string;
   /**
-   * @description Final result string
-   * @example 'SUCCESS'
-   */
-  finalResult: string;
-  /**
-   * @description Revert status
-   * @example false
-   */
-  revert: boolean;
-  /**
    * @description Contract type
    * @example 'trc20'
    */
   contract_type: string;
+  /**
+   * @description Final result string
+   * @example 'SUCCESS'
+   */
+  finalResult: string;
   /**
    * @description From address is contract status
    * @example false
@@ -235,6 +249,60 @@ export interface TronScanTxToken extends TronScanTxCore {
    * @example false
    */
   toAddressIsContract: boolean;
+  /**
+   * @description Revert status
+   * @example false
+   */
+  revert: boolean;
+}
+
+export interface TronScanTxToken extends TronScanTxCore, TronScanTxTokenCommon {
+  /**
+   * @description Tx status
+   * @example 0
+   */
+  status: number;
+}
+
+export interface TronScanTokenTxItem extends TronScanTxTokenCommon {
+  /**
+   * @description Trigger info
+   */
+  trigger_info: TronScanTriggerInfo;
+  /**
+   * @description Token info
+   */
+  tokenInfo: TronScanTokenInfo;
+  /**
+   * @description Block
+   * @example 52002410
+   */
+  block: number;
+  /**
+   * @description Approval amount
+   * @example '0'
+   */
+  approval_amount: string;
+  /**
+   * @description Event type
+   * @example 'Transfer'
+   */
+  event_type: string;
+  /**
+   * @description token id
+   * @example '8027030016865780586704000000'
+   */
+  token_id: string;
+  /**
+   * @description Confirmed
+   * @example true
+   */
+  confirmed: boolean;
+  /**
+   * @description Contract returns
+   * @example 'SUCCESS'
+   */
+  contractRet: string;
 }
 
 // ----------------------------------------------------------------------------------------------------
@@ -331,4 +399,68 @@ export interface TronScanGetTrc20TransfersOptions extends TronScanPaginationOpti
 
 export interface TronScanTrc20TransfersResponse extends TronScanTransfersCommonResponse {
   token_transfers: TronScanTxToken[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc1155TransferListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+  /**
+   * @description Account address. When the parameter is specified, TRC1155 transfers of the specified address are returned
+   */
+  relatedAddress?: string;
+  /**
+   * @description Download format. If format = **csv**, the transfer data can be downloaded
+   */
+  format?: string;
+  /**
+   * @description Block number
+   */
+  block?: number;
+  /**
+   * @description Filter transfers by status.
+     - 0 - return confirmed transfers only;
+     - 1 - return unconfirmed transfers only;
+     - 0,1 - return all transfers.
+   */
+  confirm?: string;
+  /**
+   * @description 
+      - **in**: transfer-in; 
+      - **out**: transfer-out; 
+      - **all**: transfer-in + transfer-out transactions.
+   */
+  direction?: TronScanTxDirection;
+  /**
+   * @description Contract address
+   */
+  contract_address?: string;
+
+  // filterTokenValue=0 +
+}
+
+export interface TronScanGetTrc1155TransferListResponse {
+  /**
+   * @description Total
+   * @example 366
+   */
+  total: number;
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Contract info
+   */
+  contractInfo: {
+    [key: string]: TronScanContractInfo;
+  };
+  /**
+   * @description Range total
+   * @example 366
+   */
+  rangeTotal: number;
+  /**
+   * @description Token transfers list
+   */
+  token_transfers: TronScanTokenTxItem[];
 }

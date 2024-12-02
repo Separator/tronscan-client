@@ -180,45 +180,52 @@ const response = await tronScanClient.getTransactionsList({
   address: ADDRESS
 });
 const txs = response.data;
+console.log(txs);
 
 // Get transaction detail information by transaction hash
 const [tx] = txs;
 const txDetails = await tronScanClient.getTransactionDetailByHash({
   hash: tx.hash
 });
+console.log(txDetails);
 
 // Get trx&trc10 transfer list:
-const response = await tronScanClient.getTrxTrc10TransferList({
+const trxTrx10TxList = await tronScanClient.getTrxTrc10TransferList({
   address: ADDRESS,
   start_timestamp: START_TIMESTAMP,
   end_timestamp: END_TIMESTAMP
 });
-const txs = response.data;
+console.log(trxTrx10TxList);
 
 // Get trc20&721 transfers list:
-const response = await tronScanClient.getTrc20Trc721TransferList({
+const trc20Trc721TsList = await tronScanClient.getTrc20Trc721TransferList({
   relatedAddress: ADDRESS
 });
-const transfers = response.token_transfers;
+console.log(trc20Trc721TsList);
+
+const trc1155TransfersList = await tronScanClient.getTrc1155TransferList({
+  relatedAddress: ADDRESS
+});
+console.log(trc1155TransfersList);
 
 // Get only trx transfers:
-const response = await tronScanClient.getTrxTransfers({
+const trxTransfers = await tronScanClient.getTrxTransfers({
   address: ADDRESS
 });
-const transfers = response.data;
+console.log(trxTransfers);
 
 // Get only trc10 transfers:
-const response = await tronScanClient.getTrc10Transfers({
+const trc19Transfers = await tronScanClient.getTrc10Transfers({
   address: ADDRESS
 });
-const transfers = response.data;
+console.log(trc19Transfers);
 
 // Get only trc20 transfers:
-const response = await tronScanClient.getTrc20Transfers({
+const trc20Transfers = await tronScanClient.getTrc20Transfers({
   relatedAddress: ADDRESS,
   contract_address: CONTRACT_ADDRESS
 });
-const transfers = response.data;
+console.log(trc20Transfers);
 ```
 
 ## [Block section](https://docs.tronscan.org/api-endpoints/block)

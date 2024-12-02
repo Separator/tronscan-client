@@ -68,6 +68,7 @@ import {
   TronScanGetTrxTransfersOptions,
   TronScanGetTrc10TransfersOptions,
   TronScanGetTrc20TransfersOptions,
+  TronScanGetTrc1155TransferListOptions,
 
   // Responses:
   TronScanTransactionsListResponse,
@@ -75,7 +76,8 @@ import {
   TronScanTrc20Trc721TransfersResponse,
   TronScanTrxTransfersResponse,
   TronScanTrc10TransfersResponse,
-  TronScanTrc20TransfersResponse
+  TronScanTrc20TransfersResponse,
+  TronScanGetTrc1155TransferListResponse
 } from './types/transactions';
 
 import {
@@ -116,7 +118,9 @@ import {
   TronScanAggregationType,
   TronScanJustLendFilter,
   TronScanTransferType,
-  TronScanContractSort
+  TronScanContractSort,
+  TronScanQueryDataType,
+  TronScanTxDirection
 } from './types/params';
 
 import {
@@ -158,6 +162,8 @@ export {
   TronScanJustLendFilter,
   TronScanTransferType,
   TronScanContractSort,
+  TronScanQueryDataType,
+  TronScanTxDirection,
 
   // Options
   TronScanPaginationOptions,
@@ -197,6 +203,7 @@ export {
   TronScanGetContractDailyAnalyticsListOptions,
   TronScanGetContractCallersListOptions,
   TronScanGetTriggerTransactionsListOptions,
+  TronScanGetTrc1155TransferListOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -242,6 +249,7 @@ export {
   TronScanGetContractDailyAnalyticsListResponse,
   TronScanGetContractCallersListResponse,
   TronScanGetTriggerTransactionsListResponse,
+  TronScanGetTrc1155TransferListResponse,
 
   // Client
   TronScanClient,
