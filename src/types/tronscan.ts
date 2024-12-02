@@ -526,7 +526,7 @@ export interface TronScanTriggerInfo {
    * @description Method id
    * @example 'a9059cbb'
    */
-  methodId: string;
+  methodId?: string;
   /**
    * @description Method name
    * @example 'transfer'

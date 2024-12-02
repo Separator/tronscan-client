@@ -65,7 +65,9 @@ import {
   TronScanTrxTrc10TransfersResponse,
   TronScanTrc10TransfersResponse,
   TronScanTrc20TransfersResponse,
-  TronScanTrxTransfersResponse
+  TronScanTrxTransfersResponse,
+  TronScanGetTrc1155TransferListOptions,
+  TronScanGetTrc1155TransferListResponse
 } from '../types/transactions';
 
 import {
@@ -463,6 +465,21 @@ export class TronScanClient {
     const response = await this.transport.get<TronScanTrc20Trc721TransfersResponse>('token_trc20/transfers', {
       ...params,
       filterTokenValue: 1
+    });
+    return response.data;
+  }
+
+  /**
+   * Get trc1155 transfer list
+   * @param params TronScanGetTrc1155TransferListOptions
+   * @returns Get the transfer list of TRC1155 tokens
+   */
+  public async getTrc1155TransferList(
+    params: TronScanGetTrc1155TransferListOptions
+  ): Promise<TronScanGetTrc1155TransferListResponse> {
+    const response = await this.transport.get<TronScanGetTrc1155TransferListResponse>('token_trc1155/transfers', {
+      ...params,
+      filterTokenValue: 0
     });
     return response.data;
   }

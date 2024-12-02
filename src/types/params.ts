@@ -113,3 +113,9 @@ export enum TronScanQueryDataType {
   BandwidthConsumption = 3,
   ContractCalling = 4
 }
+
+export enum TronScanTxDirection {
+  TransferIn = 'in',
+  TransferOut = 'out',
+  All = 'all'
+}
