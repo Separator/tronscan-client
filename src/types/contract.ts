@@ -1132,7 +1132,7 @@ export interface TronScanGetContractDailyAnalyticsListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetContractCallersListOptions {
+export interface TronScanGetContractCallersListOptions extends TronScanPaginationOptions {
   /**
    * @description Contract address
    * @example 'TSSMHYeV2uE9qYH95DqyoCuNCzEL1NvU3S'
@@ -1143,16 +1143,6 @@ export interface TronScanGetContractCallersListOptions {
    * @example '1680429735649'
    */
   day?: string;
-  /**
-   * @description Start number. Default 0
-   * @example 0
-   */
-  start?: number;
-  /**
-   * @description Number of items per page. Default 10
-   * @example 2
-   */
-  limit?: number;
 }
 
 export interface TronScanGetContractCallersListResponse {
@@ -1183,18 +1173,7 @@ export interface TronScanGetContractCallersListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetTriggerTransactionsListOptions extends TronScanTimestampOptions {
-  /**
-   * @description Start number. Default 0
-   * @example 0
-   */
-  start?: number;
-  /**
-   * @description Number of items per page. Default 10
-   * @example 1
-   */
-  limit?: number;
-}
+export interface TronScanGetTriggerTransactionsListOptions extends TronScanTimestampOptions, TronScanPaginationOptions {}
 
 export interface TronScanGetTriggerTransactionsListResponse {
   /**
