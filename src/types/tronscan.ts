@@ -318,7 +318,7 @@ export interface TronScanTimestampOptions {
 
 // ----------------------------------------------------------------------------------------------------
 
-interface TronScanRiskInfo {
+export interface TronScanRiskInfo {
   /**
    * @description Risk status
    */
@@ -351,6 +351,11 @@ export interface TronScanContractInfo extends TronScanRiskInfo {
    * @example true
    */
   vip: boolean;
+  /**
+   * @description Public tag desc
+   * @example 'The JustLend WIN Deposit Contract issues jWIN token for deposited WIN.'
+   */
+  publicTagDesc?: string;
 }
 
 export interface TronScanTransfersCommonResponse {

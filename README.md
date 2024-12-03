@@ -189,14 +189,6 @@ const txDetails = await tronScanClient.getTransactionDetailByHash({
 });
 console.log(txDetails);
 
-// Get trx&trc10 transfer list:
-const trxTrx10TxList = await tronScanClient.getTrxTrc10TransferList({
-  address: ADDRESS,
-  start_timestamp: START_TIMESTAMP,
-  end_timestamp: END_TIMESTAMP
-});
-console.log(trxTrx10TxList);
-
 // Get trc20&721 transfers list:
 const trc20Trc721TsList = await tronScanClient.getTrc20Trc721TransferList({
   relatedAddress: ADDRESS
@@ -207,6 +199,19 @@ const trc1155TransfersList = await tronScanClient.getTrc1155TransferList({
   relatedAddress: ADDRESS
 });
 console.log(trc1155TransfersList);
+
+// Get trx&trc10 transfer list:
+const trxTrx10TxList = await tronScanClient.getTrxTrc10TransferList({
+  address: ADDRESS,
+  start_timestamp: START_TIMESTAMP,
+  end_timestamp: END_TIMESTAMP
+});
+console.log(trxTrx10TxList);
+
+const internalTxList = await tronScanClient.getInternalTxListForAddressOrBlock({
+  address: ADDRESS
+});
+console.log(internalTxList);
 
 // Get only trx transfers:
 const trxTransfers = await tronScanClient.getTrxTransfers({

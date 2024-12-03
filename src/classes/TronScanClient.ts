@@ -67,7 +67,9 @@ import {
   TronScanTrc20TransfersResponse,
   TronScanTrxTransfersResponse,
   TronScanGetTrc1155TransferListOptions,
-  TronScanGetTrc1155TransferListResponse
+  TronScanGetTrc1155TransferListResponse,
+  TronScanGetInternalTxListForAddressOrBlockOptions,
+  TronScanGetInternalTxListForAddressOrBlockResponse
 } from '../types/transactions';
 
 import {
@@ -496,6 +498,18 @@ export class TronScanClient {
       ...params,
       filterTokenValue: 1
     });
+    return response.data;
+  }
+
+  /**
+   * Get internal transaction list for special address or block
+   * @param params TronScanGetInternalTxListForAddressOrBlockOptions
+   * @returns Get internal transaction list
+   */
+  public async getInternalTxListForAddressOrBlock(
+    params: TronScanGetInternalTxListForAddressOrBlockOptions
+  ): Promise<TronScanGetInternalTxListForAddressOrBlockResponse> {
+    const response = await this.transport.get<TronScanGetInternalTxListForAddressOrBlockResponse>('internal-transaction', params);
     return response.data;
   }
 
