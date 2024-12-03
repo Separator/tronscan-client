@@ -6,6 +6,7 @@ import {
   TronScanContractMap,
   TronScanCost,
   TronScanPaginationOptions,
+  TronScanRiskInfo,
   TronScanTimestampOptions,
   TronScanTransfersCommonResponse,
   TronScanTriggerInfo
@@ -305,6 +306,112 @@ export interface TronScanTokenTxItem extends TronScanTxTokenCommon {
   contractRet: string;
 }
 
+export interface TronScanTokenListItem {
+  /**
+   * @description Token id
+   * @example '_'
+   */
+  token_id: string;
+  /**
+   * @description Call value
+   * @example 0
+   */
+  call_value: number;
+  /**
+   * @description Token info
+   */
+  tokenInfo: TronScanTokenInfo;
+}
+
+export interface TronScanInternalTxListForAddressOrBlockItem {
+  /**
+   * @description From address
+   * @example 'TYN6Wh11maRfzgG7n5B6nM5VW1jfGs9chu'
+   */
+  from: string;
+  /**
+   * @description To address
+   * @example 'TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7'
+   */
+  to: string;
+  /**
+   * @description Block number
+   * @example 67524129
+   */
+  block: number;
+  /**
+   * @description Hash
+   * @example '0d32414258401404bc2a5b3e0ecda5585ece18df90ce7327df421d4b9e44e6d5'
+   */
+  hash: string;
+  /**
+   * @description Internal hash
+   * @example 'cb797e781c8cd31fd613e7d90876867bb857862b2092d34a9af58d16a95adb18'
+   */
+  internal_hash: string;
+  /**
+   * @description Timestamp
+   * @example 1733222589000
+   */
+  timestamp: number;
+  /**
+   * @description Rejected
+   * @example false
+   */
+  rejected: boolean;
+  /**
+   * @description Confirmed
+   * @example false
+   */
+  confirmed: boolean;
+  /**
+   * @description Result
+   * @example 'FAIL'
+   */
+  result: string;
+  /**
+   * @description Revert
+   * @example false
+   */
+  revert: boolean;
+  /**
+   * @description Note
+   * @example 'call'
+   */
+  note: string;
+  /**
+   * @description Token list
+   */
+  token_list: TronScanTokenListItem;
+  /**
+   * @description Value info list
+   */
+  valueInfoList: TronScanTokenListItem[];
+  /**
+   * @description Token id
+   * @example '_'
+   */
+  token_id: string;
+  /**
+   * @description Call value
+   * @example 0
+   */
+  call_value: number;
+  /**
+   * @description Vote detail
+   */
+  voteDetail: any[];
+  /**
+   * @description Vote to address
+   */
+  voteToAddress: any[];
+  /**
+   * @description Vote count
+   * @example 0
+   */
+  voteCount: number;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTransactionsListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
@@ -463,4 +570,55 @@ export interface TronScanGetTrc1155TransferListResponse {
    * @description Token transfers list
    */
   token_transfers: TronScanTokenTxItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetInternalTxListForAddressOrBlockOptions extends TronScanPaginationOptions {
+  /**
+   * @description Specific address. At least one of the address, block, and contract parameters must be specified
+   * @example 'TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7'
+   */
+  address: string;
+  /**
+   * @description Contract address
+   */
+  contract?: string;
+  /**
+   * @description Block number
+   */
+  block?: number;
+}
+
+export interface TronScanGetInternalTxListForAddressOrBlockResponse {
+  /**
+   * @description Total
+   * @example 10000
+   */
+  total: number;
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Data list
+   */
+  data: TronScanInternalTxListForAddressOrBlockItem[];
+  /**
+   * @description Contract info
+   */
+  contractInfo: {
+    [key: string]: TronScanContractInfo;
+  };
+  /**
+   * @description Range total
+   * @example 11498837
+   */
+  rangeTotal: number;
+  /**
+   * @description Normal address info
+   */
+  normalAddressInfo: {
+    [key: string]: TronScanRiskInfo;
+  };
 }
