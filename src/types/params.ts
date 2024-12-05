@@ -119,3 +119,14 @@ export enum TronScanTxDirection {
   TransferOut = 'out',
   All = 'all'
 }
+
+export enum TronScanTxDirectionSecond {
+  All = 0,
+  TransferOut = 1,
+  TransferIn = 2
+}
+
+export enum TronScanDbVersion {
+  Include = 1,
+  Exclude = 0
+}

@@ -69,7 +69,9 @@ import {
   TronScanGetTrc1155TransferListOptions,
   TronScanGetTrc1155TransferListResponse,
   TronScanGetInternalTxListForAddressOrBlockOptions,
-  TronScanGetInternalTxListForAddressOrBlockResponse
+  TronScanGetInternalTxListForAddressOrBlockResponse,
+  TronScanGetAccountTransactionDataOptions,
+  TronScanGetAccountTransactionDataResponse
 } from '../types/transactions';
 
 import {
@@ -498,6 +500,21 @@ export class TronScanClient {
       ...params,
       filterTokenValue: 1
     });
+    return response.data;
+  }
+
+  /**
+   * Get account's transaction data
+   * @param params TronScanGetAccountTransactionDataOptions
+   * @returns Get account's transaction data
+   */
+  public async getAccountTransactionData(
+    params: TronScanGetAccountTransactionDataOptions
+  ): Promise<TronScanGetAccountTransactionDataResponse> {
+    const response = await this.transport.get<TronScanGetAccountTransactionDataResponse>(
+      'token_trc20/transfers-with-status',
+      params
+    );
     return response.data;
   }
 
