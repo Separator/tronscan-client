@@ -169,6 +169,9 @@ console.log(triggerTransactions);
 
 ## [Transactions and transfers section](https://docs.tronscan.org/api-endpoints/transactions-and-transfers)
 
+Some of these methods may work incorrectly (tx search methods), but you can use undocumented methods like **getTrxTransfers**,
+**getTrc10Transfers** or **getTrc20Transfers** instead.
+
 ```javascript
 const ADDRESS = 'tron_address';
 const START_TIMESTAMP = 1715855574000;
@@ -213,31 +216,13 @@ const accountTxData = await tronScanClient.getAccountTransactionData({
   address: ADDRESS,
   trc20Id: CONTRACT_ADDRESS
 });
+console.log(accountTxData);
 
 // Get internal transaction list for special address or block:
 const internalTxList = await tronScanClient.getInternalTxListForAddressOrBlock({
   address: ADDRESS
 });
 console.log(internalTxList);
-
-// Get only trx transfers:
-const trxTransfers = await tronScanClient.getTrxTransfers({
-  address: ADDRESS
-});
-console.log(trxTransfers);
-
-// Get only trc10 transfers:
-const trc19Transfers = await tronScanClient.getTrc10Transfers({
-  address: ADDRESS
-});
-console.log(trc19Transfers);
-
-// Get only trc20 transfers:
-const trc20Transfers = await tronScanClient.getTrc20Transfers({
-  relatedAddress: ADDRESS,
-  contract_address: CONTRACT_ADDRESS
-});
-console.log(trc20Transfers);
 ```
 
 ## [Block section](https://docs.tronscan.org/api-endpoints/block)
@@ -297,6 +282,34 @@ const tokensList = await tronScanClient.getAllTokens({
   start: 0
 });
 console.log(tokensList);
+```
+
+## [Undocumented methods](https://tronscan.org/#/)
+
+You can find this method through developer tools in tronscan cabinet.
+
+```javascript
+const ADDRESS = 'tron_address';
+const CONTRACT_ADDRESS = 'contract_address';
+
+// Get only trx transfers:
+const trxTransfers = await tronScanClient.getTrxTransfers({
+  address: ADDRESS
+});
+console.log(trxTransfers);
+
+// Get only trc10 transfers:
+const trc19Transfers = await tronScanClient.getTrc10Transfers({
+  address: ADDRESS
+});
+console.log(trc19Transfers);
+
+// Get only trc20 transfers:
+const trc20Transfers = await tronScanClient.getTrc20Transfers({
+  relatedAddress: ADDRESS,
+  contract_address: CONTRACT_ADDRESS
+});
+console.log(trc20Transfers);
 ```
 
 ## Supported networks table
