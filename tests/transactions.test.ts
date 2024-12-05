@@ -75,6 +75,17 @@ describe('Transactions and Transfers', () => {
   );
 
   test(
+    'Get internal transaction list for special address or block',
+    async () => {
+      const response = await tronScanClient.getInternalTxListForAddressOrBlock({
+        address: ADDRESS!
+      });
+      expect(response.total).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
+
+  test(
     "Get account's transaction data",
     async () => {
       const response = await tronScanClient.getAccountTransactionData({
@@ -82,17 +93,6 @@ describe('Transactions and Transfers', () => {
         trc20Id: TOKEN_ADDRESS!
       });
       expect(response.data.length).toBeGreaterThanOrEqual(0);
-    },
-    TEST_TIMEOUT
-  );
-
-  test(
-    'Get internal transaction list for special address or block',
-    async () => {
-      const response = await tronScanClient.getInternalTxListForAddressOrBlock({
-        address: ADDRESS!
-      });
-      expect(response.total).toBeGreaterThanOrEqual(0);
     },
     TEST_TIMEOUT
   );

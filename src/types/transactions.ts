@@ -787,3 +787,5 @@ export interface TronScanGetAccountTransactionDataResponse {
    */
   data: TronScanAccountTransactionDataItem[];
 }
+
+// ----------------------------------------------------------------------------------------------------

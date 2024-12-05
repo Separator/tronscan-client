@@ -211,18 +211,18 @@ const trxTrx10TxList = await tronScanClient.getTrxTrc10TransferList({
 });
 console.log(trxTrx10TxList);
 
+// Get internal transaction list for special address or block:
+const internalTxList = await tronScanClient.getInternalTxListForAddressOrBlock({
+  address: ADDRESS
+});
+console.log(internalTxList);
+
 // Get account's transaction data:
 const accountTxData = await tronScanClient.getAccountTransactionData({
   address: ADDRESS,
   trc20Id: CONTRACT_ADDRESS
 });
 console.log(accountTxData);
-
-// Get internal transaction list for special address or block:
-const internalTxList = await tronScanClient.getInternalTxListForAddressOrBlock({
-  address: ADDRESS
-});
-console.log(internalTxList);
 ```
 
 ## [Block section](https://docs.tronscan.org/api-endpoints/block)
