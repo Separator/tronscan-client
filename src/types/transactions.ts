@@ -1,5 +1,5 @@
 import { TronScanTokenInfo } from './token-info';
-import { TronScanSort, TronScanTxDirection } from './params';
+import { TronScanDbVersion, TronScanSort, TronScanTxDirection, TronScanTxDirectionSecond } from './params';
 import {
   TronScanContractData,
   TronScanContractInfo,
@@ -412,6 +412,114 @@ export interface TronScanInternalTxListForAddressOrBlockItem {
   voteCount: number;
 }
 
+export interface TronScanAccountTransactionDataItem {
+  /**
+   * @description Amount
+   * @example '15528415451787870000000000'
+   */
+  amount: string;
+  /**
+   * @description Status
+   * @example 0
+   */
+  status: number;
+  /**
+   * @description Approval amount
+   * @example '0'
+   */
+  approval_amount: string;
+  /**
+   * @description Block timestamp
+   * @example 1697615424000
+   */
+  block_timestamp: number;
+  /**
+   * @description Block
+   * @example 55661322
+   */
+  block: number;
+  /**
+   * @description From
+   * @example 'TV6MuMXfmLbBqPZvBHdwFsDnQeVfnmiuSi'
+   */
+  from: string;
+  /**
+   * @description To
+   * @example 'TWd4WrZ9wn84f5x1hZhL4DHvk738ns5jwb'
+   */
+  to: string;
+  /**
+   * @description Hash
+   * @example '38c8436fca621dddb12a0f156ac3385eecabf82bf39118fb6bc8c4783333ed88'
+   */
+  hash: string;
+  /**
+   * @description Contract address
+   * @example 'TUpMhErZL2fhh4sVNULAbNKLokS4GjC1F4'
+   */
+  contract_address: string;
+  /**
+   * @description Confirmed
+   * @example 1
+   */
+  confirmed: number;
+  /**
+   * @description Contract type
+   * @example 'TriggerSmartContract'
+   */
+  contract_type: string;
+  /**
+   * @description Contract type
+   * @example 31
+   */
+  contractType: number;
+  /**
+   * @description Revert
+   * @example 0
+   */
+  revert: number;
+  /**
+   * @description Contract ret
+   * @example 'SUCCESS'
+   */
+  contract_ret: string;
+  /**
+   * @description Final result
+   * @example 'SUCCESS'
+   */
+  final_result: string;
+  /**
+   * @description Event type
+   * @example 'Transfer'
+   */
+  event_type: string;
+  /**
+   * @description Issue address
+   * @example 'TRX6Q82wMqWNbCCiLqejbZe43wk1h1zJHm'
+   */
+  issue_address: string;
+  /**
+   * @description Decimals
+   * @example 18
+   */
+  decimals: number;
+  /**
+   * @description Token name
+   * @example 'TrueUSD'
+   */
+  token_name: string;
+  /**
+   * @description Id
+   * @example 'TUpMhErZL2fhh4sVNULAbNKLokS4GjC1F4'
+   */
+  id: string;
+  /**
+   * @description Direction
+   * @example 1
+   */
+  direction: number;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTransactionsListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
@@ -621,4 +729,61 @@ export interface TronScanGetInternalTxListForAddressOrBlockResponse {
   normalAddressInfo: {
     [key: string]: TronScanRiskInfo;
   };
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetAccountTransactionDataOptions extends TronScanPaginationOptions {
+  /**
+   * @description TRC20 token address
+   * @example 'TUpMhErZL2fhh4sVNULAbNKLokS4GjC1F4'
+   */
+  trc20Id: string;
+  /**
+   * @description Address
+   * @example 'TV6MuMXfmLbBqPZvBHdwFsDnQeVfnmiuSi'
+   */
+  address: string;
+  /**
+   * @description Tx direction.  
+   *  - **0**: all. 
+      - **1**: transfer-out. 
+      - **2**: transfer-in
+   */
+  direction?: TronScanTxDirectionSecond;
+  /**
+   * @description Whether to include approval transfers. 
+      - **1**: include. 
+      - **0**: exclude
+   */
+  db_version?: TronScanDbVersion;
+  /**
+   * @description Sort by creation time. Valid values: **true** / **false**
+   */
+  reverse?: boolean;
+}
+
+export interface TronScanGetAccountTransactionDataResponse {
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Token info
+   */
+  tokenInfo: TronScanTokenInfo;
+  /**
+   * @description Page size
+   * @example 1
+   */
+  page_size: number;
+  /**
+   * @description Code
+   * @example 200
+   */
+  code: number;
+  /**
+   * @description Data list
+   */
+  data: TronScanAccountTransactionDataItem[];
 }

@@ -4,7 +4,7 @@ import { TronScanClient } from '../src';
 config();
 
 const TEST_TIMEOUT = 60000;
-const { ADDRESS, API_KEY, URL, TX_HASH } = process.env;
+const { ADDRESS, API_KEY, URL, TX_HASH, TOKEN_ADDRESS } = process.env;
 
 const tronScanClient = new TronScanClient({
   url: URL!,
@@ -70,6 +70,18 @@ describe('Transactions and Transfers', () => {
       });
 
       expect(response?.data?.length).toBe(1);
+    },
+    TEST_TIMEOUT
+  );
+
+  test(
+    "Get account's transaction data",
+    async () => {
+      const response = await tronScanClient.getAccountTransactionData({
+        address: ADDRESS!,
+        trc20Id: TOKEN_ADDRESS!
+      });
+      expect(response.data.length).toBeGreaterThanOrEqual(0);
     },
     TEST_TIMEOUT
   );

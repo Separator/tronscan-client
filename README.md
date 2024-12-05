@@ -208,6 +208,13 @@ const trxTrx10TxList = await tronScanClient.getTrxTrc10TransferList({
 });
 console.log(trxTrx10TxList);
 
+// Get account's transaction data:
+const accountTxData = await tronScanClient.getAccountTransactionData({
+  address: ADDRESS,
+  trc20Id: CONTRACT_ADDRESS
+});
+
+// Get internal transaction list for special address or block:
 const internalTxList = await tronScanClient.getInternalTxListForAddressOrBlock({
   address: ADDRESS
 });
