@@ -434,6 +434,49 @@ export class TronScanClient {
   }
 
   /**
+   * Undocumented methods (from tronscan cabinet)
+   */
+
+  /**
+   * Get trx transfers
+   * @param params TronScanGetTrxTransfersOptions
+   * @returns Returns trx transfers
+   */
+  public async getTrxTransfers(params: TronScanGetTrxTransfersOptions): Promise<TronScanTrxTransfersResponse> {
+    const response = await this.transport.get<TronScanTrxTransfersResponse>('trx/transfer', {
+      ...params,
+      filterTokenValue: 0
+    });
+    return response.data;
+  }
+
+  /**
+   * Get trc10 transfers
+   * @param params TronScanGetTrc10TransfersOptions
+   * @returns Returns trc10 transfers
+   */
+  public async getTrc10Transfers(params: TronScanGetTrc10TransfersOptions): Promise<TronScanTrc10TransfersResponse> {
+    const response = await this.transport.get<TronScanTrc10TransfersResponse>('trc10/transfer', {
+      ...params,
+      filterTokenValue: 0
+    });
+    return response.data;
+  }
+
+  /**
+   * Get trc20 transfers
+   * @param params TronScanGetTrc20TransfersOptions
+   * @returns Returns trc20 transfers
+   */
+  public async getTrc20Transfers(params: TronScanGetTrc20TransfersOptions): Promise<TronScanTrc20TransfersResponse> {
+    const response = await this.transport.get<TronScanTrc20TransfersResponse>('filter/trc20/transfers', {
+      ...params,
+      filterTokenValue: 0
+    });
+    return response.data;
+  }
+
+  /**
    * Transactions and transfers section
    * https://docs.tronscan.org/api-endpoints/transactions-and-transfers
    */
@@ -504,21 +547,6 @@ export class TronScanClient {
   }
 
   /**
-   * Get account's transaction data
-   * @param params TronScanGetAccountTransactionDataOptions
-   * @returns Get account's transaction data
-   */
-  public async getAccountTransactionData(
-    params: TronScanGetAccountTransactionDataOptions
-  ): Promise<TronScanGetAccountTransactionDataResponse> {
-    const response = await this.transport.get<TronScanGetAccountTransactionDataResponse>(
-      'token_trc20/transfers-with-status',
-      params
-    );
-    return response.data;
-  }
-
-  /**
    * Get internal transaction list for special address or block
    * @param params TronScanGetInternalTxListForAddressOrBlockOptions
    * @returns Get internal transaction list
@@ -530,27 +558,18 @@ export class TronScanClient {
     return response.data;
   }
 
-  public async getTrxTransfers(params: TronScanGetTrxTransfersOptions): Promise<TronScanTrxTransfersResponse> {
-    const response = await this.transport.get<TronScanTrxTransfersResponse>('trx/transfer', {
-      ...params,
-      filterTokenValue: 0
-    });
-    return response.data;
-  }
-
-  public async getTrc10Transfers(params: TronScanGetTrc10TransfersOptions): Promise<TronScanTrc10TransfersResponse> {
-    const response = await this.transport.get<TronScanTrc10TransfersResponse>('trc10/transfer', {
-      ...params,
-      filterTokenValue: 0
-    });
-    return response.data;
-  }
-
-  public async getTrc20Transfers(params: TronScanGetTrc20TransfersOptions): Promise<TronScanTrc20TransfersResponse> {
-    const response = await this.transport.get<TronScanTrc20TransfersResponse>('filter/trc20/transfers', {
-      ...params,
-      filterTokenValue: 0
-    });
+  /**
+   * Get account's transaction data
+   * @param params TronScanGetAccountTransactionDataOptions
+   * @returns Get account's transaction data
+   */
+  public async getAccountTransactionData(
+    params: TronScanGetAccountTransactionDataOptions
+  ): Promise<TronScanGetAccountTransactionDataResponse> {
+    const response = await this.transport.get<TronScanGetAccountTransactionDataResponse>(
+      'token_trc20/transfers-with-status',
+      params
+    );
     return response.data;
   }
 
