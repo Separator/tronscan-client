@@ -71,7 +71,9 @@ import {
   TronScanGetInternalTxListForAddressOrBlockOptions,
   TronScanGetInternalTxListForAddressOrBlockResponse,
   TronScanGetAccountTransactionDataOptions,
-  TronScanGetAccountTransactionDataResponse
+  TronScanGetAccountTransactionDataResponse,
+  TronScanGetTxsStatisticDataResponse,
+  TronScanGetTxsStatisticDataOptions
 } from '../types/transactions';
 
 import {
@@ -570,6 +572,18 @@ export class TronScanClient {
       'token_trc20/transfers-with-status',
       params
     );
+    return response.data;
+  }
+
+  /**
+   * Get transaction's statistic data
+   * @param params
+   * @returns Query statistic data of transactions
+   */
+  public async getTxsStatisticData(
+    params: TronScanGetTxsStatisticDataOptions = {}
+  ): Promise<TronScanGetTxsStatisticDataResponse> {
+    const response = await this.transport.get<TronScanGetTxsStatisticDataResponse>('transaction/statistics', params);
     return response.data;
   }
 
