@@ -223,6 +223,9 @@ const accountTxData = await tronScanClient.getAccountTransactionData({
   trc20Id: CONTRACT_ADDRESS
 });
 console.log(accountTxData);
+
+const txStatisticsData = await tronScanClient.getTxsStatisticData();
+console.log(txStatisticsData);
 ```
 
 ## [Block section](https://docs.tronscan.org/api-endpoints/block)

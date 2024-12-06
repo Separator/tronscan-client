@@ -520,6 +520,44 @@ export interface TronScanAccountTransactionDataItem {
   direction: number;
 }
 
+export interface TronScanTxsStatisticDataTopItem {
+  /**
+   * @description Symbol
+   * @example 'USDT'
+   */
+  symbol: string;
+  /**
+   * @description Amount
+   * @example 43473062882842.2
+   */
+  amount: number;
+  /**
+   * @description Address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  address: string;
+  /**
+   * @description Proportion
+   * @example 23.6637926698984
+   */
+  proportion: number;
+  /**
+   * @description Count
+   * @example 2152415963
+   */
+  count: number;
+  /**
+   * @description Name
+   * @example 'Tether USD'
+   */
+  name: string;
+  /**
+   * @description Token type
+   * @example 'trc20'
+   */
+  tokenType: string;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTransactionsListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
@@ -789,3 +827,156 @@ export interface TronScanGetAccountTransactionDataResponse {
 }
 
 // ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTxsStatisticDataOptions {}
+
+export interface TronScanGetTxsStatisticDataResponse {
+  /**
+   * @description Trc20 proportion
+   * @example 28.0435858093404
+   */
+  trc20Proportion?: number;
+  /**
+   * @description Votes count
+   * @example 16641886
+   */
+  votesCount?: number;
+  /**
+   * @description Trx transfer amount
+   * @example 4621101067038.55
+   */
+  trxTransferAmount?: number;
+  /**
+   * @description Trc1155 count
+   * @example 470
+   */
+  trc1155Count?: number;
+  /**
+   * @description Trc10 transfer count
+   * @example 1004446458
+   */
+  trc10TransferCount?: number;
+  /**
+   * @description Trx transfer count
+   * @example 3468078342
+   */
+  trxTransferCount?: number;
+  /**
+   * @description Trc20 amount
+   * @example 170143465411821
+   */
+  trc20Amount?: number;
+  /**
+   * @description Last day tx amount
+   * @example 185325195445.554
+   */
+  lastDayTxAmount?: number;
+  /**
+   * @description Trigger proportion
+   * @example 42.1498193535967
+   */
+  triggerProportion?: number;
+  /**
+   * @description Others count
+   * @example 757152718
+   */
+  othersCount?: number;
+  /**
+   * @description Trc10 transfer proportion
+   * @example 11.0429457589587
+   */
+  trc10TransferProportion?: number;
+  /**
+   * @description Others amount
+   * @example 1774895119954.5
+   */
+  othersAmount?: number;
+  /**
+   * @description Trigger top 10 list
+   */
+  triggerTop10?: TronScanTxsStatisticDataTopItem[];
+  /**
+   * @description Tx count
+   * @example 9120026624
+   */
+  txCount?: number;
+  /**
+   * @description Trc20 top 10 list
+   */
+  trc20Top10?: TronScanTxsStatisticDataTopItem[];
+  /**
+   * @description Trc10 transfer amount
+   * @example 1968491108616.86
+   */
+  trc10TransferAmount?: number;
+  /**
+   * @description Last day tx count
+   * @example 8167709
+   */
+  lastDayTxCount?: number;
+  /**
+   * @description Others proportion
+   * @example 8.32418326485068
+   */
+  othersProportion?: number;
+  /**
+   * @description Votes amount
+   * @example 39796951320
+   */
+  votesAmount?: number;
+  /**
+   * @description Freeze balance count
+   * @example 33496818
+   */
+  freezeBalanceCount?: number;
+  /**
+   * @description Freeze balance proportion
+   * @example 0.368266064682276
+   */
+  freezeBalanceProportion?: number;
+  /**
+   * @description Trigger amount
+   * @example 170096102433475
+   */
+  triggerAmount?: number;
+  /**
+   * @description Update time
+   * @example 1733443200000
+   */
+  updateTime: number;
+  /**
+   * @description Votes proportion
+   * @example 0.18296191196761
+   */
+  votesProportion?: number;
+  /**
+   * @description Trigger count
+   * @example 3833871657
+   */
+  triggerCount?: number;
+  /**
+   * @description Freeze balance amount
+   * @example 405867982280.2
+   */
+  freezeBalanceAmount?: number;
+  /**
+   * @description Tx amount
+   * @example 349009962748965
+   */
+  txAmount?: number;
+  /**
+   * @description Trc20 count
+   * @example 2550794059
+   */
+  trc20Count?: number;
+  /**
+   * @description Trc721 count
+   * @example 3312915
+   */
+  trc721Count?: number;
+  /**
+   * @description Trx transfer proportion
+   * @example 38.1282652883081
+   */
+  trxTransferProportion?: number;
+}
