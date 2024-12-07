@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import { config } from 'dotenv';
 import { TronScanClient } from '../src';
 
@@ -104,6 +102,15 @@ describe('Transactions and Transfers', () => {
     async () => {
       const response = await tronScanClient.getTxsStatisticData();
       expect(response.updateTime).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
+
+  test(
+    'Get statistic distribution data of transfer',
+    async () => {
+      const response = await tronScanClient.getTransferDistributionStatisticData();
+      expect(Object.keys(response).length).toBeGreaterThanOrEqual(0);
     },
     TEST_TIMEOUT
   );
