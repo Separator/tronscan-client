@@ -73,7 +73,9 @@ import {
   TronScanGetAccountTransactionDataOptions,
   TronScanGetAccountTransactionDataResponse,
   TronScanGetTxsStatisticDataResponse,
-  TronScanGetTxsStatisticDataOptions
+  TronScanGetTxsStatisticDataOptions,
+  TronScanGetTransferDistributionStatisticDataOptions,
+  TronScanGetTransferDistributionStatisticDataResponse
 } from '../types/transactions';
 
 import {
@@ -584,6 +586,21 @@ export class TronScanClient {
     params: TronScanGetTxsStatisticDataOptions = {}
   ): Promise<TronScanGetTxsStatisticDataResponse> {
     const response = await this.transport.get<TronScanGetTxsStatisticDataResponse>('transaction/statistics', params);
+    return response.data;
+  }
+
+  /**
+   * Get statistic distribution data of transfer
+   * @param params
+   * @returns Query statistic data of transfers
+   */
+  public async getTransferDistributionStatisticData(
+    params: TronScanGetTransferDistributionStatisticDataOptions = {}
+  ): Promise<TronScanGetTransferDistributionStatisticDataResponse> {
+    const response = await this.transport.get<TronScanGetTransferDistributionStatisticDataResponse>(
+      'transfer/statistics',
+      params
+    );
     return response.data;
   }
 

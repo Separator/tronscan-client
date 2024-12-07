@@ -224,8 +224,12 @@ const accountTxData = await tronScanClient.getAccountTransactionData({
 });
 console.log(accountTxData);
 
+// Get transaction's statistic data:
 const txStatisticsData = await tronScanClient.getTxsStatisticData();
 console.log(txStatisticsData);
+
+const txDistributionStatisticsData = await tronScanClient.getTransferDistributionStatisticData();
+console.log(txDistributionStatisticsData);
 ```
 
 ## [Block section](https://docs.tronscan.org/api-endpoints/block)

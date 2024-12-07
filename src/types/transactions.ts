@@ -980,3 +980,95 @@ export interface TronScanGetTxsStatisticDataResponse {
    */
   trxTransferProportion?: number;
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTransferDistributionStatisticDataOptions {}
+
+export interface TronScanGetTransferDistributionStatisticDataResponse {
+  /**
+   * @description Trc1155 proportion
+   * @example 0.000006700173421372
+   */
+  trc1155Proportion?: number;
+  /**
+   * @description Trc20 proportion
+   * @example 36.3977246635881
+   */
+  trc20Proportion?: number;
+  /**
+   * @description Trx transfer amount
+   * @example 4622159787325.96
+   */
+  trxTransferAmount?: number;
+  /**
+   * @description Trc1155 count
+   * @example 470
+   */
+  trc1155Count?: number;
+  /**
+   * @description Trc10 transfer count
+   * @example 1004657428
+   */
+  trc10TransferCount?: number;
+  /**
+   * @description Last day transfers count
+   * @example 5979539
+   */
+  lastDayTransfersCount?: number;
+  /**
+   * @description Trx transfer count
+   * @example 3453565724
+   */
+  trxTransferCount?: number;
+  /**
+   * @description Transfers count
+   * @example 7014743805
+   */
+  transfersCount?: number;
+  /**
+   * @description Trc20 amount
+   * @example 170217564019041
+   */
+  trc20Amount?: number;
+  /**
+   * @description Trc721 proportion
+   * @example 0.0472297647939546
+   */
+  trc721Proportion?: number;
+  /**
+   * @description trc10 transfer proportion
+   * @example 14.3220829716389
+   */
+  trc10TransferProportion?: number;
+  /**
+   * @description trc20 count
+   * @example 2553207136
+   */
+  trc20Count?: number;
+  /**
+   * @description Trc721 count
+   * @example 3313047
+   */
+  trc721Count?: number;
+  /**
+   * @description Trc10 transfer amount
+   * @example 1968491113107.87
+   */
+  trc10TransferAmount?: number;
+  /**
+   * @description Transfer amount
+   * @example 176808214919475
+   */
+  transfersAmount?: number;
+  /**
+   * @description Trx transfer proportion
+   * @example 49.2329558998057
+   */
+  trxTransferProportion?: number;
+  /**
+   * @description Last day transfers amount
+   * @example 76430900279.4034
+   */
+  lastDayTransfersAmount?: number;
+}
