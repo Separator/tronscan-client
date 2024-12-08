@@ -558,6 +558,49 @@ export interface TronScanTxsStatisticDataTopItem {
   tokenType: string;
 }
 
+export interface TronScanEligibleExchangeTypeTransactionItem {
+  /**
+   * @description Exchange id
+   * @example 185
+   */
+  exchangeID: number;
+  /**
+   * @description Block id
+   * @example 61730154
+   */
+  blockID: number;
+  /**
+   * @description Token id
+   * @example '1004967'
+   */
+  tokenID: string;
+  /**
+   * @description Create time
+   * @example 1715833545000
+   */
+  createTime: number;
+  /**
+   * @description Trx hash
+   * @example '407e8c1dc6a842b26f9d3da4b7c651794de548b42024cdd3f3647ec889a241d3'
+   */
+  trx_hash: string;
+  /**
+   * @description Quant
+   * @example 10000000
+   */
+  quant: number;
+  /**
+   * @description Creator address
+   * @example 'TBZkubf2t118mzguLdHSpJqovnhCHGsv6i'
+   */
+  creatorAddress: string;
+  /**
+   * @description Confirmed
+   * @example true
+   */
+  confirmed: boolean;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTransactionsListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
@@ -1071,4 +1114,34 @@ export interface TronScanGetTransferDistributionStatisticDataResponse {
    * @example 76430900279.4034
    */
   lastDayTransfersAmount?: number;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetEligibleExchangeTypeTransactionsOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+  /**
+   * @description Exchange ID
+   */
+  exchangeID?: string;
+  /**
+   * @description Account address
+   */
+  address?: string;
+}
+
+export interface TronScanGetEligibleExchangeTypeTransactionsResponse {
+  /**
+   * @description Total
+   * @example 10000
+   */
+  total: number;
+  /**
+   * @description Range total
+   * @example 1615071
+   */
+  rangeTotal: number;
+  /**
+   * @description Data list
+   */
+  data: TronScanEligibleExchangeTypeTransactionItem[];
 }
