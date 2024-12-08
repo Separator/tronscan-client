@@ -75,7 +75,9 @@ import {
   TronScanGetTxsStatisticDataResponse,
   TronScanGetTxsStatisticDataOptions,
   TronScanGetTransferDistributionStatisticDataOptions,
-  TronScanGetTransferDistributionStatisticDataResponse
+  TronScanGetTransferDistributionStatisticDataResponse,
+  TronScanGetEligibleExchangeTypeTransactionsOptions,
+  TronScanGetEligibleExchangeTypeTransactionsResponse
 } from '../types/transactions';
 
 import {
@@ -599,6 +601,21 @@ export class TronScanClient {
   ): Promise<TronScanGetTransferDistributionStatisticDataResponse> {
     const response = await this.transport.get<TronScanGetTransferDistributionStatisticDataResponse>(
       'transfer/statistics',
+      params
+    );
+    return response.data;
+  }
+
+  /**
+   * Get the eligible exchange type transactions
+   * @param params TronScanGetEligibleExchangeTypeTransactionsOptions
+   * @returns Query the eligible transactions of the exchange type, sorted by time in a descending order
+   */
+  public async getEligibleExchangeTypeTransactions(
+    params: TronScanGetEligibleExchangeTypeTransactionsOptions = {}
+  ): Promise<TronScanGetEligibleExchangeTypeTransactionsResponse> {
+    const response = await this.transport.get<TronScanGetEligibleExchangeTypeTransactionsResponse>(
+      'exchange/transaction',
       params
     );
     return response.data;

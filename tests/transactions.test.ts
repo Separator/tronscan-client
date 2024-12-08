@@ -114,4 +114,13 @@ describe('Transactions and Transfers', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the eligible exchange type transactions',
+    async () => {
+      const response = await tronScanClient.getEligibleExchangeTypeTransactions();
+      expect(response.total).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });

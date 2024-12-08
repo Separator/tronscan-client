@@ -73,6 +73,7 @@ import {
   TronScanGetAccountTransactionDataOptions,
   TronScanGetTxsStatisticDataOptions,
   TronScanGetTransferDistributionStatisticDataOptions,
+  TronScanGetEligibleExchangeTypeTransactionsOptions,
 
   // Responses:
   TronScanTransactionsListResponse,
@@ -85,7 +86,8 @@ import {
   TronScanGetInternalTxListForAddressOrBlockResponse,
   TronScanGetAccountTransactionDataResponse,
   TronScanGetTxsStatisticDataResponse,
-  TronScanGetTransferDistributionStatisticDataResponse
+  TronScanGetTransferDistributionStatisticDataResponse,
+  TronScanGetEligibleExchangeTypeTransactionsResponse
 } from './types/transactions';
 
 import {
@@ -220,6 +222,7 @@ export {
   TronScanGetAccountTransactionDataOptions,
   TronScanGetTxsStatisticDataOptions,
   TronScanGetTransferDistributionStatisticDataOptions,
+  TronScanGetEligibleExchangeTypeTransactionsOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -270,6 +273,7 @@ export {
   TronScanGetAccountTransactionDataResponse,
   TronScanGetTxsStatisticDataResponse,
   TronScanGetTransferDistributionStatisticDataResponse,
+  TronScanGetEligibleExchangeTypeTransactionsResponse,
 
   // Client
   TronScanClient,
