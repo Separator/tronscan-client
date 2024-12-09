@@ -3,7 +3,7 @@
 # Tronscan client
 
 Client for receiving blockchain data through block explorers (in particular, tronscan).  
-At the moment, the number of available methods is limited to those indicated in the examples below.
+At the moment, the number of available methods is limited to those indicated in the examples below:
 
 ## Donation
 
