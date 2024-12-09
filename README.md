@@ -227,14 +227,6 @@ console.log(accountTxData);
 // Get transaction's statistic data:
 const txStatisticsData = await tronScanClient.getTxsStatisticData();
 console.log(txStatisticsData);
-
-// Get statistic distribution data of transfer:
-const txDistributionStatisticsData = await tronScanClient.getTransferDistributionStatisticData();
-console.log(txDistributionStatisticsData);
-
-// Get the eligible exchange type transactions:
-const eligibleExchangeTypeTxs = await tronScanClient.getEligibleExchangeTypeTransactions();
-console.log(eligibleExchangeTypeTxs);
 ```
 
 ## [Block section](https://docs.tronscan.org/api-endpoints/block)
