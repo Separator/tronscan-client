@@ -22,4 +22,13 @@ describe('Block', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get statistical information of blocks',
+    async () => {
+      const response = await tronScanClient.getBlocksStatisticalInformation();
+      expect(response.last_day_pay).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });

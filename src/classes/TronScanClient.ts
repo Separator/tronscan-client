@@ -29,7 +29,8 @@ import {
   TronScanGetBlocksListOptions,
 
   // Responses:
-  TronScanBlockListResponse
+  TronScanBlockListResponse,
+  TronScanGetBlocksStatisticalInformationResponse
 } from '../types/block';
 
 import {
@@ -622,6 +623,11 @@ export class TronScanClient {
   }
 
   /**
+   * Block section
+   * https://docs.tronscan.org/api-endpoints/block
+   */
+
+  /**
    * Get the list of blocks or details of one block.
    *
    * **Note**: The value sum of **start** and **limit** must be less than or equal to **10000**.
@@ -630,6 +636,15 @@ export class TronScanClient {
    */
   public async getBlocks(params?: TronScanGetBlocksListOptions): Promise<TronScanBlockListResponse> {
     const response = await this.transport.get<TronScanBlockListResponse>('block', params);
+    return response.data;
+  }
+
+  /**
+   * Get statistical information of blocks
+   * @returns Returns the statistic information of blocks
+   */
+  public async getBlocksStatisticalInformation(): Promise<TronScanGetBlocksStatisticalInformationResponse> {
+    const response = await this.transport.get<TronScanGetBlocksStatisticalInformationResponse>('block/statistic', {});
     return response.data;
   }
 

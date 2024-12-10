@@ -110,3 +110,38 @@ export interface TronScanGetBlocksListOptions extends TronScanPaginationOptions,
 export interface TronScanBlockListResponse extends TronScanTransfersCommonResponse {
   data: TronScanBlockSimple[];
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetBlocksStatisticalInformationResponse {
+  /**
+   * @description Last day pay
+   * @example 5067392
+   */
+  last_day_pay: number;
+  /**
+   * @description Last day block count
+   * @example 28792
+   */
+  last_day_block_count: number;
+  /**
+   * @description Last day total burn
+   * @example 13835065238.0719
+   */
+  last_day_total_burn: number;
+  /**
+   * @description Whole block count
+   * @example 67734955
+   */
+  whole_block_count: number;
+  /**
+   * @description Whole pay
+   * @example 10100074144
+   */
+  whole_pay: number;
+  /**
+   * @description Last day burn
+   * @example 10742611.3631077
+   */
+  last_day_burn: number;
+}
