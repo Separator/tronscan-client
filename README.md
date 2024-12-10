@@ -232,8 +232,13 @@ console.log(txStatisticsData);
 ## [Block section](https://docs.tronscan.org/api-endpoints/block)
 
 ```javascript
-const response = await tronScanClient.getBlocks();
-const blocks = response.data;
+// Get the list of blocks or details of one block:
+const blocks = await tronScanClient.getBlocks();
+console.log(blocks);
+
+// Get statistical information of blocks:
+const statInfo = await tronScanClient.getBlocksStatisticalInformation();
+console.log(statInfo);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
