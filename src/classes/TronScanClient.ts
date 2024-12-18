@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
+import { TronScanGetTokensListOptions, TronScanGetTokensListResponse } from '../types/token';
 import {
   TronScanGetContractCallersListOptions,
   TronScanGetContractCallersListResponse,
@@ -645,6 +646,21 @@ export class TronScanClient {
    */
   public async getBlocksStatisticalInformation(): Promise<TronScanGetBlocksStatisticalInformationResponse> {
     const response = await this.transport.get<TronScanGetBlocksStatisticalInformationResponse>('block/statistic', {});
+    return response.data;
+  }
+
+  /**
+   * Tokens section
+   * https://docs.tronscan.org/api-endpoints/tokens
+   */
+
+  /**
+   * Get token list
+   * @param params TronScanGetTokensListOptions
+   * @returns Returns the token info
+   */
+  public async getTokensList(params: TronScanGetTokensListOptions = {}): Promise<TronScanGetTokensListResponse> {
+    const response = await this.transport.get<TronScanGetTokensListResponse>('tokens/overview', params);
     return response.data;
   }
 

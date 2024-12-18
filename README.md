@@ -241,6 +241,14 @@ const statInfo = await tronScanClient.getBlocksStatisticalInformation();
 console.log(statInfo);
 ```
 
+## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
+
+```javascript
+// Get token list:
+const tokensList = await tronScanClient.getTokensList();
+console.log(tokensList);
+```
+
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
 
 ```javascript

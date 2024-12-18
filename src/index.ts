@@ -2,6 +2,14 @@ import { TronScanClient } from './classes/TronScanClient';
 
 import {
   // Options:
+  TronScanGetTokensListOptions,
+
+  // Responses:
+  TronScanGetTokensListResponse
+} from './types/token';
+
+import {
+  // Options:
   TronScanGetBlocksListOptions,
 
   // Responses:
@@ -223,6 +231,7 @@ export {
   TronScanGetTxsStatisticDataOptions,
   TronScanGetTransferDistributionStatisticDataOptions,
   TronScanGetEligibleExchangeTypeTransactionsOptions,
+  TronScanGetTokensListOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -274,6 +283,7 @@ export {
   TronScanGetTxsStatisticDataResponse,
   TronScanGetTransferDistributionStatisticDataResponse,
   TronScanGetEligibleExchangeTypeTransactionsResponse,
+  TronScanGetTokensListResponse,
 
   // Client
   TronScanClient,
