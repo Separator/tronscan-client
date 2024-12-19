@@ -3,9 +3,11 @@ import { TronScanClient } from './classes/TronScanClient';
 import {
   // Options:
   TronScanGetTokensListOptions,
+  TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
 
   // Responses:
-  TronScanGetTokensListResponse
+  TronScanGetTokensListResponse,
+  TronScanGetTrc20Trc721Trc1155TokensDetailsResponse
 } from './types/token';
 
 import {
@@ -232,6 +234,7 @@ export {
   TronScanGetTransferDistributionStatisticDataOptions,
   TronScanGetEligibleExchangeTypeTransactionsOptions,
   TronScanGetTokensListOptions,
+  TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -284,6 +287,7 @@ export {
   TronScanGetTransferDistributionStatisticDataResponse,
   TronScanGetEligibleExchangeTypeTransactionsResponse,
   TronScanGetTokensListResponse,
+  TronScanGetTrc20Trc721Trc1155TokensDetailsResponse,
 
   // Client
   TronScanClient,
