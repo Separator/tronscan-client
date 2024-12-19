@@ -1,7 +1,12 @@
 import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
-import { TronScanGetTokensListOptions, TronScanGetTokensListResponse } from '../types/token';
+import {
+  TronScanGetTokensListOptions,
+  TronScanGetTokensListResponse,
+  TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
+  TronScanGetTrc20Trc721Trc1155TokensDetailsResponse
+} from '../types/token';
 import {
   TronScanGetContractCallersListOptions,
   TronScanGetContractCallersListResponse,
@@ -661,6 +666,18 @@ export class TronScanClient {
    */
   public async getTokensList(params: TronScanGetTokensListOptions = {}): Promise<TronScanGetTokensListResponse> {
     const response = await this.transport.get<TronScanGetTokensListResponse>('tokens/overview', params);
+    return response.data;
+  }
+
+  /**
+   * Get details of all TRC20/TRC721/TRC1155 tokens or specified TRC20/TRC721/TRC1155 tokens
+   * @param params TronScanGetTrc20Trc721Trc1155TokensDetailsOptions
+   * @returns Returns the detail information of TRC20/TRC721/TRC1155 tokens
+   */
+  public async getTrc20Trc721Trc1155TokensDetails(
+    params: TronScanGetTrc20Trc721Trc1155TokensDetailsOptions
+  ): Promise<TronScanGetTrc20Trc721Trc1155TokensDetailsResponse> {
+    const response = await this.transport.get<TronScanGetTrc20Trc721Trc1155TokensDetailsResponse>('token_trc20', params);
     return response.data;
   }
 

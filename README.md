@@ -244,9 +244,16 @@ console.log(statInfo);
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
 
 ```javascript
+const TOKEN_ADDRESS = 'token_address';
+
 // Get token list:
 const tokensList = await tronScanClient.getTokensList();
 console.log(tokensList);
+
+const tokensDetails = await tronScanClient.getTrc20Trc721Trc1155TokensDetails({
+  contract: TOKEN_ADDRESS
+});
+console.log(tokensDetails);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)

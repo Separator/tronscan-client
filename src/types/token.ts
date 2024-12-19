@@ -1,4 +1,4 @@
-import { TronScanPaginationOptions } from './tronscan';
+import { TronScanContractMap, TronScanPaginationOptions } from './tronscan';
 import { TronScanOrder, TronScanTokenFilter, TronScanTokenShow, TronScanTokenSort, TronScanTokenVerifier } from './params';
 
 export interface TronScanTokensListItem {
@@ -194,6 +194,357 @@ export interface TronScanTokensListItem {
   redTag?: string;
 }
 
+export interface TronScanTrc20Trc721Trc1155TokensPriceItem {
+  /**
+   * @description Price usd
+   * @example '0.9998054785327043'
+   */
+  priceUsd: string;
+  /**
+   * @description Time
+   * @example '1734505200'
+   */
+  time: string;
+}
+
+export interface TronScanTokenPriceLine {
+  /**
+   * @description Total
+   * @example 25
+   */
+  total: number;
+  /**
+   * @description Token price line data
+   */
+  data: TronScanTrc20Trc721Trc1155TokensPriceItem[];
+}
+
+export interface TronScanTrc20Trc721Trc1155MarketInfoItem {
+  /**
+   * @description F precision
+   * @example 6
+   */
+  fPrecision: number;
+  /**
+   * @description F short name
+   * @example 'USDT'
+   */
+  fShortName: string;
+  /**
+   * @description F token addr
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  fTokenAddr: string;
+  /**
+   * @description Filter
+   * @example false
+   */
+  filter: boolean;
+  /**
+   * @description Gain
+   * @example -0.0002
+   */
+  gain: number;
+  /**
+   * @description Liquidity
+   * @example 115666218.985924
+   */
+  liquidity: number;
+  /**
+   * @description Pair url
+   * @example 'https://sun.io/#/scan/tokenDetail?tokenAddress=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t&version=v3'
+   */
+  pairUrl: string;
+  /**
+   * @description Price from
+   * @example 'SUNSWAPV3'
+   */
+  priceFrom: string;
+  /**
+   * @description Price in trx
+   * @example 3.82243166986517
+   */
+  priceInTrx: number;
+  /**
+   * @description Price in usd
+   * @example 0.999723707013475
+   */
+  priceInUsd: number;
+  /**
+   * @description S precision
+   * @example 6
+   */
+  sPrecision: number;
+  /**
+   * @description S short name
+   * @example 'TRX'
+   */
+  sShortName: string;
+  /**
+   * @description Volume 24h gain
+   * @example 0.146348
+   */
+  volume24hGain: number;
+  /**
+   * @description Volume 24h in trx
+   * @example 860947700309.817
+   */
+  volume24hInTrx: number;
+}
+
+export interface TronScanSocialMediaListItem {
+  /**
+   * @description Name
+   * @example 'Twitter'
+   */
+  name: string;
+  /**
+   * @description Url
+   * @example 'https://twitter.com/Tether_to'
+   */
+  url: string;
+}
+
+export interface TronScanTrc20Trc721Trc1155TokensDetailsItem {
+  /**
+   * @description Icon url
+   * @example 'https://static.tronscan.org/production/logo/usdtlogo.png'
+   */
+  icon_url: string;
+  /**
+   * @description Symbol
+   * @example 'USDT'
+   */
+  symbol: string;
+  /**
+   * @description Total supply
+   * @example 0
+   */
+  total_supply: number;
+  /**
+   * @description Level
+   * @example '2'
+   */
+  level: string;
+  /**
+   * @description Contract address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  contract_address: string;
+  /**
+   * @description Issue ts
+   * @example 0
+   */
+  issue_ts: number;
+  /**
+   * @description Red tag
+   * @example ''
+   */
+  redTag: string;
+  /**
+   * @description Token desc
+   * @example 'USDT is the official stablecoin issued by Tether on the TRON network.'
+   */
+  token_desc: string;
+  /**
+   * @description Price trx
+   * @example 0
+   */
+  price_trx: number;
+  /**
+   * @description From third party
+   * @example false
+   */
+  fromThirdParty: boolean;
+  /**
+   * @description Price
+   * @example ''
+   */
+  price: string;
+  /**
+   * @description vip
+   * @example true
+   */
+  vip: boolean;
+  /**
+   * @description Announcement
+   * @example ''
+   */
+  announcement: string;
+  /**
+   * @description Volume 24h
+   * @example 203288634887.11
+   */
+  volume24h: number;
+  /**
+   * @description Index
+   * @example 1
+   */
+  index: number;
+  /**
+   * @description Transfer 24h rate
+   * @example -0.0068
+   */
+  transfer24h_rate: number;
+  /**
+   * @description Market info
+   */
+  market_info: TronScanTrc20Trc721Trc1155MarketInfoItem;
+  /**
+   * @description Volume
+   * @example 0
+   */
+  volume: number;
+  /**
+   * @description Liquidity 24h
+   * @example 154034144.662156
+   */
+  liquidity24h: number;
+  /**
+   * @description Name
+   * @example 'Tether USD'
+   */
+  name: string;
+  /**
+   * @description Token type
+   * @example 'trc20'
+   */
+  tokenType: string;
+  /**
+   * @description Social media
+   * @example ''
+   */
+  social_media: string;
+  /**
+   * @description Total turn over
+   * @example '61758980927299097'
+   */
+  totalTurnOver: string;
+  /**
+   * @description Grey tag
+   * @example ''
+   */
+  greyTag: string;
+  /**
+   * @description Public tag
+   * @example ''
+   */
+  publicTag: string;
+  /**
+   * @description Gain
+   * @example ''
+   */
+  gain: string;
+  /**
+   * @description Home page
+   * @example 'https://tron.network/usdt'
+   */
+  home_page: string;
+  /**
+   * @description In tvc token
+   * @example true
+   */
+  inTvcToken: boolean;
+  /**
+   * @description Just swap volume 24h
+   * @example 176876552.974757
+   */
+  justSwapVolume24h: number;
+  /**
+   * @description Git hub
+   * @example ''
+   */
+  git_hub: string;
+  /**
+   * @description Total supply with decimals
+   * @example '61758981653053656'
+   */
+  total_supply_with_decimals: string;
+  /**
+   * @description Transfer 24h
+   * @example 2255587
+   */
+  transfer24h: number;
+  /**
+   * @description Social media list
+   */
+  social_media_list: TronScanSocialMediaListItem[];
+  /**
+   * @description Just swap volume 24h rate
+   * @example -0.0853
+   */
+  justSwapVolume24h_rate: number;
+  /**
+   * @description Volume 24h rate
+   * @example 0.3219
+   */
+  volume24h_rate: number;
+  /**
+   * @description Email
+   * @example ''
+   */
+  email: string;
+  /**
+   * @description Liquidity 24h rate
+   * @example 0.0972
+   */
+  liquidity24h_rate: number;
+  /**
+   * @description Total supply str
+   * @example ''
+   */
+  total_supply_str: string;
+  /**
+   * @description Symbol show
+   * @example true
+   */
+  symbolShow: boolean;
+  /**
+   * @description Contract name
+   * @example 'TetherToken'
+   */
+  contract_name: string;
+  /**
+   * @description Blue tag
+   * @example ''
+   */
+  blueTag: string;
+  /**
+   * @description Issue address
+   * @example 'THPvaUhoh2Qn2y9THCZML3H815hhFhn5YC'
+   */
+  issue_address: string;
+  /**
+   * @description Transfer num
+   * @example 2200400831
+   */
+  transfer_num: number;
+  /**
+   * @description Holders count
+   * @example 58295606
+   */
+  holders_count: number;
+  /**
+   * @description Token price line
+   */
+  tokenPriceLine: TronScanTokenPriceLine;
+  /**
+   * @description Decimals
+   * @example 6
+   */
+  decimals: number;
+  /**
+   * @description Issue time
+   * @example '2019-04-16 12:41:20'
+   */
+  issue_time: string;
+  /**
+   * @description White paper
+   * @example 'https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf'
+   */
+  white_paper: string;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTokensListOptions extends TronScanPaginationOptions {
@@ -292,4 +643,40 @@ export interface TronScanGetTokensListResponse {
    * @example 10000
    */
   valueAtLeast: number;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc20Trc721Trc1155TokensDetailsOptions extends TronScanPaginationOptions {
+  /**
+   * @description TRC20/TRC721/TRC1155 contract address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  contract: string;
+  /**
+   * @description Returned data type. 0: only whitelist. 1: all. 2: exclude blacklist
+   * @example '1'
+   */
+  showAll?: TronScanTokenShow;
+}
+
+export interface TronScanGetTrc20Trc721Trc1155TokensDetailsResponse {
+  /**
+   * @description Total
+   * @example 1
+   */
+  total: number;
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Range total
+   * @example 1
+   */
+  rangeTotal: number;
+  /**
+   * @description Tokens list
+   */
+  trc20_tokens: TronScanTrc20Trc721Trc1155TokensDetailsItem[];
 }
