@@ -1,12 +1,90 @@
 import { TronScanContractMap, TronScanPaginationOptions } from './tronscan';
 import { TronScanOrder, TronScanTokenFilter, TronScanTokenShow, TronScanTokenSort, TronScanTokenVerifier } from './params';
 
-export interface TronScanTokensListItem {
+interface TronScanTokenListItemCommon {
   /**
    * @description Token abbr
    * @example 'TRON'
    */
   abbr: string;
+  /**
+   * @description Number of token holders
+   * @example 161425301
+   */
+  nrOfTokenHolders: number;
+  /**
+   * @description Date created
+   * @example 1529891469
+   */
+  dateCreated: number;
+  /**
+   * @description Email
+   * @example 'info@fimarkcoin.com'
+   */
+  email?: string;
+  /**
+   * @description Github
+   * @example 'https://github.com/tronprotocol'
+   */
+  github: string;
+  /**
+   * @description Token level
+   * @example '2'
+   */
+  level: string;
+  /**
+   * @description Announcement
+   * @example ''
+   */
+  announcement?: string;
+  /**
+   * @description Blue tag
+   * @example ''
+   */
+  blueTag?: string;
+  /**
+   * @description Grey tag
+   * @example ''
+   */
+  greyTag?: string;
+  /**
+   * @description Red tag
+   * @example ''
+   */
+  redTag?: string;
+  /**
+   * @description Public tag
+   * @example ''
+   */
+  publicTag?: string;
+  /**
+   * @description Img url
+   * @example 'https://static.tronscan.org/production/logo/trx.png'
+   */
+  imgUrl: string;
+  /**
+   * @description Name
+   * @example 'TRX'
+   */
+  name: string;
+  /**
+   * @description Owner address
+   * @example '-'
+   */
+  ownerAddress: string;
+  /**
+   * @description Vip status
+   * @example true
+   */
+  vip: boolean;
+  /**
+   * @description Description
+   * @example 'Official Token of TRON Protocol'
+   */
+  description: string;
+}
+
+export interface TronScanTokensListItem extends TronScanTokenListItemCommon {
   /**
    * @description Can show
    * @example 1
@@ -18,65 +96,25 @@ export interface TronScanTokensListItem {
    */
   contractAddress: string;
   /**
-   * @description Date created
-   * @example 1529891469
-   */
-  dateCreated: number;
-  /**
    * @description Decimal
    * @example 6
    */
   decimal: number;
-  /**
-   * @description Description
-   * @example 'Official Token of TRON Protocol'
-   */
-  description: string;
   /**
    * @description Gain
    * @example -0.048
    */
   gain: number;
   /**
-   * @description Github
-   * @example 'https://github.com/tronprotocol'
-   */
-  github: string;
-  /**
-   * @description Img url
-   * @example 'https://static.tronscan.org/production/logo/trx.png'
-   */
-  imgUrl: string;
-  /**
    * @description Is top status
    * @example true
    */
   isTop: boolean;
   /**
-   * @description Token level
-   * @example '2'
-   */
-  level: string;
-  /**
    * @description Marketcap
    * @example 86229558988.263
    */
   marketcap: number;
-  /**
-   * @description Name
-   * @example 'TRX'
-   */
-  name: string;
-  /**
-   * @description Number of token holders
-   * @example 161425301
-   */
-  nrOfTokenHolders: number;
-  /**
-   * @description Owner address
-   * @example '-'
-   */
-  ownerAddress: string;
   /**
    * @description Pair url
    * @example 'https://sun.io/#/scan/tokenDetail?tokenAddress=T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb&version=v1'
@@ -128,11 +166,6 @@ export interface TronScanTokensListItem {
    */
   verifier: string;
   /**
-   * @description Vip status
-   * @example true
-   */
-  vip: number;
-  /**
    * @description Volume 24h in trx
    * @example 4807070424.53061
    */
@@ -143,55 +176,25 @@ export interface TronScanTokensListItem {
    */
   whitePaper: string;
   /**
-   * @description Announcement
-   * @example ''
-   */
-  announcement?: string;
-  /**
-   * @description Blue tag
-   * @example ''
-   */
-  blueTag?: string;
-  /**
    * @description Contract address lower
    * @example 'tf8ejxt89lmcunkv3fq55oed5v44v7tjo2'
    */
   contractAddressLower?: string;
-  /**
-   * @description Email
-   * @example 'info@fimarkcoin.com'
-   */
-  email?: string;
   /**
    * @description Extra
    * @example ''
    */
   extra?: string;
   /**
-   * @description Grey tag
-   * @example ''
-   */
-  greyTag?: string;
-  /**
    * @description Issue time
    * @example '2021-04-28 05:21:36'
    */
   issueTime?: string;
   /**
-   * @description Public tag
-   * @example ''
-   */
-  publicTag?: string;
-  /**
    * @description Recent transfer count
    * @example 329
    */
   recentTransferCount?: number;
-  /**
-   * @description Red tag
-   * @example ''
-   */
-  redTag?: string;
 }
 
 export interface TronScanTrc20Trc721Trc1155TokensPriceItem {
@@ -305,7 +308,39 @@ export interface TronScanSocialMediaListItem {
   url: string;
 }
 
-export interface TronScanTrc20Trc721Trc1155TokensDetailsItem {
+interface TronScanTokenDetailsCommon {
+  /**
+   * @description Total turn over
+   * @example '61758980927299097'
+   */
+  totalTurnOver: string;
+  /**
+   * @description From third party
+   * @example false
+   */
+  fromThirdParty: boolean;
+  /**
+   * @description White paper
+   * @example 'https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf'
+   */
+  white_paper: string;
+  /**
+   * @description Index
+   * @example 1
+   */
+  index: number;
+  /**
+   * @description Token price line
+   */
+  tokenPriceLine: TronScanTokenPriceLine;
+  /**
+   * @description Symbol show
+   * @example true
+   */
+  symbolShow: boolean;
+}
+
+export interface TronScanTrc20Trc721Trc1155TokensDetailsItem extends TronScanTokenDetailsCommon {
   /**
    * @description Icon url
    * @example 'https://static.tronscan.org/production/logo/usdtlogo.png'
@@ -352,11 +387,6 @@ export interface TronScanTrc20Trc721Trc1155TokensDetailsItem {
    */
   price_trx: number;
   /**
-   * @description From third party
-   * @example false
-   */
-  fromThirdParty: boolean;
-  /**
    * @description Price
    * @example ''
    */
@@ -376,11 +406,6 @@ export interface TronScanTrc20Trc721Trc1155TokensDetailsItem {
    * @example 203288634887.11
    */
   volume24h: number;
-  /**
-   * @description Index
-   * @example 1
-   */
-  index: number;
   /**
    * @description Transfer 24h rate
    * @example -0.0068
@@ -415,11 +440,6 @@ export interface TronScanTrc20Trc721Trc1155TokensDetailsItem {
    * @example ''
    */
   social_media: string;
-  /**
-   * @description Total turn over
-   * @example '61758980927299097'
-   */
-  totalTurnOver: string;
   /**
    * @description Grey tag
    * @example ''
@@ -495,11 +515,6 @@ export interface TronScanTrc20Trc721Trc1155TokensDetailsItem {
    */
   total_supply_str: string;
   /**
-   * @description Symbol show
-   * @example true
-   */
-  symbolShow: boolean;
-  /**
    * @description Contract name
    * @example 'TetherToken'
    */
@@ -525,10 +540,6 @@ export interface TronScanTrc20Trc721Trc1155TokensDetailsItem {
    */
   holders_count: number;
   /**
-   * @description Token price line
-   */
-  tokenPriceLine: TronScanTokenPriceLine;
-  /**
    * @description Decimals
    * @example 6
    */
@@ -538,11 +549,168 @@ export interface TronScanTrc20Trc721Trc1155TokensDetailsItem {
    * @example '2019-04-16 12:41:20'
    */
   issue_time: string;
+}
+
+export interface TronScanDetailsOfAllTrc10TokensItem extends TronScanTokenListItemCommon, TronScanTokenDetailsCommon {
   /**
-   * @description White paper
-   * @example 'https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf'
+   * @description Country
+   * @example 'Canada'
    */
-  white_paper: string;
+  country?: string;
+  /**
+   * @description Token id
+   * @example 1001761
+   */
+  tokenID?: number;
+  /**
+   * @description Participated
+   * @example 158520959000000
+   */
+  participated?: number;
+  /**
+   * @description Precision
+   * @example 0
+   */
+  precision?: number;
+  /**
+   * @description Num
+   * @example 1
+   */
+  num?: number;
+  /**
+   * @description Available
+   * @example 0
+   */
+  available?: number;
+  /**
+   * @description Reputation
+   * @example 'Ok'
+   */
+  reputation?: string;
+  /**
+   * @description Issued percentage
+   * @example 100
+   */
+  issuedPercentage?: number;
+  /**
+   * @description Vote score
+   * @example 0
+   */
+  voteScore?: number;
+  /**
+   * @description Price
+   * @example 5000000
+   */
+  price?: number;
+  /**
+   * @description Percentage
+   * @example 0
+   */
+  percentage?: number;
+  /**
+   * @description Start time
+   * @example 1545066000000
+   */
+  startTime?: number;
+  /**
+   * @description Id
+   * @example 1001761
+   */
+  id?: number;
+  /**
+   * @description Issued
+   * @example 2000000000
+   */
+  issued?: number;
+  /**
+   * @description Trx num
+   * @example 5000000
+   */
+  trxNum?: number;
+  /**
+   * @description Website
+   * @example 'https://trongameglobal.network/'
+   */
+  website?: string;
+  /**
+   * @description Available supply
+   * @example 0
+   */
+  availableSupply?: number;
+  /**
+   * @description Total supply
+   * @example '2000000000'
+   */
+  totalSupply?: string;
+  /**
+   * @description Third part url
+   * @example ''
+   */
+  thirdPartyUrl?: string;
+  /**
+   * @description Frozen total
+   * @example 0
+   */
+  frozenTotal?: number;
+  /**
+   * @description Frozen
+   * @example []
+   */
+  frozen?: any[];
+  /**
+   * @description Frozen supply
+   * @example []
+   */
+  frozen_supply?: any[];
+  /**
+   * @description Can show
+   * @example '1'
+   */
+  canShow?: string;
+  /**
+   * @description Remaining
+   * @example 0
+   */
+  remaining?: number;
+  /**
+   * @description Url
+   * @example 'https://trongameglobal.network/'
+   */
+  url?: string;
+  /**
+   * @description Frozen percentage
+   * @example 0
+   */
+  frozenPercentage?: number;
+  /**
+   * @description Is black
+   * @example false
+   */
+  isBlack?: boolean;
+  /**
+   * @description New social media
+   * @example ''
+   */
+  new_social_media?: string;
+  /**
+   * @description Remaining percentage
+   * @example 0
+   */
+  remainingPercentage?: number;
+  /**
+   * @description End time
+   * @example 1559235600000
+   */
+  endTime?: number;
+  /**
+   * @description Social media
+   */
+  social_media?: TronScanSocialMediaListItem[];
+  /**
+   * @description Rank order
+   * @example 1000000
+   */
+  rank_order?: number;
 }
 
 // ----------------------------------------------------------------------------------------------------
@@ -679,4 +847,60 @@ export interface TronScanGetTrc20Trc721Trc1155TokensDetailsResponse {
    * @description Tokens list
    */
   trc20_tokens: TronScanTrc20Trc721Trc1155TokensDetailsItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetDetailsOfAllTrc10TokensOptions extends TronScanPaginationOptions {
+  /**
+   * @description TRC10 issuer address
+   */
+  owner?: string;
+  /**
+   * @description TRC10 token ID. If id is set to 0, the token is TRX
+   */
+  id?: number;
+  /**
+   * @description The ID of the returned token must be greater than this parameter value
+   */
+  id_gt?: number;
+  /**
+   * @description Returned data type. 0: only whitelist. 1: all. 2: exclude blacklist
+   */
+  showAll?: TronScanTokenShow;
+  /**
+   * @description Field names to be returned, separated by commas.
+   * If left blank, all fields will be returned
+   */
+  fields?: string;
+  /**
+   * @description When totalAll=1, the totalAll in the return value is the total number of all tokens.
+   * Otherwise, it is the number of filtered tokens
+   */
+  totalAll?: number;
+  /**
+   * @description TRC10 token name
+   */
+  name?: string;
+}
+
+export interface TronScanGetDetailsOfAllTrc10TokensResponse {
+  /**
+   * @description Total
+   * @example 3475
+   */
+  total: number;
+  /**
+   * @description Data list
+   */
+  data: TronScanDetailsOfAllTrc10TokensItem[];
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Total all
+   * @example 3475
+   */
+  totalAll: number;
 }

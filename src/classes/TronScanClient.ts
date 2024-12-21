@@ -2,6 +2,8 @@ import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
 import {
+  TronScanGetDetailsOfAllTrc10TokensOptions,
+  TronScanGetDetailsOfAllTrc10TokensResponse,
   TronScanGetTokensListOptions,
   TronScanGetTokensListResponse,
   TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
@@ -661,6 +663,8 @@ export class TronScanClient {
 
   /**
    * Get token list
+   *
+   * **Note** : The maximum value for limit is **500**
    * @param params TronScanGetTokensListOptions
    * @returns Returns the token info
    */
@@ -678,6 +682,18 @@ export class TronScanClient {
     params: TronScanGetTrc20Trc721Trc1155TokensDetailsOptions
   ): Promise<TronScanGetTrc20Trc721Trc1155TokensDetailsResponse> {
     const response = await this.transport.get<TronScanGetTrc20Trc721Trc1155TokensDetailsResponse>('token_trc20', params);
+    return response.data;
+  }
+
+  /**
+   * Get details of all TRC10 tokens or specified TRC10 tokens
+   * @param params TronScanGetDetailsOfAllTrc10TokensOptions
+   * @returns Returns the detail information of TRC10 tokens
+   */
+  public async getDetailsOfAllTrc10Tokens(
+    params: TronScanGetDetailsOfAllTrc10TokensOptions = {}
+  ): Promise<TronScanGetDetailsOfAllTrc10TokensResponse> {
+    const response = await this.transport.get<TronScanGetDetailsOfAllTrc10TokensResponse>('token', params);
     return response.data;
   }
 

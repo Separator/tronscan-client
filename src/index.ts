@@ -4,10 +4,12 @@ import {
   // Options:
   TronScanGetTokensListOptions,
   TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
+  TronScanGetDetailsOfAllTrc10TokensOptions,
 
   // Responses:
   TronScanGetTokensListResponse,
-  TronScanGetTrc20Trc721Trc1155TokensDetailsResponse
+  TronScanGetTrc20Trc721Trc1155TokensDetailsResponse,
+  TronScanGetDetailsOfAllTrc10TokensResponse
 } from './types/token';
 
 import {
@@ -235,6 +237,7 @@ export {
   TronScanGetEligibleExchangeTypeTransactionsOptions,
   TronScanGetTokensListOptions,
   TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
+  TronScanGetDetailsOfAllTrc10TokensOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -288,6 +291,7 @@ export {
   TronScanGetEligibleExchangeTypeTransactionsResponse,
   TronScanGetTokensListResponse,
   TronScanGetTrc20Trc721Trc1155TokensDetailsResponse,
+  TronScanGetDetailsOfAllTrc10TokensResponse,
 
   // Client
   TronScanClient,

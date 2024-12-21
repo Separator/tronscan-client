@@ -31,4 +31,13 @@ describe('Tokens', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get details of all TRC10 tokens or specified TRC10 tokens',
+    async () => {
+      const response = await tronScanClient.getDetailsOfAllTrc10Tokens();
+      expect(response.total).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });
