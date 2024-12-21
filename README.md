@@ -250,10 +250,15 @@ const TOKEN_ADDRESS = 'token_address';
 const tokensList = await tronScanClient.getTokensList();
 console.log(tokensList);
 
+// Get details of all TRC20/TRC721/TRC1155 tokens or specified TRC20/TRC721/TRC1155 tokens:
 const tokensDetails = await tronScanClient.getTrc20Trc721Trc1155TokensDetails({
   contract: TOKEN_ADDRESS
 });
 console.log(tokensDetails);
+
+// Get details of all TRC10 tokens or specified TRC10 tokens:
+const allTrc10TokensDetails = await tronScanClient.getDetailsOfAllTrc10Tokens();
+console.log(allTrc10TokensDetails);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
