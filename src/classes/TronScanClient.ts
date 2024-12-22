@@ -6,6 +6,8 @@ import {
   TronScanGetDetailsOfAllTrc10TokensResponse,
   TronScanGetTokensListOptions,
   TronScanGetTokensListResponse,
+  TronScanGetTrc10TokenHoldersOptions,
+  TronScanGetTrc10TokenHoldersResponse,
   TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
   TronScanGetTrc20Trc721Trc1155TokensDetailsResponse
 } from '../types/token';
@@ -694,6 +696,18 @@ export class TronScanClient {
     params: TronScanGetDetailsOfAllTrc10TokensOptions = {}
   ): Promise<TronScanGetDetailsOfAllTrc10TokensResponse> {
     const response = await this.transport.get<TronScanGetDetailsOfAllTrc10TokensResponse>('token', params);
+    return response.data;
+  }
+
+  /**
+   * Get the holder of a TRC10 token
+   *
+   * **Note** : The value sum of **start** and **limit** must be less than or equal to **10000**.
+   * @param params TronScanGetTrc10TokenHoldersOptions
+   * @returns Returns the holder information of TRC10 tokens.
+   */
+  public async getTrc10TokenHolders(params: TronScanGetTrc10TokenHoldersOptions): Promise<TronScanGetTrc10TokenHoldersResponse> {
+    const response = await this.transport.get<TronScanGetTrc10TokenHoldersResponse>('tokenholders', params);
     return response.data;
   }
 
