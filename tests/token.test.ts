@@ -42,6 +42,17 @@ describe('Tokens', () => {
   );
 
   test(
+    'Get the holder of a TRC20/TRC721/TRC1155 token',
+    async () => {
+      const response = await tronScanClient.getTrc20Trc721Trc1155TokenHolders({
+        contract_address: TOKEN_ADDRESS!
+      });
+      expect(response.total).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
+
+  test(
     'Get the holder of a TRC10 token',
     async () => {
       const response = await tronScanClient.getTrc10TokenHolders({

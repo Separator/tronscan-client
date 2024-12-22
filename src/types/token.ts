@@ -713,47 +713,22 @@ export interface TronScanDetailsOfAllTrc10TokensItem extends TronScanTokenListIt
   rank_order?: number;
 }
 
-export interface TronScanGetTrc10TokenHoldersItem {
-  /**
-   * @description Address
-   * @example 'T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb'
-   */
-  address: string;
-  /**
-   * @description Name
-   * @example 'BitTorrent'
-   */
-  name: string;
-  /**
-   * @description Balance
-   * @example '704748260701066539'
-   */
-  balance: string;
-  /**
-   * @description Update time
-   * @example 1734786399000
-   */
-  updateTime: number;
-  /**
-   * @description Index
-   * @example 1
-   */
-  index: number;
+interface TronScanTokenHoldersItemCommon {
   /**
    * @description Sr tag
    * @example false
    */
   srTag: boolean;
   /**
-   * @description Foundation tag
-   * @example false
-   */
-  foundationTag: boolean;
-  /**
    * @description Sr name
    * @example ''
    */
   srName: string;
+  /**
+   * @description Balance
+   * @example '704748260701066539'
+   */
+  balance: string;
   /**
    * @description Address tag
    * @example 'Black Hole Address(0)'
@@ -765,10 +740,79 @@ export interface TronScanGetTrc10TokenHoldersItem {
    */
   addressTagLogo: string;
   /**
+   * @description Foundation tag
+   * @example false
+   */
+  foundationTag: boolean;
+  /**
    * @description Analysis show
    * @example false
    */
   analysisShow: boolean;
+  /**
+   * @description Update time
+   * @example 1734786399000
+   */
+  updateTime: number;
+}
+
+export interface TronScanTrc10TokenHoldersItem extends TronScanTokenHoldersItemCommon {
+  /**
+   * @description Address
+   * @example 'T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb'
+   */
+  address: string;
+  /**
+   * @description Name
+   * @example 'BitTorrent'
+   */
+  name: string;
+  /**
+   * @description Index
+   * @example 1
+   */
+  index: number;
+}
+
+export interface TronScanTrc20Trc721Trc1155TokenHoldersItem extends TronScanTokenHoldersItemCommon {
+  /**
+   * @description Update block
+   * @example 68019560
+   */
+  updateBlock: number;
+  /**
+   * @description Public tag desc
+   * @example ''
+   */
+  publicTagDesc: string;
+  /**
+   * @description Holder address
+   * @example 'TKHuVq1oKVruCGLvqVexFs6dawKv6fQgFs'
+   */
+  holder_address: string;
+}
+
+interface TronScanTokenHoldersCommon {
+  /**
+   * @description Contract info
+   */
+  contractInfo?: {
+    [key: string]: TronScanContractInfo;
+  };
+  /**
+   * @description Range total
+   * @example 16326084
+   */
+  rangeTotal?: number;
+  /**
+   * @description Total
+   * @example 10000
+   */
+  total?: number;
+  /**
+   * @description Contract map
+   */
+  contractMap?: TronScanContractMap;
 }
 
 // ----------------------------------------------------------------------------------------------------
@@ -965,6 +1009,27 @@ export interface TronScanGetDetailsOfAllTrc10TokensResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
+export interface TronScanGetTrc20Trc721Trc1155TokenHoldersOptions extends TronScanPaginationOptions {
+  /**
+   * @description TRC20/TRC721/TRC1155 contract address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  contract_address: string;
+  /**
+   * @description Token holder address
+   */
+  holder_address?: string;
+}
+
+export interface TronScanGetTrc20Trc721Trc1155TokenHoldersResponse extends TronScanTokenHoldersCommon {
+  /**
+   * @description Data list
+   */
+  trc20_tokens: TronScanTrc20Trc721Trc1155TokenHoldersItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
 export interface TronScanGetTrc10TokenHoldersOptions extends TronScanPaginationOptions {
   /**
    * @description Sort fields, only supports sorting by block number.
@@ -982,29 +1047,9 @@ export interface TronScanGetTrc10TokenHoldersOptions extends TronScanPaginationO
   holder_address?: string;
 }
 
-export interface TronScanGetTrc10TokenHoldersResponse {
-  /**
-   * @description Total
-   * @example 10000
-   */
-  total?: number;
-  /**
-   * @description Range total
-   * @example 16326084
-   */
-  rangeTotal?: number;
+export interface TronScanGetTrc10TokenHoldersResponse extends TronScanTokenHoldersCommon {
   /**
    * @description Data list
    */
-  data?: TronScanGetTrc10TokenHoldersItem[];
-  /**
-   * @description Contract map
-   */
-  contractMap?: TronScanContractMap;
-  /**
-   * @description Contract info
-   */
-  contractInfo?: {
-    [key: string]: TronScanContractInfo;
-  };
+  data?: TronScanTrc10TokenHoldersItem[];
 }
