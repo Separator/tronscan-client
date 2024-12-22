@@ -1,4 +1,4 @@
-import { TronScanContractMap, TronScanPaginationOptions } from './tronscan';
+import { TronScanContractInfo, TronScanContractMap, TronScanPaginationOptions } from './tronscan';
 import { TronScanOrder, TronScanTokenFilter, TronScanTokenShow, TronScanTokenSort, TronScanTokenVerifier } from './params';
 
 interface TronScanTokenListItemCommon {
@@ -713,6 +713,64 @@ export interface TronScanDetailsOfAllTrc10TokensItem extends TronScanTokenListIt
   rank_order?: number;
 }
 
+export interface TronScanGetTrc10TokenHoldersItem {
+  /**
+   * @description Address
+   * @example 'T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb'
+   */
+  address: string;
+  /**
+   * @description Name
+   * @example 'BitTorrent'
+   */
+  name: string;
+  /**
+   * @description Balance
+   * @example '704748260701066539'
+   */
+  balance: string;
+  /**
+   * @description Update time
+   * @example 1734786399000
+   */
+  updateTime: number;
+  /**
+   * @description Index
+   * @example 1
+   */
+  index: number;
+  /**
+   * @description Sr tag
+   * @example false
+   */
+  srTag: boolean;
+  /**
+   * @description Foundation tag
+   * @example false
+   */
+  foundationTag: boolean;
+  /**
+   * @description Sr name
+   * @example ''
+   */
+  srName: string;
+  /**
+   * @description Address tag
+   * @example 'Black Hole Address(0)'
+   */
+  addressTag: string;
+  /**
+   * @description Address tag logo
+   * @example ''
+   */
+  addressTagLogo: string;
+  /**
+   * @description Analysis show
+   * @example false
+   */
+  analysisShow: boolean;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTokensListOptions extends TronScanPaginationOptions {
@@ -903,4 +961,50 @@ export interface TronScanGetDetailsOfAllTrc10TokensResponse {
    * @example 3475
    */
   totalAll: number;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc10TokenHoldersOptions extends TronScanPaginationOptions {
+  /**
+   * @description Sort fields, only supports sorting by block number.
+   * The descending order is adopted with a hyphen (-). Default: '-number'
+   */
+  sort?: string;
+  /**
+   * @description TRC10 issuer address
+   * @example 'TF5Bn4cJCT6GVeUgyCN4rBhDg42KBrpAjg'
+   */
+  address: string;
+  /**
+   * @description TRC10 holder address
+   */
+  holder_address?: string;
+}
+
+export interface TronScanGetTrc10TokenHoldersResponse {
+  /**
+   * @description Total
+   * @example 10000
+   */
+  total?: number;
+  /**
+   * @description Range total
+   * @example 16326084
+   */
+  rangeTotal?: number;
+  /**
+   * @description Data list
+   */
+  data?: TronScanGetTrc10TokenHoldersItem[];
+  /**
+   * @description Contract map
+   */
+  contractMap?: TronScanContractMap;
+  /**
+   * @description Contract info
+   */
+  contractInfo?: {
+    [key: string]: TronScanContractInfo;
+  };
 }

@@ -245,6 +245,7 @@ console.log(statInfo);
 
 ```javascript
 const TOKEN_ADDRESS = 'token_address';
+const ISSUER_ADDRESS = 'issuer_address';
 
 // Get token list:
 const tokensList = await tronScanClient.getTokensList();
@@ -259,6 +260,12 @@ console.log(tokensDetails);
 // Get details of all TRC10 tokens or specified TRC10 tokens:
 const allTrc10TokensDetails = await tronScanClient.getDetailsOfAllTrc10Tokens();
 console.log(allTrc10TokensDetails);
+
+// Get the holder of a TRC10 token:
+const trc10TokenHolders = await tronScanClient.getTrc10TokenHolders({
+  address: ISSUER_ADDRESS
+});
+console.log(trc10TokenHolders);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
