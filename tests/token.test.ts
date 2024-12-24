@@ -62,4 +62,15 @@ describe('Tokens', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the distribution of token amounts held by holders',
+    async () => {
+      const response = await tronScanClient.getTokenAmountDistributionByHolders({
+        tokenId: TOKEN_ADDRESS
+      });
+      expect(response.expire).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });
