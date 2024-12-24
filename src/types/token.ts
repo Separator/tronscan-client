@@ -1053,3 +1053,41 @@ export interface TronScanGetTrc10TokenHoldersResponse extends TronScanTokenHolde
    */
   data?: TronScanTrc10TokenHoldersItem[];
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTokenAmountDistributionByHoldersOptions {
+  /**
+   * @description Token address or token ID
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  tokenId?: string;
+}
+
+export interface TronScanGetTokenAmountDistributionByHoldersResponse {
+  /**
+   * @description Expire
+   * @example 1735029150553
+   */
+  expire: number;
+  /**
+   * @description Rank 1-10
+   * @example '6452597329564984'
+   */
+  'rank1-10': string;
+  /**
+   * @description Rank 11-50
+   * @example '3733956271854990'
+   */
+  'rank11-50': string;
+  /**
+   * @description Rank 51-100
+   * @example '1766021506615976'
+   */
+  'rank51-100': string;
+  /**
+   * @description Rank 101-500
+   * @example '5095260905257557'
+   */
+  'rank101-500': string;
+}

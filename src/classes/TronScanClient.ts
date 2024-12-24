@@ -4,6 +4,8 @@ import { AxiosTransport, Transport } from './Transport';
 import {
   TronScanGetDetailsOfAllTrc10TokensOptions,
   TronScanGetDetailsOfAllTrc10TokensResponse,
+  TronScanGetTokenAmountDistributionByHoldersOptions,
+  TronScanGetTokenAmountDistributionByHoldersResponse,
   TronScanGetTokensListOptions,
   TronScanGetTokensListResponse,
   TronScanGetTrc10TokenHoldersOptions,
@@ -724,6 +726,21 @@ export class TronScanClient {
    */
   public async getTrc10TokenHolders(params: TronScanGetTrc10TokenHoldersOptions): Promise<TronScanGetTrc10TokenHoldersResponse> {
     const response = await this.transport.get<TronScanGetTrc10TokenHoldersResponse>('tokenholders', params);
+    return response.data;
+  }
+
+  /**
+   * Get the distribution of token amounts held by holders
+   * @param params TronScanGetTokenAmountDistributionByHoldersOptions
+   * @returns Returns the distribution of token holdings among token holders
+   */
+  public async getTokenAmountDistributionByHolders(
+    params: TronScanGetTokenAmountDistributionByHoldersOptions = {}
+  ): Promise<TronScanGetTokenAmountDistributionByHoldersResponse> {
+    const response = await this.transport.get<TronScanGetTokenAmountDistributionByHoldersResponse>(
+      'tokens/position-distribution',
+      params
+    );
     return response.data;
   }
 

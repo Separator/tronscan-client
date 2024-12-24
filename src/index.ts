@@ -7,13 +7,15 @@ import {
   TronScanGetDetailsOfAllTrc10TokensOptions,
   TronScanGetTrc10TokenHoldersOptions,
   TronScanGetTrc20Trc721Trc1155TokenHoldersOptions,
+  TronScanGetTokenAmountDistributionByHoldersOptions,
 
   // Responses:
   TronScanGetTokensListResponse,
   TronScanGetTrc20Trc721Trc1155TokensDetailsResponse,
   TronScanGetDetailsOfAllTrc10TokensResponse,
   TronScanGetTrc10TokenHoldersResponse,
-  TronScanGetTrc20Trc721Trc1155TokenHoldersResponse
+  TronScanGetTrc20Trc721Trc1155TokenHoldersResponse,
+  TronScanGetTokenAmountDistributionByHoldersResponse
 } from './types/token';
 
 import {
@@ -244,6 +246,7 @@ export {
   TronScanGetDetailsOfAllTrc10TokensOptions,
   TronScanGetTrc10TokenHoldersOptions,
   TronScanGetTrc20Trc721Trc1155TokenHoldersOptions,
+  TronScanGetTokenAmountDistributionByHoldersOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -300,6 +303,7 @@ export {
   TronScanGetDetailsOfAllTrc10TokensResponse,
   TronScanGetTrc10TokenHoldersResponse,
   TronScanGetTrc20Trc721Trc1155TokenHoldersResponse,
+  TronScanGetTokenAmountDistributionByHoldersResponse,
 
   // Client
   TronScanClient,

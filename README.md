@@ -272,6 +272,12 @@ const trc10TokenHolders = await tronScanClient.getTrc10TokenHolders({
   address: ISSUER_ADDRESS
 });
 console.log(trc10TokenHolders);
+
+// Get the distribution of token amounts held by holders:
+const tokenAmountDistribution = await tronScanClient.getTokenAmountDistributionByHolders({
+  tokenId: TOKEN_ADDRESS
+});
+console.log(tokenAmountDistribution);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
