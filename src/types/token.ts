@@ -1091,3 +1091,71 @@ export interface TronScanGetTokenAmountDistributionByHoldersResponse {
    */
   'rank101-500': string;
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetSpecificTokenPriceInfoOptions {
+  /**
+   * @description Token abbreviation, default is "trx"
+   * @example 'trx'
+   */
+  token?: string;
+}
+
+export interface TronScanGetSpecificTokenPriceInfoResponse {
+  /**
+   * @description Price in trx
+   * @example '1.000000000000000000'
+   */
+  price_in_trx: string;
+  /**
+   * @description Percent change 24h
+   * @example '1.9561606'
+   */
+  percent_change_24h: string;
+  /**
+   * @description Market cap
+   * @example '22343180297.54'
+   */
+  market_cap: string;
+  /**
+   * @description Volume percent change 24h
+   * @example '27.9997'
+   */
+  volume_percent_change_24h: string;
+  /**
+   * @description Price in usd
+   * @example '0.25918176404830845'
+   */
+  price_in_usd: string;
+  /**
+   * @description Volume 24h
+   * @example '961634947.7336742'
+   */
+  volume_24h: string;
+  /**
+   * @description Market cap percent change 24h
+   * @example '1.9534'
+   */
+  market_cap_percent_change_24h: string;
+  /**
+   * @description Rank
+   * @example 10
+   */
+  rank: number;
+  /**
+   * @description From
+   * @example 'coinmarketcap'
+   */
+  from: string;
+  /**
+   * @description Time
+   * @example 1735277119037
+   */
+  time: number;
+  /**
+   * @description Token
+   * @example 'trx'
+   */
+  token: string;
+}

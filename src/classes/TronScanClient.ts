@@ -4,6 +4,8 @@ import { AxiosTransport, Transport } from './Transport';
 import {
   TronScanGetDetailsOfAllTrc10TokensOptions,
   TronScanGetDetailsOfAllTrc10TokensResponse,
+  TronScanGetSpecificTokenPriceInfoOptions,
+  TronScanGetSpecificTokenPriceInfoResponse,
   TronScanGetTokenAmountDistributionByHoldersOptions,
   TronScanGetTokenAmountDistributionByHoldersResponse,
   TronScanGetTokensListOptions,
@@ -704,7 +706,7 @@ export class TronScanClient {
   }
 
   /**
-   * Get the holder of a TRC20/TRC721/TRC1155 token
+   * Get the holder of a TRC20/TRC721/TRC1155 token.
    *
    * **Note** : The value sum of **start** and **limit** must be less than or equal to **10000**.
    * @param params TronScanGetTrc20Trc721Trc1155TokenHoldersOptions
@@ -718,7 +720,7 @@ export class TronScanClient {
   }
 
   /**
-   * Get the holder of a TRC10 token
+   * Get the holder of a TRC10 token.
    *
    * **Note** : The value sum of **start** and **limit** must be less than or equal to **10000**.
    * @param params TronScanGetTrc10TokenHoldersOptions
@@ -741,6 +743,20 @@ export class TronScanClient {
       'tokens/position-distribution',
       params
     );
+    return response.data;
+  }
+
+  /**
+   * Get the price information of a specific token.
+   *
+   * **Note** : Only some tokens have price information.
+   * @param params TronScanGetSpecificTokenPriceInfoOptions
+   * @returns Returns token price information
+   */
+  public async getSpecificTokenPriceInfo(
+    params: TronScanGetSpecificTokenPriceInfoOptions = {}
+  ): Promise<TronScanGetSpecificTokenPriceInfoResponse> {
+    const response = await this.transport.get<TronScanGetSpecificTokenPriceInfoResponse>('token/price', params);
     return response.data;
   }
 
