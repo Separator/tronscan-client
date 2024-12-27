@@ -278,6 +278,10 @@ const tokenAmountDistribution = await tronScanClient.getTokenAmountDistributionB
   tokenId: TOKEN_ADDRESS
 });
 console.log(tokenAmountDistribution);
+
+// Get the price information of a specific token:
+const tokenPriceInfo = await tronScanClient.getSpecificTokenPriceInfo();
+console.log(tokenPriceInfo);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)

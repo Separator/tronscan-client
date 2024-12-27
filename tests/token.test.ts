@@ -73,4 +73,13 @@ describe('Tokens', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the price information of a specific token',
+    async () => {
+      const response = await tronScanClient.getSpecificTokenPriceInfo();
+      expect(response.token).toBe('trx');
+    },
+    TEST_TIMEOUT
+  );
 });
