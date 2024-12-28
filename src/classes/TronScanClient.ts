@@ -4,6 +4,7 @@ import { AxiosTransport, Transport } from './Transport';
 import {
   TronScanGetDetailsOfAllTrc10TokensOptions,
   TronScanGetDetailsOfAllTrc10TokensResponse,
+  TronScanGetPricedTokensListResponse,
   TronScanGetSpecificTokenPriceInfoOptions,
   TronScanGetSpecificTokenPriceInfoResponse,
   TronScanGetTokenAmountDistributionByHoldersOptions,
@@ -757,6 +758,15 @@ export class TronScanClient {
     params: TronScanGetSpecificTokenPriceInfoOptions = {}
   ): Promise<TronScanGetSpecificTokenPriceInfoResponse> {
     const response = await this.transport.get<TronScanGetSpecificTokenPriceInfoResponse>('token/price', params);
+    return response.data;
+  }
+
+  /**
+   * Get a list of priced tokens
+   * @returns Returns the list of tokens that have price
+   */
+  public async getPricedTokensList(): Promise<TronScanGetPricedTokensListResponse> {
+    const response = await this.transport.get<TronScanGetPricedTokensListResponse>('getAssetWithPriceList', {});
     return response.data;
   }
 

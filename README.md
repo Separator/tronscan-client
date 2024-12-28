@@ -282,6 +282,10 @@ console.log(tokenAmountDistribution);
 // Get the price information of a specific token:
 const tokenPriceInfo = await tronScanClient.getSpecificTokenPriceInfo();
 console.log(tokenPriceInfo);
+
+// Get a list of priced tokens:
+const pricedTokensList = await tronScanClient.getPricedTokensList();
+console.log(pricedTokensList);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
