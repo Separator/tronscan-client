@@ -17,7 +17,8 @@ import {
   TronScanGetTrc10TokenHoldersResponse,
   TronScanGetTrc20Trc721Trc1155TokenHoldersResponse,
   TronScanGetTokenAmountDistributionByHoldersResponse,
-  TronScanGetSpecificTokenPriceInfoResponse
+  TronScanGetSpecificTokenPriceInfoResponse,
+  TronScanGetPricedTokensListResponse
 } from './types/token';
 
 import {
@@ -308,6 +309,7 @@ export {
   TronScanGetTrc20Trc721Trc1155TokenHoldersResponse,
   TronScanGetTokenAmountDistributionByHoldersResponse,
   TronScanGetSpecificTokenPriceInfoResponse,
+  TronScanGetPricedTokensListResponse,
 
   // Client
   TronScanClient,

@@ -82,4 +82,13 @@ describe('Tokens', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get a list of priced tokens',
+    async () => {
+      const response = await tronScanClient.getPricedTokensList();
+      expect(response.data.length).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });

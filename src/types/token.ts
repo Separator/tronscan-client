@@ -815,6 +815,44 @@ interface TronScanTokenHoldersCommon {
   contractMap?: TronScanContractMap;
 }
 
+export interface TronScanPricedTokensListItem {
+  /**
+   * @description Token name
+   * @example 'Sunny'
+   */
+  name: string;
+  /**
+   * @description Price in USD
+   * @example 0.00114235015383056
+   */
+  priceInUsd: number;
+  /**
+   * @description Token logo
+   * @example ''
+   */
+  logo: string;
+  /**
+   * @description Token id
+   * @example 'TVzEnWubbk9K4Zvdv5wBkS6UgbJUv35gmz'
+   */
+  id: string;
+  /**
+   * @description Token abbr
+   * @example '🌞'
+   */
+  abbr: string;
+  /**
+   * @description Token type
+   * @example 'trc20'
+   */
+  type: string;
+  /**
+   * @description Token VIP status
+   * @example false
+   */
+  vip: boolean;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTokensListOptions extends TronScanPaginationOptions {
@@ -1158,4 +1196,18 @@ export interface TronScanGetSpecificTokenPriceInfoResponse {
    * @example 'trx'
    */
   token: string;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetPricedTokensListResponse {
+  /**
+   * @description Priced tokens list
+   */
+  data: TronScanPricedTokensListItem[];
+  /**
+   * @description Number
+   * @example 475
+   */
+  number: number;
 }
