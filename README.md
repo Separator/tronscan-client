@@ -244,6 +244,7 @@ console.log(statInfo);
 ## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
 
 ```javascript
+const TOKEN_ID = 'token_id';
 const TOKEN_ADDRESS = 'token_address';
 const ISSUER_ADDRESS = 'issuer_address';
 
@@ -286,6 +287,13 @@ console.log(tokenPriceInfo);
 // Get a list of priced tokens:
 const pricedTokensList = await tronScanClient.getPricedTokensList();
 console.log(pricedTokensList);
+
+// Get the transfer list of one TRC721 tokenId:
+const trc721TransfersList = await tronScanClient.getTransfersListOfOneTrc721TokenId({
+  contract: TOKEN_ADDRESS,
+  tokenId: TOKEN_ID
+});
+console.log(trc721TransfersList);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)

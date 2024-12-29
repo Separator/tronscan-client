@@ -1,5 +1,6 @@
 import { TronScanContractInfo, TronScanContractMap, TronScanPaginationOptions } from './tronscan';
 import { TronScanOrder, TronScanTokenFilter, TronScanTokenShow, TronScanTokenSort, TronScanTokenVerifier } from './params';
+import { TronScanTokenInfo } from './token-info';
 
 interface TronScanTokenListItemCommon {
   /**
@@ -853,6 +854,96 @@ export interface TronScanPricedTokensListItem {
   vip: boolean;
 }
 
+export interface TronScanTokenIdInfo {
+  /**
+   * @description Token id name
+   * @example '965650'
+   */
+  tokenIdName: string;
+  /**
+   * @description Token id image
+   * @example 'https://static.tronscan.org/production/upload/logo/00/0078186f4893cb0b57c5799da8bec800.png'
+   */
+  tokenIdImage: string;
+}
+
+export interface TronScanTransfersListOfOneTrc721TokenItem {
+  /**
+   * @description Contract ret
+   * @example 'SUCCESS'
+   */
+  contractRet: string;
+  /**
+   * @description Confirmation status
+   * @example true
+   */
+  confirmed: boolean;
+  /**
+   * @description Token id
+   * @example '965650'
+   */
+  token_id: string;
+  /**
+   * @description Event type
+   * @example 'Transfer'
+   */
+  event_type: string;
+  /**
+   * @description Block number
+   * @example 46556208
+   */
+  block: number;
+  /**
+   * @description Token info
+   */
+  tokenInfo: TronScanTokenInfo;
+  /**
+   * @description Tx id
+   * @example '6e857404b7b3b8fed973442e0e2f58c3179e04893deb7a341873fa4160d5e27f'
+   */
+  transaction_id: string;
+  /**
+   * @description Block ts
+   * @example 1670256540000
+   */
+  block_ts: number;
+  /**
+   * @description From address
+   * @example 'T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb'
+   */
+  from_address: string;
+  /**
+   * @description To address
+   * @example 'TNLjmMrKwAxPXabtgdLGdF1DG17kQKHZg2'
+   */
+  to_address: string;
+  /**
+   * @description Contract address
+   * @example 'THjYwnDDN6aYxrzKb88CSMTEYjBuHpoYxS'
+   */
+  contract_address: string;
+  /**
+   * @description Final result
+   * @example 'SUCCESS'
+   */
+  finalResult: string;
+  /**
+   * @description Revert status
+   * @example false
+   */
+  revert: boolean;
+  /**
+   * @description From address tag
+   * @example 'Black Hole Address(0)'
+   */
+  from_address_tag: string;
+  /**
+   * @description To address tag
+   * @example ''
+   */
+  to_address_tag: string;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTokensListOptions extends TronScanPaginationOptions {
@@ -1210,4 +1301,50 @@ export interface TronScanGetPricedTokensListResponse {
    * @example 475
    */
   number: number;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTransfersListOfOneTrc721TokenIdOptions extends TronScanPaginationOptions {
+  /**
+   * @description TRC721 contract address
+   * @example 'THjYwnDDN6aYxrzKb88CSMTEYjBuHpoYxS'
+   */
+  contract: string;
+  /**
+   * @description The ID of a TRC721 token
+   * @example 965650
+   */
+  tokenId: number;
+}
+
+export interface TronScanGetTransfersListOfOneTrc721TokenIdResponse {
+  /**
+   * @description Token id info
+   */
+  token_id_info: TronScanTokenIdInfo;
+  /**
+   * @description Total
+   * @example 1
+   */
+  total: number;
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Range total
+   * @example 1
+   */
+  rangeTotal: number;
+  /**
+   * @description Contract info
+   */
+  contractInfo: {
+    [key: string]: TronScanContractInfo;
+  };
+  /**
+   * @description Token transfers list
+   */
+  token_transfers: TronScanTransfersListOfOneTrc721TokenItem[];
 }

@@ -11,6 +11,8 @@ import {
   TronScanGetTokenAmountDistributionByHoldersResponse,
   TronScanGetTokensListOptions,
   TronScanGetTokensListResponse,
+  TronScanGetTransfersListOfOneTrc721TokenIdOptions,
+  TronScanGetTransfersListOfOneTrc721TokenIdResponse,
   TronScanGetTrc10TokenHoldersOptions,
   TronScanGetTrc10TokenHoldersResponse,
   TronScanGetTrc20Trc721Trc1155TokenHoldersOptions,
@@ -767,6 +769,20 @@ export class TronScanClient {
    */
   public async getPricedTokensList(): Promise<TronScanGetPricedTokensListResponse> {
     const response = await this.transport.get<TronScanGetPricedTokensListResponse>('getAssetWithPriceList', {});
+    return response.data;
+  }
+
+  /**
+   * Get the transfer list of one TRC721 tokenId.
+   *
+   * **Note** : The value sum of **start** and **limit** must be less than or equal to **10000**.
+   * @param params TronScanGetTransfersListOfOneTrc721TokenIdOptions
+   * @returns Returns the transfer list of a specific TRC721 token
+   */
+  public async getTransfersListOfOneTrc721TokenId(
+    params: TronScanGetTransfersListOfOneTrc721TokenIdOptions
+  ): Promise<TronScanGetTransfersListOfOneTrc721TokenIdResponse> {
+    const response = await this.transport.get<TronScanGetTransfersListOfOneTrc721TokenIdResponse>('trc721/transfers', params);
     return response.data;
   }
 
