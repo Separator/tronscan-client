@@ -10,6 +10,7 @@ import {
   TronScanGetTokenAmountDistributionByHoldersOptions,
   TronScanGetSpecificTokenPriceInfoOptions,
   TronScanGetTransfersListOfOneTrc721TokenIdOptions,
+  TronScanGetOneTrc10TrxTransferInfoOptions,
 
   // Responses:
   TronScanGetTokensListResponse,
@@ -20,7 +21,8 @@ import {
   TronScanGetTokenAmountDistributionByHoldersResponse,
   TronScanGetSpecificTokenPriceInfoResponse,
   TronScanGetPricedTokensListResponse,
-  TronScanGetTransfersListOfOneTrc721TokenIdResponse
+  TronScanGetTransfersListOfOneTrc721TokenIdResponse,
+  TronScanGetOneTrc10TrxTransferInfoResponse
 } from './types/token';
 
 import {
@@ -155,7 +157,9 @@ import {
   TronScanQueryDataType,
   TronScanTxDirection,
   TronScanDbVersion,
-  TronScanTxDirectionSecond
+  TronScanTxDirectionSecond,
+  TronScanConfirm,
+  TronScanFilterTokenValue
 } from './types/params';
 
 import {
@@ -201,6 +205,8 @@ export {
   TronScanTxDirection,
   TronScanDbVersion,
   TronScanTxDirectionSecond,
+  TronScanConfirm,
+  TronScanFilterTokenValue,
 
   // Options
   TronScanPaginationOptions,
@@ -254,6 +260,7 @@ export {
   TronScanGetTokenAmountDistributionByHoldersOptions,
   TronScanGetSpecificTokenPriceInfoOptions,
   TronScanGetTransfersListOfOneTrc721TokenIdOptions,
+  TronScanGetOneTrc10TrxTransferInfoOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -314,6 +321,7 @@ export {
   TronScanGetSpecificTokenPriceInfoResponse,
   TronScanGetPricedTokensListResponse,
   TronScanGetTransfersListOfOneTrc721TokenIdResponse,
+  TronScanGetOneTrc10TrxTransferInfoResponse,
 
   // Client
   TronScanClient,

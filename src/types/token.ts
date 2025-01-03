@@ -1,6 +1,20 @@
-import { TronScanContractInfo, TronScanContractMap, TronScanPaginationOptions } from './tronscan';
-import { TronScanOrder, TronScanTokenFilter, TronScanTokenShow, TronScanTokenSort, TronScanTokenVerifier } from './params';
 import { TronScanTokenInfo } from './token-info';
+import {
+  TronScanContractInfo,
+  TronScanContractMap,
+  TronScanPaginationOptions,
+  TronScanRiskInfo,
+  TronScanTimestampOptions
+} from './tronscan';
+import {
+  TronScanConfirm,
+  TronScanFilterTokenValue,
+  TronScanOrder,
+  TronScanTokenFilter,
+  TronScanTokenShow,
+  TronScanTokenSort,
+  TronScanTokenVerifier
+} from './params';
 
 interface TronScanTokenListItemCommon {
   /**
@@ -944,6 +958,83 @@ export interface TronScanTransfersListOfOneTrc721TokenItem {
   to_address_tag: string;
 }
 
+export interface TronScanGetOneTrc10TrxTransferInfoItem {
+  /**
+   * @description Block id
+   * @example 68416483
+   */
+  blockId: number;
+  /**
+   * @description Transaction hash
+   * @example 'ef3567411be729da28f2bf9f4d0a0478fb912cf0dc553971c265bf7174d7735f'
+   */
+  transactionHash: string;
+  /**
+   * @description Timestamp
+   * @example 1735900515000
+   */
+  timestamp: number;
+  /**
+   * @description Transfer from address
+   * @example 'TDX9pTmvKya5o6kHRZc5yBTB6NgBj317zR'
+   */
+  transferFromAddress: string;
+  /**
+   * @description Transfer to address
+   * @example 'TNfmhAGxKXxQMrLVi8jK3RL7TNxUwE9mjR'
+   */
+  transferToAddress: string;
+  /**
+   * @description Amount
+   * @example 2
+   */
+  amount: number;
+  /**
+   * @description Token name
+   * @example '_'
+   */
+  tokenName: string;
+  /**
+   * @description Final result
+   * @example 'SUCCESS'
+   */
+  finalResult: string;
+  /**
+   * @description Contract ret
+   * @example 'SUCCESS'
+   */
+  contractRet: string;
+  /**
+   * @description Confirmed status
+   * @example false
+   */
+  confirmed: boolean;
+  /**
+   * @description Check status
+   * @example true
+   */
+  cheatStatus: boolean;
+  /**
+   * @description Token info
+   */
+  tokenInfo: Partial<TronScanTokenInfo>;
+  /**
+   * @description From address is contract
+   * @example false
+   */
+  fromAddressIsContract: boolean;
+  /**
+   * @description To address is contract
+   * @example false
+   */
+  toAddressIsContract: boolean;
+  /**
+   * @description Tx risk status
+   * @example true
+   */
+  riskTransaction: boolean;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTokensListOptions extends TronScanPaginationOptions {
@@ -1347,4 +1438,80 @@ export interface TronScanGetTransfersListOfOneTrc721TokenIdResponse {
    * @description Token transfers list
    */
   token_transfers: TronScanTransfersListOfOneTrc721TokenItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetOneTrc10TrxTransferInfoOptions extends TronScanTimestampOptions, TronScanPaginationOptions {
+  /**
+   * @description TRC20/TRC721/TRC1155 contract address
+   */
+  contract?: string;
+  /**
+   * @description Returned data type. 0: only whitelist. 1: all. 2: exclude blacklist
+   */
+  showAll?: TronScanTokenShow;
+  /**
+   * @description When querying TRX transfers, fill in 'trx'
+   */
+  name?: string;
+  /**
+   * @description TRC10 issuer address
+   * @example 'TF5Bn4cJCT6GVeUgyCN4rBhDg42KBrpAjg'
+   */
+  issueAddress?: string;
+  /**
+   * @description Query address
+   */
+  address?: string;
+  /**
+   * @description Same as 'address' parameter
+   */
+  relatedAddress?: string;
+  /**
+   * @description
+   *   - 0: Return solidified transactions;
+   *   - 1: Return non-solidified transactions;
+   *   - Not passing any value will return all.
+   */
+  confirm?: TronScanConfirm;
+  /**
+   * @description Whether to hide small amount transactions. 
+       - 1: hide. 
+       - 0: do not hide
+   */
+  filterTokenValue?: TronScanFilterTokenValue;
+}
+
+export interface TronScanGetOneTrc10TrxTransferInfoResponse {
+  /**
+   * @description Total
+   * @example 10000
+   */
+  total: number;
+  /**
+   * @description Contract map
+   */
+  contractMap: TronScanContractMap;
+  /**
+   * @description Contract info
+   */
+  contractInfo: {
+    [key: string]: TronScanContractInfo;
+  };
+  /**
+   * @description Range total
+   * @example 4568231936
+   */
+  rangeTotal: number;
+  /**
+   * @description Data list
+   */
+  Data: TronScanGetOneTrc10TrxTransferInfoItem[];
+  /**
+   * @description Normal address info
+   */
+  normalAddressInfo: {
+    [key: string]: TronScanRiskInfo;
+  };
 }

@@ -294,6 +294,10 @@ const trc721TransfersList = await tronScanClient.getTransfersListOfOneTrc721Toke
   tokenId: TOKEN_ID
 });
 console.log(trc721TransfersList);
+
+// Get one TRC10/TRX transfer information:
+const trc10TrxTxsInfo = await tronScanClient.getOneTrc10TrxTransferInfo();
+console.log(trc10TrxTxsInfo);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)

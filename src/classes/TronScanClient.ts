@@ -4,6 +4,8 @@ import { AxiosTransport, Transport } from './Transport';
 import {
   TronScanGetDetailsOfAllTrc10TokensOptions,
   TronScanGetDetailsOfAllTrc10TokensResponse,
+  TronScanGetOneTrc10TrxTransferInfoOptions,
+  TronScanGetOneTrc10TrxTransferInfoResponse,
   TronScanGetPricedTokensListResponse,
   TronScanGetSpecificTokenPriceInfoOptions,
   TronScanGetSpecificTokenPriceInfoResponse,
@@ -783,6 +785,20 @@ export class TronScanClient {
     params: TronScanGetTransfersListOfOneTrc721TokenIdOptions
   ): Promise<TronScanGetTransfersListOfOneTrc721TokenIdResponse> {
     const response = await this.transport.get<TronScanGetTransfersListOfOneTrc721TokenIdResponse>('trc721/transfers', params);
+    return response.data;
+  }
+
+  /**
+   * Get one TRC10/TRX transfer information.
+   *
+   *  **Note** : The value sum of **start** and **limit** must be less than or equal to **10000**.
+   * @param params TronScanGetOneTrc10TrxTransferInfoOptions
+   * @returns Returns the transfer list of a TRC10 token or TRX
+   */
+  public async getOneTrc10TrxTransferInfo(
+    params: TronScanGetOneTrc10TrxTransferInfoOptions = {}
+  ): Promise<TronScanGetOneTrc10TrxTransferInfoResponse> {
+    const response = await this.transport.get<TronScanGetOneTrc10TrxTransferInfoResponse>('asset/transfer', params);
     return response.data;
   }
 
