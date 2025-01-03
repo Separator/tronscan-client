@@ -130,3 +130,14 @@ export enum TronScanDbVersion {
   Include = 1,
   Exclude = 0
 }
+
+export enum TronScanConfirm {
+  SolidifiedTxs = '0',
+  NonSolidifiedTxs = '1',
+  All = ''
+}
+
+export enum TronScanFilterTokenValue {
+  DoNotHide = 0,
+  Hide = 1
+}

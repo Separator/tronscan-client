@@ -93,4 +93,13 @@ describe('Tokens', () => {
   );
 
   // getTransfersListOfOneTrc721TokenId
+
+  test(
+    'Get one TRC10/TRX transfer information',
+    async () => {
+      const response = await tronScanClient.getOneTrc10TrxTransferInfo();
+      expect(response.Data.length).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });
