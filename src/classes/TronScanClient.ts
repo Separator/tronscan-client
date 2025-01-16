@@ -138,6 +138,14 @@ import {
   TronScanTxDetailByHashResponse,
   TronScanVotedListResponse
 } from '../types/tronscan';
+import {
+  TronScanGetWalletTrc10TransfersListOptions,
+  TronScanGetWalletTrc10TransfersListResponse,
+  TronScanGetWalletTrc20TransfersListOptions,
+  TronScanGetWalletTrc20TransfersListResponse,
+  TronScanGetWalletTrxTransfersListOptions,
+  TronScanGetWalletTrxTransfersListResponse
+} from '../types/wallet';
 
 export interface TronScanClientOptions {
   /**
@@ -799,6 +807,53 @@ export class TronScanClient {
     params: TronScanGetOneTrc10TrxTransferInfoOptions = {}
   ): Promise<TronScanGetOneTrc10TrxTransferInfoResponse> {
     const response = await this.transport.get<TronScanGetOneTrc10TrxTransferInfoResponse>('asset/transfer', params);
+    return response.data;
+  }
+
+  /**
+   * Wallet section
+   * https://docs.tronscan.org/api-endpoints/wallet
+   */
+
+  /**
+   * Get the list of trx transfers related to a specific address.
+   *
+   * **Note** : The value sum of **start** and **limit** must be less than or equal to **10000**.
+   * @param params TronScanGetWalletTrxTransfersListOptions
+   * @returns Returns the list of TRX transfers for a specific address
+   */
+  public async getWalletTrxTransfersList(
+    params: TronScanGetWalletTrxTransfersListOptions
+  ): Promise<TronScanGetWalletTrxTransfersListResponse> {
+    const response = await this.transport.get<TronScanGetWalletTrxTransfersListResponse>('transfer/trx', params);
+    return response.data;
+  }
+
+  /**
+   * Get the transfer list of a specific TRC10 token for a certain address.
+   *
+   * **Note** : The value sum of **start** and **limit** must be less than or equal to **10000**.
+   * @param params TronScanGetWalletTrc10TransfersListOptions
+   * @returns Returns the transfer list of a TRC10 token for a specific account
+   */
+  public async getWalletTrc10TransfersList(
+    params: TronScanGetWalletTrc10TransfersListOptions
+  ): Promise<TronScanGetWalletTrc10TransfersListResponse> {
+    const response = await this.transport.get<TronScanGetWalletTrc10TransfersListResponse>('transfer/token10', params);
+    return response.data;
+  }
+
+  /**
+   * Get the transfer list of a specific TRC20 token for a certain address.
+   *
+   * **Note** : The value sum of **start** and **limit** must be less than or equal to **10000**.
+   * @param params TronScanGetWalletTrc20TransfersListOptions
+   * @returns Returns the transfer list of a TRC20 token for a specific account
+   */
+  public async getWalletTrc20TransfersList(
+    params: TronScanGetWalletTrc20TransfersListOptions
+  ): Promise<TronScanGetWalletTrc20TransfersListResponse> {
+    const response = await this.transport.get<TronScanGetWalletTrc20TransfersListResponse>('transfer/trc20', params);
     return response.data;
   }
 
