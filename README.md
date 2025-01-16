@@ -300,6 +300,34 @@ const trc10TrxTxsInfo = await tronScanClient.getOneTrc10TrxTransferInfo();
 console.log(trc10TrxTxsInfo);
 ```
 
+## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)
+
+```javascript
+const ADDRESS = 'tron_address';
+const TRC10_TOKEN_ID = 'trc10_token_id';
+const TRC20_TOKEN_ID = 'trc10_token_id';
+
+// Get the list of trx transfers related to a specific address:
+const walletTrxTxList = await tronScanClient.getWalletTrxTransfersList({
+  address: ADDRESS
+});
+console.log(walletTrxTxList);
+
+// Get the transfer list of a specific TRC10 token for a certain address:
+const walletTrc10TxList = await tronScanClient.getWalletTrc10TransfersList({
+  address: ADDRESS,
+  trc10Id: TRC10_TOKEN_ID
+});
+console.log(walletTrc10TxList);
+
+// Get the transfer list of a specific TRC20 token for a certain address:
+const walletTrc20TxList = await tronScanClient.getWalletTrc20TransfersList({
+  address: ADDRESS,
+  trc20Id: TRC20_TOKEN_ID
+});
+console.log(walletTrc20TxList);
+```
+
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
 
 ```javascript
