@@ -146,7 +146,9 @@ import {
   TronScanGetWalletTrc20TransfersListOptions,
   TronScanGetWalletTrc20TransfersListResponse,
   TronScanGetWalletTrxTransfersListOptions,
-  TronScanGetWalletTrxTransfersListResponse
+  TronScanGetWalletTrxTransfersListResponse,
+  TronScanGetWalletUnfreezableTrxAmountOptions,
+  TronScanGetWalletUnfreezableTrxAmountResponse
 } from '../types/wallet';
 
 export interface TronScanClientOptions {
@@ -868,6 +870,18 @@ export class TronScanClient {
     params: TronScanGetWalletTokensInformationOptions
   ): Promise<TronScanGetWalletTokensInformationResponse> {
     const response = await this.transport.get<TronScanGetWalletTokensInformationResponse>('account/wallet', params);
+    return response.data;
+  }
+
+  /**
+   * Get the amount of unfreezable TRX in address
+   * @param params TronScanGetWalletUnfreezableTrxAmountOptions
+   * @returns Returns the amount of unfreezable TRX in one address
+   */
+  public async getWalletUnfreezableTrxAmount(
+    params: TronScanGetWalletUnfreezableTrxAmountOptions
+  ): Promise<TronScanGetWalletUnfreezableTrxAmountResponse> {
+    const response = await this.transport.get<TronScanGetWalletUnfreezableTrxAmountResponse>('account/resource/unfreeze', params);
     return response.data;
   }
 

@@ -357,3 +357,26 @@ export interface TronScanGetWalletTokensInformationResponse {
    */
   count: number;
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetWalletUnfreezableTrxAmountOptions {
+  /**
+   * @description Query address
+   * @example 'TGXD5vRuCng2k8Ei51u4fmLxYzAUcJngGP'
+   */
+  address: string;
+}
+
+export interface TronScanGetWalletUnfreezableTrxAmountResponse {
+  /**
+   * @description Balance
+   * @example 0
+   */
+  balance: number;
+  /**
+   * @description Message
+   * @example 'SUCCESS'
+   */
+  message: string;
+}

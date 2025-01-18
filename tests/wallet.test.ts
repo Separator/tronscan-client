@@ -57,4 +57,11 @@ describe('Wallet section', () => {
     },
     TEST_TIMEOUT
   );
+
+  test('Get the amount of unfreezable TRX in address', async () => {
+    const response = await tronScanClient.getWalletUnfreezableTrxAmount({
+      address: ADDRESS!
+    });
+    expect(response?.message).toEqual('SUCCESS');
+  });
 });
