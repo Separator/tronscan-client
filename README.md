@@ -332,6 +332,12 @@ const walletTokens = await tronScanClient.getWalletTokensInformation({
   address: ADDRESS
 });
 console.log(walletTokens);
+
+// Get the amount of unfreezable TRX in address:
+const unfreezableTrxAmount = await tronScanClient.getWalletUnfreezableTrxAmount({
+  address: ADDRESS
+});
+console.log(unfreezableTrxAmount);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
