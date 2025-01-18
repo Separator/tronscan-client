@@ -139,6 +139,8 @@ import {
   TronScanVotedListResponse
 } from '../types/tronscan';
 import {
+  TronScanGetWalletTokensInformationOptions,
+  TronScanGetWalletTokensInformationResponse,
   TronScanGetWalletTrc10TransfersListOptions,
   TronScanGetWalletTrc10TransfersListResponse,
   TronScanGetWalletTrc20TransfersListOptions,
@@ -854,6 +856,18 @@ export class TronScanClient {
     params: TronScanGetWalletTrc20TransfersListOptions
   ): Promise<TronScanGetWalletTrc20TransfersListResponse> {
     const response = await this.transport.get<TronScanGetWalletTrc20TransfersListResponse>('transfer/trc20', params);
+    return response.data;
+  }
+
+  /**
+   * Get the information of tokens held and followed in the account's web wallet
+   * @param params TronScanGetWalletTokensInformationOptions
+   * @returns Returns a list of tokens held and followed by an account
+   */
+  public async getWalletTokensInformation(
+    params: TronScanGetWalletTokensInformationOptions
+  ): Promise<TronScanGetWalletTokensInformationResponse> {
+    const response = await this.transport.get<TronScanGetWalletTokensInformationResponse>('account/wallet', params);
     return response.data;
   }
 

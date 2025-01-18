@@ -147,3 +147,9 @@ export enum TronScanFilterTokenValue {
   DoNotHide = 0,
   Hide = 1
 }
+
+export enum TronScanAssetType {
+  All = 0,
+  Assets = 1,
+  Collectibles = 2
+}

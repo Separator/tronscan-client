@@ -1,5 +1,5 @@
 import { TronScanTokenInfo } from './token-info';
-import { TronScanTxDirectionThird } from './params';
+import { TronScanAssetType, TronScanTxDirectionThird } from './params';
 import { TronScanContractMap, TronScanPaginationOptions, TronScanTimestampOptions } from './tronscan';
 
 interface TronScanWalletTxCommon {
@@ -129,9 +129,7 @@ interface TronScanGetWalletTrc20TransfersListItem extends TronScanWalletTxCommon
   id: string;
 }
 
-// ----------------------------------------------------------------------------------------------------
-
-export interface TronScanGetWalletTrxTransfersListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+interface TronScanGetWalletTxOptionsCommon {
   /**
    * @description Query address
    * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
@@ -155,14 +153,9 @@ export interface TronScanGetWalletTrxTransfersListOptions extends TronScanPagina
    * @example true
    */
   reverse?: boolean;
-  /**
-   * @description Whether to return data of TRX burning for resource consumption.
-   * Default: false
-   */
-  fee?: boolean;
 }
 
-export interface TronScanGetWalletTrxTransfersListResponse {
+interface TronScanGetWalletTxResponseCommon {
   /**
    * @description Contract map
    */
@@ -181,6 +174,115 @@ export interface TronScanGetWalletTrxTransfersListResponse {
    * @example 200
    */
   code: number;
+}
+
+interface TronScanWalletTokensInformationItem {
+  /**
+   * @description Tron price in usd
+   * @example '0.243201'
+   */
+  token_price_in_usd: string;
+  /**
+   * @description Frozen token value in usd
+   * @example '0'
+   */
+  frozen_token_value_in_usd: string;
+  /**
+   * @description Token level
+   * @example 2
+   */
+  level: number;
+  /**
+   * @description Frozen value
+   * @example 0
+   */
+  frozen: number;
+  /**
+   * @description Token value
+   * @example '0.000000'
+   */
+  token_value: string;
+  /**
+   * @description Token type
+   * @example 0
+   */
+  token_type: number;
+  /**
+   * @description Token price
+   * @example '1'
+   */
+  token_price: string;
+  /**
+   * @description Token decimal
+   * @example 6
+   */
+  token_decimal: number;
+  /**
+   * @description Token value in usd
+   * @example '0'
+   */
+  token_value_in_usd: string;
+  /**
+   * @description Frozen v2
+   * @example 0
+   */
+  frozenV2: number;
+  /**
+   * @description Token id
+   * @example '_'
+   */
+  token_id: string;
+  /**
+   * @description Token abbreviation
+   * @example 'trx'
+   */
+  token_abbr: string;
+  /**
+   * @description Token balance
+   * @example '0.000000'
+   */
+  balance: string;
+  /**
+   * @description Frozen v2 token value in usd
+   * @example '0'
+   */
+  frozenV2_token_value_in_usd: string;
+  /**
+   * @description Token name
+   * @example 'trx'
+   */
+  token_name: string;
+  /**
+   * @description Pair id
+   * @example 48
+   */
+  pair_id: number;
+  /**
+   * @description VIP status
+   * @example false
+   */
+  vip: boolean;
+  /**
+   * @description Token url
+   * @example 'https://static.tronscan.org/production/logo/trx.png'
+   */
+  token_url: string;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetWalletTrxTransfersListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions,
+    TronScanGetWalletTxOptionsCommon {
+  /**
+   * @description Whether to return data of TRX burning for resource consumption.
+   * Default: false
+   */
+  fee?: boolean;
+}
+
+export interface TronScanGetWalletTrxTransfersListResponse extends TronScanGetWalletTxResponseCommon {
   /**
    * @description Txs list
    */
@@ -189,56 +291,18 @@ export interface TronScanGetWalletTrxTransfersListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetWalletTrc10TransfersListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  /**
-   * @description Query address
-   * @example 'TK1AgzEiqiAuvnPVACvjJexwV4svyBxBdW'
-   */
-  address: string;
+export interface TronScanGetWalletTrc10TransfersListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions,
+    TronScanGetWalletTxOptionsCommon {
   /**
    * @description TRC10 token ID
    * @example '1002000'
    */
   trc10Id: string;
-  /**
-   * @description Default: 1
-   *  - **1** - represents inbound transfers;
-   *  - **2** - represents outbound transfers;
-   *  - **0** - represents both.
-   */
-  direction?: TronScanTxDirectionThird;
-  /**
-   * @description Default: 0, which indicates to filter transfers with invalid “to” or “from” addresses out.
-   * @example 1
-   */
-  db_version?: number;
-  /**
-   * @description Sort the data in a descending order.
-   * Default: true
-   * @example true
-   */
-  reverse?: boolean;
 }
 
-export interface TronScanGetWalletTrc10TransfersListResponse {
-  /**
-   * @description Contract map
-   */
-  contractMap: TronScanContractMap;
-  /**
-   * @description Token info
-   */
-  tokenInfo: TronScanTokenInfo;
-  /**
-   * @description Page size
-   * @example 2
-   */
-  page_size: number;
-  /**
-   * @description Code
-   * @example 200
-   */
-  code: number;
+export interface TronScanGetWalletTrc10TransfersListResponse extends TronScanGetWalletTxResponseCommon {
   /**
    * @description Txs list
    */
@@ -247,58 +311,49 @@ export interface TronScanGetWalletTrc10TransfersListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetWalletTrc20TransfersListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  /**
-   * @description Query address
-   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
-   */
-  address: string;
+export interface TronScanGetWalletTrc20TransfersListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions,
+    TronScanGetWalletTxOptionsCommon {
   /**
    * @description TRC20 token ID
    * @example 'TCmSR8UYWvsZkZmprGKaudTuWUZ62ycnnN'
    */
   trc20Id: string;
-  /**
-   * @description Default: 1
-   *  - **1** - represents inbound transfers;
-   *  - **2** - represents outbound transfers;
-   *  - **0** - represents both.
-   */
-  direction?: TronScanTxDirectionThird;
-  /**
-   * @description Default: 0, which indicates to filter transfers with invalid “to” or “from” addresses out.
-   * @example 1
-   */
-  db_version?: number;
-  /**
-   * @description Sort the data in a descending order.
-   * Default: true
-   * @example true
-   */
-  reverse?: boolean;
 }
 
-export interface TronScanGetWalletTrc20TransfersListResponse {
-  /**
-   * @description Contract map
-   */
-  contractMap: TronScanContractMap;
-  /**
-   * @description Token info
-   */
-  tokenInfo: TronScanTokenInfo;
-  /**
-   * @description Page size
-   * @example 2
-   */
-  page_size: number;
-  /**
-   * @description Code
-   * @example 200
-   */
-  code: number;
+export interface TronScanGetWalletTrc20TransfersListResponse extends TronScanGetWalletTxResponseCommon {
   /**
    * @description Txs list
    */
   data: TronScanGetWalletTrc20TransfersListItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetWalletTokensInformationOptions {
+  /**
+   * @description Query address
+   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
+   */
+  address?: string;
+  /**
+   * @description Asset types:
+   *   - 0 - All (default);
+   *   - 1 - Assets (TRX, TRC10, TRC20);
+   *   - 2 - Collectibles (TRC721 and TRC1155).
+   */
+  asset_type?: TronScanAssetType;
+}
+
+export interface TronScanGetWalletTokensInformationResponse {
+  /**
+   * @description Tokens list
+   */
+  data: TronScanWalletTokensInformationItem[];
+  /**
+   * @description Tokens count
+   * @example 3
+   */
+  count: number;
 }
