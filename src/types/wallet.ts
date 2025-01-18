@@ -129,9 +129,7 @@ interface TronScanGetWalletTrc20TransfersListItem extends TronScanWalletTxCommon
   id: string;
 }
 
-// ----------------------------------------------------------------------------------------------------
-
-export interface TronScanGetWalletTrxTransfersListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+interface TronScanGetWalletTxOptionsCommon {
   /**
    * @description Query address
    * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
@@ -155,14 +153,9 @@ export interface TronScanGetWalletTrxTransfersListOptions extends TronScanPagina
    * @example true
    */
   reverse?: boolean;
-  /**
-   * @description Whether to return data of TRX burning for resource consumption.
-   * Default: false
-   */
-  fee?: boolean;
 }
 
-export interface TronScanGetWalletTrxTransfersListResponse {
+interface TronScanGetWalletTxResponseCommon {
   /**
    * @description Contract map
    */
@@ -181,6 +174,22 @@ export interface TronScanGetWalletTrxTransfersListResponse {
    * @example 200
    */
   code: number;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetWalletTrxTransfersListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions,
+    TronScanGetWalletTxOptionsCommon {
+  /**
+   * @description Whether to return data of TRX burning for resource consumption.
+   * Default: false
+   */
+  fee?: boolean;
+}
+
+export interface TronScanGetWalletTrxTransfersListResponse extends TronScanGetWalletTxResponseCommon {
   /**
    * @description Txs list
    */
@@ -189,56 +198,18 @@ export interface TronScanGetWalletTrxTransfersListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetWalletTrc10TransfersListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  /**
-   * @description Query address
-   * @example 'TK1AgzEiqiAuvnPVACvjJexwV4svyBxBdW'
-   */
-  address: string;
+export interface TronScanGetWalletTrc10TransfersListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions,
+    TronScanGetWalletTxOptionsCommon {
   /**
    * @description TRC10 token ID
    * @example '1002000'
    */
   trc10Id: string;
-  /**
-   * @description Default: 1
-   *  - **1** - represents inbound transfers;
-   *  - **2** - represents outbound transfers;
-   *  - **0** - represents both.
-   */
-  direction?: TronScanTxDirectionThird;
-  /**
-   * @description Default: 0, which indicates to filter transfers with invalid “to” or “from” addresses out.
-   * @example 1
-   */
-  db_version?: number;
-  /**
-   * @description Sort the data in a descending order.
-   * Default: true
-   * @example true
-   */
-  reverse?: boolean;
 }
 
-export interface TronScanGetWalletTrc10TransfersListResponse {
-  /**
-   * @description Contract map
-   */
-  contractMap: TronScanContractMap;
-  /**
-   * @description Token info
-   */
-  tokenInfo: TronScanTokenInfo;
-  /**
-   * @description Page size
-   * @example 2
-   */
-  page_size: number;
-  /**
-   * @description Code
-   * @example 200
-   */
-  code: number;
+export interface TronScanGetWalletTrc10TransfersListResponse extends TronScanGetWalletTxResponseCommon {
   /**
    * @description Txs list
    */
@@ -247,56 +218,18 @@ export interface TronScanGetWalletTrc10TransfersListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetWalletTrc20TransfersListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  /**
-   * @description Query address
-   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
-   */
-  address: string;
+export interface TronScanGetWalletTrc20TransfersListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions,
+    TronScanGetWalletTxOptionsCommon {
   /**
    * @description TRC20 token ID
    * @example 'TCmSR8UYWvsZkZmprGKaudTuWUZ62ycnnN'
    */
   trc20Id: string;
-  /**
-   * @description Default: 1
-   *  - **1** - represents inbound transfers;
-   *  - **2** - represents outbound transfers;
-   *  - **0** - represents both.
-   */
-  direction?: TronScanTxDirectionThird;
-  /**
-   * @description Default: 0, which indicates to filter transfers with invalid “to” or “from” addresses out.
-   * @example 1
-   */
-  db_version?: number;
-  /**
-   * @description Sort the data in a descending order.
-   * Default: true
-   * @example true
-   */
-  reverse?: boolean;
 }
 
-export interface TronScanGetWalletTrc20TransfersListResponse {
-  /**
-   * @description Contract map
-   */
-  contractMap: TronScanContractMap;
-  /**
-   * @description Token info
-   */
-  tokenInfo: TronScanTokenInfo;
-  /**
-   * @description Page size
-   * @example 2
-   */
-  page_size: number;
-  /**
-   * @description Code
-   * @example 200
-   */
-  code: number;
+export interface TronScanGetWalletTrc20TransfersListResponse extends TronScanGetWalletTxResponseCommon {
   /**
    * @description Txs list
    */
