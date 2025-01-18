@@ -1,5 +1,5 @@
 import { TronScanTokenInfo } from './token-info';
-import { TronScanTxDirectionThird } from './params';
+import { TronScanAssetType, TronScanTxDirectionThird } from './params';
 import { TronScanContractMap, TronScanPaginationOptions, TronScanTimestampOptions } from './tronscan';
 
 interface TronScanWalletTxCommon {
@@ -176,6 +176,99 @@ interface TronScanGetWalletTxResponseCommon {
   code: number;
 }
 
+interface TronScanWalletTokensInformationItem {
+  /**
+   * @description Tron price in usd
+   * @example '0.243201'
+   */
+  token_price_in_usd: string;
+  /**
+   * @description Frozen token value in usd
+   * @example '0'
+   */
+  frozen_token_value_in_usd: string;
+  /**
+   * @description Token level
+   * @example 2
+   */
+  level: number;
+  /**
+   * @description Frozen value
+   * @example 0
+   */
+  frozen: number;
+  /**
+   * @description Token value
+   * @example '0.000000'
+   */
+  token_value: string;
+  /**
+   * @description Token type
+   * @example 0
+   */
+  token_type: number;
+  /**
+   * @description Token price
+   * @example '1'
+   */
+  token_price: string;
+  /**
+   * @description Token decimal
+   * @example 6
+   */
+  token_decimal: number;
+  /**
+   * @description Token value in usd
+   * @example '0'
+   */
+  token_value_in_usd: string;
+  /**
+   * @description Frozen v2
+   * @example 0
+   */
+  frozenV2: number;
+  /**
+   * @description Token id
+   * @example '_'
+   */
+  token_id: string;
+  /**
+   * @description Token abbreviation
+   * @example 'trx'
+   */
+  token_abbr: string;
+  /**
+   * @description Token balance
+   * @example '0.000000'
+   */
+  balance: string;
+  /**
+   * @description Frozen v2 token value in usd
+   * @example '0'
+   */
+  frozenV2_token_value_in_usd: string;
+  /**
+   * @description Token name
+   * @example 'trx'
+   */
+  token_name: string;
+  /**
+   * @description Pair id
+   * @example 48
+   */
+  pair_id: number;
+  /**
+   * @description VIP status
+   * @example false
+   */
+  vip: boolean;
+  /**
+   * @description Token url
+   * @example 'https://static.tronscan.org/production/logo/trx.png'
+   */
+  token_url: string;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetWalletTrxTransfersListOptions
@@ -234,4 +327,33 @@ export interface TronScanGetWalletTrc20TransfersListResponse extends TronScanGet
    * @description Txs list
    */
   data: TronScanGetWalletTrc20TransfersListItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetWalletTokensInformationOptions {
+  /**
+   * @description Query address
+   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
+   */
+  address?: string;
+  /**
+   * @description Asset types:
+   *   - 0 - All (default);
+   *   - 1 - Assets (TRX, TRC10, TRC20);
+   *   - 2 - Collectibles (TRC721 and TRC1155).
+   */
+  asset_type?: TronScanAssetType;
+}
+
+export interface TronScanGetWalletTokensInformationResponse {
+  /**
+   * @description Tokens list
+   */
+  data: TronScanWalletTokensInformationItem[];
+  /**
+   * @description Tokens count
+   * @example 3
+   */
+  count: number;
 }

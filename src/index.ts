@@ -5,11 +5,13 @@ import {
   TronScanGetWalletTrxTransfersListOptions,
   TronScanGetWalletTrc10TransfersListOptions,
   TronScanGetWalletTrc20TransfersListOptions,
+  TronScanGetWalletTokensInformationOptions,
 
   // Responses:
   TronScanGetWalletTrxTransfersListResponse,
   TronScanGetWalletTrc10TransfersListResponse,
-  TronScanGetWalletTrc20TransfersListResponse
+  TronScanGetWalletTrc20TransfersListResponse,
+  TronScanGetWalletTokensInformationResponse
 } from './types/wallet';
 
 import {
@@ -172,7 +174,8 @@ import {
   TronScanTxDirectionSecond,
   TronScanConfirm,
   TronScanFilterTokenValue,
-  TronScanTxDirectionThird
+  TronScanTxDirectionThird,
+  TronScanAssetType
 } from './types/params';
 
 import {
@@ -221,6 +224,7 @@ export {
   TronScanConfirm,
   TronScanFilterTokenValue,
   TronScanTxDirectionThird,
+  TronScanAssetType,
 
   // Options
   TronScanPaginationOptions,
@@ -278,6 +282,7 @@ export {
   TronScanGetWalletTrxTransfersListOptions,
   TronScanGetWalletTrc10TransfersListOptions,
   TronScanGetWalletTrc20TransfersListOptions,
+  TronScanGetWalletTokensInformationOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -342,6 +347,7 @@ export {
   TronScanGetWalletTrxTransfersListResponse,
   TronScanGetWalletTrc10TransfersListResponse,
   TronScanGetWalletTrc20TransfersListResponse,
+  TronScanGetWalletTokensInformationResponse,
 
   // Client
   TronScanClient,

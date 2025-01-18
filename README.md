@@ -326,6 +326,12 @@ const walletTrc20TxList = await tronScanClient.getWalletTrc20TransfersList({
   trc20Id: TRC20_TOKEN_ID
 });
 console.log(walletTrc20TxList);
+
+// Get the information of tokens held and followed in the account's web wallet:
+const walletTokens = await tronScanClient.getWalletTokensInformation({
+  address: ADDRESS
+});
+console.log(walletTokens);
 ```
 
 ## [Security Service API section](https://docs.tronscan.org/security-service/security-service-api)
