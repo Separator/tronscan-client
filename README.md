@@ -305,7 +305,7 @@ console.log(trc10TrxTxsInfo);
 ```javascript
 const ADDRESS = 'tron_address';
 const TRC10_TOKEN_ID = 'trc10_token_id';
-const TRC20_TOKEN_ID = 'trc10_token_id';
+const TRC20_TOKEN_ID = 'trc20_token_id';
 
 // Get the list of trx transfers related to a specific address:
 const walletTrxTxList = await tronScanClient.getWalletTrxTransfersList({

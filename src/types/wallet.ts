@@ -80,7 +80,7 @@ interface TronScanWalletTxCommon {
   direction: number;
 }
 
-interface TronScanGetWalletTrxTransfersListItem extends TronScanWalletTxCommon {
+export interface TronScanGetWalletTrxTransfersListItem extends TronScanWalletTxCommon {
   /**
    * @description Cheat status
    * @example false
@@ -93,7 +93,7 @@ interface TronScanGetWalletTrxTransfersListItem extends TronScanWalletTxCommon {
   symbol: string;
 }
 
-interface TronScanGetWalletTrc10TransfersListItem extends TronScanWalletTxCommon {
+export interface TronScanGetWalletTrc10TransfersListItem extends TronScanWalletTxCommon {
   /**
    * @description Id
    * @example 1002000
@@ -106,7 +106,7 @@ interface TronScanGetWalletTrc10TransfersListItem extends TronScanWalletTxCommon
   symbol: string;
 }
 
-interface TronScanGetWalletTrc20TransfersListItem extends TronScanWalletTxCommon {
+export interface TronScanGetWalletTrc20TransfersListItem extends TronScanWalletTxCommon {
   /**
    * @description Tx status
    * @example 0

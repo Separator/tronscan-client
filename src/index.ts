@@ -13,7 +13,12 @@ import {
   TronScanGetWalletTrc10TransfersListResponse,
   TronScanGetWalletTrc20TransfersListResponse,
   TronScanGetWalletTokensInformationResponse,
-  TronScanGetWalletUnfreezableTrxAmountResponse
+  TronScanGetWalletUnfreezableTrxAmountResponse,
+
+  // Entities:
+  TronScanGetWalletTrxTransfersListItem,
+  TronScanGetWalletTrc10TransfersListItem,
+  TronScanGetWalletTrc20TransfersListItem
 } from './types/wallet';
 
 import {
@@ -357,5 +362,8 @@ export {
   TronScanClient,
 
   // Entities:
-  TronScanBlockSimple
+  TronScanBlockSimple,
+  TronScanGetWalletTrxTransfersListItem,
+  TronScanGetWalletTrc10TransfersListItem,
+  TronScanGetWalletTrc20TransfersListItem
 };
