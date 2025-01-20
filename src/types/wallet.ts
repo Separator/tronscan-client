@@ -2,7 +2,7 @@ import { TronScanTokenInfo } from './token-info';
 import { TronScanAssetType, TronScanTxDirectionThird } from './params';
 import { TronScanContractMap, TronScanPaginationOptions, TronScanTimestampOptions } from './tronscan';
 
-interface TronScanWalletTxCommon {
+export interface TronScanWalletTxCommon {
   /**
    * @description Amount
    * @example '40'

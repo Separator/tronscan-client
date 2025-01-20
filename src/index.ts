@@ -16,6 +16,7 @@ import {
   TronScanGetWalletUnfreezableTrxAmountResponse,
 
   // Entities:
+  TronScanWalletTxCommon,
   TronScanGetWalletTrxTransfersListItem,
   TronScanGetWalletTrc10TransfersListItem,
   TronScanGetWalletTrc20TransfersListItem
@@ -363,6 +364,7 @@ export {
 
   // Entities:
   TronScanBlockSimple,
+  TronScanWalletTxCommon,
   TronScanGetWalletTrxTransfersListItem,
   TronScanGetWalletTrc10TransfersListItem,
   TronScanGetWalletTrc20TransfersListItem
