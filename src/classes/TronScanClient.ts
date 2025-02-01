@@ -17,6 +17,8 @@ import {
   TronScanGetTransfersListOfOneTrc721TokenIdResponse,
   TronScanGetTrc10TokenHoldersOptions,
   TronScanGetTrc10TokenHoldersResponse,
+  TronScanGetTrc1155InventoryInformationOptions,
+  TronScanGetTrc1155InventoryInformationResponse,
   TronScanGetTrc20Trc721Trc1155TokenHoldersOptions,
   TronScanGetTrc20Trc721Trc1155TokenHoldersResponse,
   TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
@@ -811,6 +813,20 @@ export class TronScanClient {
     params: TronScanGetOneTrc10TrxTransferInfoOptions = {}
   ): Promise<TronScanGetOneTrc10TrxTransferInfoResponse> {
     const response = await this.transport.get<TronScanGetOneTrc10TrxTransferInfoResponse>('asset/transfer', params);
+    return response.data;
+  }
+
+  /**
+   * Get inventory information of a TRC1155.
+   *
+   * **Note** : The value sum of **start** and **limit** must be less than or equal to **10000**.
+   * @param params TronScanGetTrc1155InventoryInformationOptions
+   * @returns Returns TRC1155 inventory information
+   */
+  public async getTrc1155InventoryInformation(
+    params: TronScanGetTrc1155InventoryInformationOptions
+  ): Promise<TronScanGetTrc1155InventoryInformationResponse> {
+    const response = await this.transport.get<TronScanGetTrc1155InventoryInformationResponse>('trc1155/inventory', params);
     return response.data;
   }
 

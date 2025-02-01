@@ -157,6 +157,7 @@ const dailyAnalytics = await tronScanClient.getContractDailyAnalyticsList({
 });
 console.log(dailyAnalytics);
 
+// Get the list of all callers of the contract and the statistics of the number of calls:
 const callersList = await tronScanClient.getContractCallersList({
   address: CONTRACT_ADDRESS
 });
@@ -198,6 +199,7 @@ const trc20Trc721TsList = await tronScanClient.getTrc20Trc721TransferList({
 });
 console.log(trc20Trc721TsList);
 
+// Get trc1155 transfer list:
 const trc1155TransfersList = await tronScanClient.getTrc1155TransferList({
   relatedAddress: ADDRESS
 });
@@ -227,6 +229,14 @@ console.log(accountTxData);
 // Get transaction's statistic data:
 const txStatisticsData = await tronScanClient.getTxsStatisticData();
 console.log(txStatisticsData);
+
+// Get statistic distribution data of transfer:
+const distributionStatistics = await tronScanClient.getTransferDistributionStatisticData();
+console.log(distributionStatistics);
+
+// Get the eligible exchange type transactions:
+const eligibleExchangeData = await tronScanClient.getEligibleExchangeTypeTransactions();
+console.log(eligibleExchangeData);
 ```
 
 ## [Block section](https://docs.tronscan.org/api-endpoints/block)
@@ -247,6 +257,7 @@ console.log(statInfo);
 const TOKEN_ID = 'token_id';
 const TOKEN_ADDRESS = 'token_address';
 const ISSUER_ADDRESS = 'issuer_address';
+const TRC1155_TOKEN_ADDRESS = 'trc1155_token_address';
 
 // Get token list:
 const tokensList = await tronScanClient.getTokensList();
@@ -298,6 +309,12 @@ console.log(trc721TransfersList);
 // Get one TRC10/TRX transfer information:
 const trc10TrxTxsInfo = await tronScanClient.getOneTrc10TrxTransferInfo();
 console.log(trc10TrxTxsInfo);
+
+// Get inventory information of a TRC1155:
+const trc1155InventoryInfo = await tronScanClient.getTrc1155InventoryInformation({
+  contract: TRC1155_TOKEN_ADDRESS
+});
+console.log(trc1155InventoryInfo);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)
