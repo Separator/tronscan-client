@@ -4,7 +4,7 @@ import { TronScanClient } from '../src';
 config();
 
 const TEST_TIMEOUT = 60000;
-const { ISSUER_ADDRESS, TOKEN_ADDRESS, API_KEY, URL } = process.env;
+const { ISSUER_ADDRESS, TOKEN_ADDRESS, API_KEY, URL, TRC1155_TOKEN_ADDRESS } = process.env;
 
 const tronScanClient = new TronScanClient({
   url: URL!,
@@ -99,6 +99,17 @@ describe('Tokens', () => {
     async () => {
       const response = await tronScanClient.getOneTrc10TrxTransferInfo();
       expect(response.Data.length).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
+
+  test(
+    'Get inventory information of a TRC1155',
+    async () => {
+      const response = await tronScanClient.getTrc1155InventoryInformation({
+        contract: TRC1155_TOKEN_ADDRESS!
+      });
+      expect(response.data.length).toBeGreaterThanOrEqual(0);
     },
     TEST_TIMEOUT
   );

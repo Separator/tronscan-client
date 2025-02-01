@@ -257,6 +257,7 @@ console.log(statInfo);
 const TOKEN_ID = 'token_id';
 const TOKEN_ADDRESS = 'token_address';
 const ISSUER_ADDRESS = 'issuer_address';
+const TRC1155_TOKEN_ADDRESS = 'trc1155_token_address';
 
 // Get token list:
 const tokensList = await tronScanClient.getTokensList();
@@ -308,6 +309,12 @@ console.log(trc721TransfersList);
 // Get one TRC10/TRX transfer information:
 const trc10TrxTxsInfo = await tronScanClient.getOneTrc10TrxTransferInfo();
 console.log(trc10TrxTxsInfo);
+
+// Get inventory information of a TRC1155:
+const trc1155InventoryInfo = await tronScanClient.getTrc1155InventoryInformation({
+  contract: TRC1155_TOKEN_ADDRESS
+});
+console.log(trc1155InventoryInfo);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)

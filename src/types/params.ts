@@ -153,3 +153,8 @@ export enum TronScanAssetType {
   Assets = 1,
   Collectibles = 2
 }
+
+export enum TronScanInventorySortType {
+  Asc = 'tokenId',
+  Desc = '-tokenId'
+}
