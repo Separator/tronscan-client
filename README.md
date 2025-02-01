@@ -157,6 +157,7 @@ const dailyAnalytics = await tronScanClient.getContractDailyAnalyticsList({
 });
 console.log(dailyAnalytics);
 
+// Get the list of all callers of the contract and the statistics of the number of calls:
 const callersList = await tronScanClient.getContractCallersList({
   address: CONTRACT_ADDRESS
 });
@@ -198,6 +199,7 @@ const trc20Trc721TsList = await tronScanClient.getTrc20Trc721TransferList({
 });
 console.log(trc20Trc721TsList);
 
+// Get trc1155 transfer list:
 const trc1155TransfersList = await tronScanClient.getTrc1155TransferList({
   relatedAddress: ADDRESS
 });
@@ -227,6 +229,14 @@ console.log(accountTxData);
 // Get transaction's statistic data:
 const txStatisticsData = await tronScanClient.getTxsStatisticData();
 console.log(txStatisticsData);
+
+// Get statistic distribution data of transfer:
+const distributionStatistics = await tronScanClient.getTransferDistributionStatisticData();
+console.log(distributionStatistics);
+
+// Get the eligible exchange type transactions:
+const eligibleExchangeData = await tronScanClient.getEligibleExchangeTypeTransactions();
+console.log(eligibleExchangeData);
 ```
 
 ## [Block section](https://docs.tronscan.org/api-endpoints/block)
