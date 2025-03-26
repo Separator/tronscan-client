@@ -315,6 +315,13 @@ const trc1155InventoryInfo = await tronScanClient.getTrc1155InventoryInformation
   contract: TRC1155_TOKEN_ADDRESS
 });
 console.log(trc1155InventoryInfo);
+
+// Get the holding information of a certain tokenId in TRC1155:
+const trc1155HoldingInfo = await tronScanClient.getTrc1155HoldingInformation({
+  contract: TRC1155_TOKEN_ADDRESS,
+  tokenId: TOKEN_ID
+});
+console.log(trc1155HoldingInfo);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)
