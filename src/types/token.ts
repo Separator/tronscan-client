@@ -1686,3 +1686,10 @@ export interface TronScanGetTrc1155HoldingInformationResponse extends TronScanGe
 }
 
 // ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc20TokenCirculationOptions {
+  /**
+   * @description TRC20 contract address
+   */
+  address: string;
+}

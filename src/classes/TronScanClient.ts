@@ -21,6 +21,7 @@ import {
   TronScanGetTrc1155HoldingInformationResponse,
   TronScanGetTrc1155InventoryInformationOptions,
   TronScanGetTrc1155InventoryInformationResponse,
+  TronScanGetTrc20TokenCirculationOptions,
   TronScanGetTrc20Trc721Trc1155TokenHoldersOptions,
   TronScanGetTrc20Trc721Trc1155TokenHoldersResponse,
   TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
@@ -843,6 +844,16 @@ export class TronScanClient {
     params: TronScanGetTrc1155HoldingInformationOptions
   ): Promise<TronScanGetTrc1155HoldingInformationResponse> {
     const response = await this.transport.get<TronScanGetTrc1155HoldingInformationResponse>('trc1155/token/inventory', params);
+    return response.data;
+  }
+
+  /**
+   * Get the circulation of a TRC20 token
+   * @param params TronScanGetTrc20TokenCirculationOptions
+   * @returns Returns the circulation of a TRC20 token
+   */
+  async getTrc20TokenCirculation(params: TronScanGetTrc20TokenCirculationOptions): Promise<number> {
+    const response = await this.transport.get<number>('token_trc20/totalSupply', params);
     return response.data;
   }
 

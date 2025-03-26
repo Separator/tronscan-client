@@ -35,6 +35,7 @@ import {
   TronScanGetOneTrc10TrxTransferInfoOptions,
   TronScanGetTrc1155InventoryInformationOptions,
   TronScanGetTrc1155HoldingInformationOptions,
+  TronScanGetTrc20TokenCirculationOptions,
 
   // Responses:
   TronScanGetTokensListResponse,
@@ -300,6 +301,7 @@ export {
   TronScanGetWalletUnfreezableTrxAmountOptions,
   TronScanGetTrc1155InventoryInformationOptions,
   TronScanGetTrc1155HoldingInformationOptions,
+  TronScanGetTrc20TokenCirculationOptions,
 
   // Tx types
   TronScanTxSimple,

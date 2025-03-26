@@ -322,6 +322,12 @@ const trc1155HoldingInfo = await tronScanClient.getTrc1155HoldingInformation({
   tokenId: TOKEN_ID
 });
 console.log(trc1155HoldingInfo);
+
+// Get the circulation of a TRC20 token:
+const trc20Circulation = await tronScanClient.getTrc20TokenCirculation({
+  address: TOKEN_ADDRESS
+});
+console.log(trc20Circulation);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)

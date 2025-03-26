@@ -125,4 +125,15 @@ describe('Tokens', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the circulation of a TRC20 token',
+    async () => {
+      const response = await tronScanClient.getTrc20TokenCirculation({
+        address: TOKEN_ADDRESS!
+      });
+      expect(response).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });
