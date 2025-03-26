@@ -113,4 +113,16 @@ describe('Tokens', () => {
     },
     TEST_TIMEOUT
   );
+
+  test(
+    'Get the holding information of a certain tokenId in TRC1155',
+    async () => {
+      const response = await tronScanClient.getTrc1155HoldingInformation({
+        contract: TRC1155_TOKEN_ADDRESS!,
+        tokenId: '1'
+      });
+      expect(response.data.length).toBeGreaterThanOrEqual(0);
+    },
+    TEST_TIMEOUT
+  );
 });

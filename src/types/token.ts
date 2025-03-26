@@ -1036,17 +1036,12 @@ export interface TronScanGetOneTrc10TrxTransferInfoItem {
   riskTransaction: boolean;
 }
 
-export interface TronScanTrc1155InventoryInformationItem {
+interface TronScanTrc1155InformationItemCommon {
   /**
    * @description Token id
    * @example '1'
    */
   token_id: string;
-  /**
-   * @description Holders count
-   * @example 5
-   */
-  holders_count: number;
   /**
    * @description Token image inner url
    * @example 'https://static.tronscan.org/production/upload/logo/75/75d37b177b9a7c60d5a80f463ba624f2.png'
@@ -1057,11 +1052,6 @@ export interface TronScanTrc1155InventoryInformationItem {
    * @example 'Mutant Ape #1'
    */
   token_name: string;
-  /**
-   * @description Latest transfer timestamp
-   * @example 1661310345000
-   */
-  latest_transfer_timestamp: number;
   /**
    * @description Token description
    * @example 'Number one Bored Ape Club bringing Mutant Apes on Tron Network'
@@ -1077,6 +1067,24 @@ export interface TronScanTrc1155InventoryInformationItem {
    * @example ''
    */
   token_url: string;
+}
+
+export interface TronScanTrc1155InventoryInformationItem extends TronScanTrc1155InformationItemCommon {
+  /**
+   * @description Token id
+   * @example '1'
+   */
+  token_id: string;
+  /**
+   * @description Holders count
+   * @example 5
+   */
+  holders_count: number;
+  /**
+   * @description Latest transfer timestamp
+   * @example 1661310345000
+   */
+  latest_transfer_timestamp: number;
   /**
    * @description 'https://static.tronscan.org/production/upload/logo/new/TREYLQ3i56GTQnaQn68woKHtDkVTcFKHjN.png?t=1657160975584'
    */
@@ -1111,6 +1119,42 @@ export interface TronScanTrc1155InventoryInformationItem {
    * @example '2022-07-06 06:06:36'
    */
   issue_time?: string;
+}
+
+export interface TronScanTrc1155HoldingInformationItem extends TronScanTrc1155InformationItemCommon {
+  /**
+   * @description Holder count
+   * @example '2'
+   */
+  holder_count: string;
+  /**
+   * @description Owner address
+   * @example 'TLwiP6eaAvjmPcETN99qZMoPZ65EDK74BH'
+   */
+  owner_address: string;
+}
+
+interface TronScanGetTokensResponseCommon {
+  /**
+   * @description Total
+   * @example 5
+   */
+  total: number;
+  /**
+   * @description Range total
+   * @example 5
+   */
+  rangeTotal: number;
+  /**
+   * @description Page size
+   * @example 2
+   */
+  page_size: number;
+  /**
+   * @description Code
+   * @example 200
+   */
+  code: number;
 }
 
 // ----------------------------------------------------------------------------------------------------
@@ -1615,29 +1659,30 @@ export interface TronScanGetTrc1155InventoryInformationOptions extends TronScanP
   sort?: TronScanInventorySortType;
 }
 
-export interface TronScanGetTrc1155InventoryInformationResponse {
-  /**
-   * @description Total
-   * @example 2
-   */
-  total: number;
-  /**
-   * @description Range total
-   * @example 2
-   */
-  rangeTotal: number;
-  /**
-   * @description Page size
-   * @example 2
-   */
-  page_size: number;
-  /**
-   * @description Code
-   * @example 200
-   */
-  code: number;
+export interface TronScanGetTrc1155InventoryInformationResponse extends TronScanGetTokensResponseCommon {
   /**
    * @description Tokens list
    */
   data: TronScanTrc1155InventoryInformationItem[];
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc1155HoldingInformationOptions extends TronScanPaginationOptions {
+  /**
+   * @description TRC1155 contract address
+   * @example 'TREYLQ3i56GTQnaQn68woKHtDkVTcFKHjN'
+   */
+  contract: string;
+  /**
+   * @description The ID of a token in TRC1155
+   * @example '1'
+   */
+  tokenId: string;
+}
+
+export interface TronScanGetTrc1155HoldingInformationResponse extends TronScanGetTokensResponseCommon {
+  data: TronScanTrc1155HoldingInformationItem[];
+}
+
+// ----------------------------------------------------------------------------------------------------
