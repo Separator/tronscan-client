@@ -136,4 +136,11 @@ describe('Tokens', () => {
     },
     TEST_TIMEOUT
   );
+
+  test('Get inventory information of a TRC721', async () => {
+    const response = await tronScanClient.getTrc721InventoryInformation({
+      contract: TOKEN_ADDRESS!
+    });
+    expect(response.data.length).toBeGreaterThanOrEqual(0);
+  });
 });

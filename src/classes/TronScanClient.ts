@@ -25,7 +25,9 @@ import {
   TronScanGetTrc20Trc721Trc1155TokenHoldersOptions,
   TronScanGetTrc20Trc721Trc1155TokenHoldersResponse,
   TronScanGetTrc20Trc721Trc1155TokensDetailsOptions,
-  TronScanGetTrc20Trc721Trc1155TokensDetailsResponse
+  TronScanGetTrc20Trc721Trc1155TokensDetailsResponse,
+  TronScanGetTrc721InventoryInformationOptions,
+  TronScanGetTrc721InventoryInformationResponse
 } from '../types/token';
 import {
   TronScanGetContractCallersListOptions,
@@ -854,6 +856,18 @@ export class TronScanClient {
    */
   async getTrc20TokenCirculation(params: TronScanGetTrc20TokenCirculationOptions): Promise<number> {
     const response = await this.transport.get<number>('token_trc20/totalSupply', params);
+    return response.data;
+  }
+
+  /**
+   * Get inventory information of a TRC721
+   * @param params TronScanGetTrc721InventoryInformationOptions
+   * @returns Return the inverntory information of tokens in TRC721
+   */
+  async getTrc721InventoryInformation(
+    params: TronScanGetTrc721InventoryInformationOptions
+  ): Promise<TronScanGetTrc721InventoryInformationResponse> {
+    const response = await this.transport.get<TronScanGetTrc721InventoryInformationResponse>('trc721/token', params);
     return response.data;
   }
 
