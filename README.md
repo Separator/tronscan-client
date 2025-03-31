@@ -328,6 +328,12 @@ const trc20Circulation = await tronScanClient.getTrc20TokenCirculation({
   address: TOKEN_ADDRESS
 });
 console.log(trc20Circulation);
+
+// Get inventory information of a TRC721:
+const trc721InventoryInfo = await tronScanClient.getTrc721InventoryInformation({
+  contract: TOKEN_ADDRESS
+});
+console.log(trc721InventoryInfo);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)

@@ -36,6 +36,7 @@ import {
   TronScanGetTrc1155InventoryInformationOptions,
   TronScanGetTrc1155HoldingInformationOptions,
   TronScanGetTrc20TokenCirculationOptions,
+  TronScanGetTrc721InventoryInformationOptions,
 
   // Responses:
   TronScanGetTokensListResponse,
@@ -49,7 +50,8 @@ import {
   TronScanGetTransfersListOfOneTrc721TokenIdResponse,
   TronScanGetOneTrc10TrxTransferInfoResponse,
   TronScanGetTrc1155InventoryInformationResponse,
-  TronScanGetTrc1155HoldingInformationResponse
+  TronScanGetTrc1155HoldingInformationResponse,
+  TronScanGetTrc721InventoryInformationResponse
 } from './types/token';
 
 import {
@@ -302,6 +304,7 @@ export {
   TronScanGetTrc1155InventoryInformationOptions,
   TronScanGetTrc1155HoldingInformationOptions,
   TronScanGetTrc20TokenCirculationOptions,
+  TronScanGetTrc721InventoryInformationOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -370,6 +373,7 @@ export {
   TronScanGetWalletUnfreezableTrxAmountResponse,
   TronScanGetTrc1155InventoryInformationResponse,
   TronScanGetTrc1155HoldingInformationResponse,
+  TronScanGetTrc721InventoryInformationResponse,
 
   // Client
   TronScanClient,

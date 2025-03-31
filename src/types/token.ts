@@ -1036,7 +1036,7 @@ export interface TronScanGetOneTrc10TrxTransferInfoItem {
   riskTransaction: boolean;
 }
 
-interface TronScanTrc1155InformationItemCommon {
+interface TronScanTokenInformationItemCommon {
   /**
    * @description Token id
    * @example '1'
@@ -1069,12 +1069,7 @@ interface TronScanTrc1155InformationItemCommon {
   token_url: string;
 }
 
-export interface TronScanTrc1155InventoryInformationItem extends TronScanTrc1155InformationItemCommon {
-  /**
-   * @description Token id
-   * @example '1'
-   */
-  token_id: string;
+export interface TronScanTrc1155InventoryInformationItem extends TronScanTokenInformationItemCommon {
   /**
    * @description Holders count
    * @example 5
@@ -1121,7 +1116,7 @@ export interface TronScanTrc1155InventoryInformationItem extends TronScanTrc1155
   issue_time?: string;
 }
 
-export interface TronScanTrc1155HoldingInformationItem extends TronScanTrc1155InformationItemCommon {
+export interface TronScanTrc1155HoldingInformationItem extends TronScanTokenInformationItemCommon {
   /**
    * @description Holder count
    * @example '2'
@@ -1132,6 +1127,29 @@ export interface TronScanTrc1155HoldingInformationItem extends TronScanTrc1155In
    * @example 'TLwiP6eaAvjmPcETN99qZMoPZ65EDK74BH'
    */
   owner_address: string;
+}
+
+export interface TronScanTrc721InventoryInformationItem extends TronScanTokenInformationItemCommon {
+  /**
+   * @description Owner address
+   * @example 'TNLjmMrKwAxPXabtgdLGdF1DG17kQKHZg2'
+   */
+  owner_address: string;
+  /**
+   * @description Owner address tag
+   * @example ''
+   */
+  owner_address_tag: string;
+  /**
+   * @description Owner address tag logo
+   * @example ''
+   */
+  owner_address_tag_logo: string;
+  /**
+   * @description Latest transfer timestamp
+   * @example 1670256540000
+   */
+  latest_transfer_timestamp: number;
 }
 
 interface TronScanGetTokensResponseCommon {
@@ -1692,4 +1710,33 @@ export interface TronScanGetTrc20TokenCirculationOptions {
    * @description TRC20 contract address
    */
   address: string;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc721InventoryInformationOptions extends TronScanPaginationOptions {
+  /**
+   * @description TRC721 contract address
+   * @example 'THjYwnDDN6aYxrzKb88CSMTEYjBuHpoYxS'
+   */
+  contract: string;
+  /**
+   * @description The ID of a token in TRC721
+   * @example ''
+   */
+  tokenId?: string;
+  /**
+   * @description TRC721 token holder address
+   * @example ''
+   */
+  ownerAddress?: string;
+  /**
+   * @description 'tokenId' is in ascending order. '-tokenId' is in descending order
+   */
+  sort?: TronScanInventorySortType;
+}
+
+export interface TronScanGetTrc721InventoryInformationResponse extends TronScanGetTokensResponseCommon {
+  data: TronScanTrc721InventoryInformationItem[];
+  contractMap: TronScanContractMap;
 }
