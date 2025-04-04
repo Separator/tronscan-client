@@ -339,7 +339,7 @@ console.log(trc721InventoryInfo);
 ## [Witness section](https://docs.tronscan.org/api-endpoints/witness)
 
 ```javascript
-import { TronScanWitnessType } from 'etherscan-client';
+import { TronScanWitnessType } from 'tronscan-client';
 
 // Get the list of witnesses:
 const witnessList = await tronScanClient.getWitnessList({
