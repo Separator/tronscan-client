@@ -158,3 +158,9 @@ export enum TronScanInventorySortType {
   Asc = 'tokenId',
   Desc = '-tokenId'
 }
+
+export enum TronScanWitnessType {
+  Witness = 0,
+  Partner = 1,
+  Candidate = 3
+}

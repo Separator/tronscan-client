@@ -336,6 +336,18 @@ const trc721InventoryInfo = await tronScanClient.getTrc721InventoryInformation({
 console.log(trc721InventoryInfo);
 ```
 
+## [Witness section](https://docs.tronscan.org/api-endpoints/witness)
+
+```javascript
+import { TronScanWitnessType } from 'etherscan-client';
+
+// Get the list of witnesses:
+const witnessList = await tronScanClient.getWitnessList({
+  witnesstype: TronScanWitnessType.Witness
+});
+console.log(witnessList);
+```
+
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)
 
 ```javascript

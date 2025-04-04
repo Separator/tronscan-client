@@ -157,6 +157,7 @@ import {
   TronScanGetWalletUnfreezableTrxAmountOptions,
   TronScanGetWalletUnfreezableTrxAmountResponse
 } from '../types/wallet';
+import { TronScanWitnessListOptions, TronScanWitnessListResponse } from '../types/witness';
 
 export interface TronScanClientOptions {
   /**
@@ -854,7 +855,7 @@ export class TronScanClient {
    * @param params TronScanGetTrc20TokenCirculationOptions
    * @returns Returns the circulation of a TRC20 token
    */
-  async getTrc20TokenCirculation(params: TronScanGetTrc20TokenCirculationOptions): Promise<number> {
+  public async getTrc20TokenCirculation(params: TronScanGetTrc20TokenCirculationOptions): Promise<number> {
     const response = await this.transport.get<number>('token_trc20/totalSupply', params);
     return response.data;
   }
@@ -864,10 +865,26 @@ export class TronScanClient {
    * @param params TronScanGetTrc721InventoryInformationOptions
    * @returns Return the inverntory information of tokens in TRC721
    */
-  async getTrc721InventoryInformation(
+  public async getTrc721InventoryInformation(
     params: TronScanGetTrc721InventoryInformationOptions
   ): Promise<TronScanGetTrc721InventoryInformationResponse> {
     const response = await this.transport.get<TronScanGetTrc721InventoryInformationResponse>('trc721/token', params);
+    return response.data;
+  }
+
+  /**
+   * Witness section
+   * https://docs.tronscan.org/api-endpoints/witness
+   */
+
+  /**
+   * Get the list of witnesses.
+   *
+   * **Note** : The maximum value for **limit** is **200**.
+   * @returns Returns a list of witnesses
+   */
+  public async getWitnessList(params: TronScanWitnessListOptions): Promise<TronScanWitnessListResponse> {
+    const response = await this.transport.get<TronScanWitnessListResponse>('pagewitness', params);
     return response.data;
   }
 
