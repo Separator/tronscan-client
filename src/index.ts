@@ -1,6 +1,14 @@
 import { TronScanClient } from './classes/TronScanClient';
 
 import {
+  // Options
+  TronScanWitnessListOptions,
+
+  // Response
+  TronScanWitnessListResponse
+} from './types/witness';
+
+import {
   // Options:
   TronScanGetWalletTrxTransfersListOptions,
   TronScanGetWalletTrc10TransfersListOptions,
@@ -191,7 +199,8 @@ import {
   TronScanFilterTokenValue,
   TronScanTxDirectionThird,
   TronScanAssetType,
-  TronScanInventorySortType
+  TronScanInventorySortType,
+  TronScanWitnessType
 } from './types/params';
 
 import {
@@ -242,6 +251,7 @@ export {
   TronScanTxDirectionThird,
   TronScanAssetType,
   TronScanInventorySortType,
+  TronScanWitnessType,
 
   // Options
   TronScanPaginationOptions,
@@ -305,6 +315,7 @@ export {
   TronScanGetTrc1155HoldingInformationOptions,
   TronScanGetTrc20TokenCirculationOptions,
   TronScanGetTrc721InventoryInformationOptions,
+  TronScanWitnessListOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -374,6 +385,7 @@ export {
   TronScanGetTrc1155InventoryInformationResponse,
   TronScanGetTrc1155HoldingInformationResponse,
   TronScanGetTrc721InventoryInformationResponse,
+  TronScanWitnessListResponse,
 
   // Client
   TronScanClient,
