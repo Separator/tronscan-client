@@ -157,7 +157,12 @@ import {
   TronScanGetWalletUnfreezableTrxAmountOptions,
   TronScanGetWalletUnfreezableTrxAmountResponse
 } from '../types/wallet';
-import { TronScanWitnessListOptions, TronScanWitnessListResponse } from '../types/witness';
+import {
+  TronScanAccountVotesListOptions,
+  TronScanAccountVotesListResponse,
+  TronScanWitnessListOptions,
+  TronScanWitnessListResponse
+} from '../types/witness';
 
 export interface TronScanClientOptions {
   /**
@@ -885,6 +890,16 @@ export class TronScanClient {
    */
   public async getWitnessList(params: TronScanWitnessListOptions): Promise<TronScanWitnessListResponse> {
     const response = await this.transport.get<TronScanWitnessListResponse>('pagewitness', params);
+    return response.data;
+  }
+
+  /**
+   * Get the list of votes for the account
+   * @param params TronScanAccountVotesListOptions
+   * @returns Returns a list of votes for the account
+   */
+  public async getAccountVotesList(params: TronScanAccountVotesListOptions): Promise<TronScanAccountVotesListResponse> {
+    const response = await this.transport.get<TronScanAccountVotesListResponse>('account/votes', params);
     return response.data;
   }
 

@@ -210,3 +210,17 @@ export interface TronScanWitnessListResponse {
 }
 
 // ----------------------------------------------------------------------------------------------------
+
+export interface TronScanAccountVotesListOptions {
+  /**
+   * @description Account address
+   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
+   */
+  address?: string;
+}
+
+export interface TronScanAccountVotesListResponse {
+  votes: { [key: string]: number };
+}
+
+// ----------------------------------------------------------------------------------------------------

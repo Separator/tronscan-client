@@ -3,9 +3,11 @@ import { TronScanClient } from './classes/TronScanClient';
 import {
   // Options
   TronScanWitnessListOptions,
+  TronScanAccountVotesListOptions,
 
   // Response
-  TronScanWitnessListResponse
+  TronScanWitnessListResponse,
+  TronScanAccountVotesListResponse
 } from './types/witness';
 
 import {
@@ -316,6 +318,7 @@ export {
   TronScanGetTrc20TokenCirculationOptions,
   TronScanGetTrc721InventoryInformationOptions,
   TronScanWitnessListOptions,
+  TronScanAccountVotesListOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -386,6 +389,7 @@ export {
   TronScanGetTrc1155HoldingInformationResponse,
   TronScanGetTrc721InventoryInformationResponse,
   TronScanWitnessListResponse,
+  TronScanAccountVotesListResponse,
 
   // Client
   TronScanClient,
