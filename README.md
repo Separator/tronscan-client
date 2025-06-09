@@ -341,11 +341,19 @@ console.log(trc721InventoryInfo);
 ```javascript
 import { TronScanWitnessType } from 'tronscan-client';
 
+const ADDRESS = 'tron_address';
+
 // Get the list of witnesses:
 const witnessList = await tronScanClient.getWitnessList({
   witnesstype: TronScanWitnessType.Witness
 });
 console.log(witnessList);
+
+// Get the list of votes for the account:
+const accountVotesList = tronScanClient.getWitnessList({
+  address: ADDRESS
+});
+console.log(accountVotesList);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)
