@@ -7,7 +7,8 @@ import {
 
   // Response
   TronScanWitnessListResponse,
-  TronScanAccountVotesListResponse
+  TronScanAccountVotesListResponse,
+  TronScanChainParametersResponse
 } from './types/witness';
 
 import {
@@ -202,7 +203,8 @@ import {
   TronScanTxDirectionThird,
   TronScanAssetType,
   TronScanInventorySortType,
-  TronScanWitnessType
+  TronScanWitnessType,
+  TronScanChainParameterName
 } from './types/params';
 
 import {
@@ -254,6 +256,7 @@ export {
   TronScanAssetType,
   TronScanInventorySortType,
   TronScanWitnessType,
+  TronScanChainParameterName,
 
   // Options
   TronScanPaginationOptions,
@@ -390,6 +393,7 @@ export {
   TronScanGetTrc721InventoryInformationResponse,
   TronScanWitnessListResponse,
   TronScanAccountVotesListResponse,
+  TronScanChainParametersResponse,
 
   // Client
   TronScanClient,

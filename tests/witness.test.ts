@@ -33,4 +33,9 @@ describe('Witness', () => {
     },
     TEST_TIMEOUT
   );
+
+  test('Get the list of parameters in the chain', async () => {
+    const response = await tronScanClient.getChainParametersList();
+    expect(response.tronParameters.length).toBeGreaterThanOrEqual(0);
+  });
 });
