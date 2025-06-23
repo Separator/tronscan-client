@@ -354,6 +354,10 @@ const accountVotesList = tronScanClient.getWitnessList({
   address: ADDRESS
 });
 console.log(accountVotesList);
+
+// Get the list of parameters in the chain:
+const chainParameters = await tronScanClient.getChainParametersList();
+console.log(chainParameters);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)
