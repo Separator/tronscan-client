@@ -160,6 +160,7 @@ import {
 import {
   TronScanAccountVotesListOptions,
   TronScanAccountVotesListResponse,
+  TronScanChainParametersResponse,
   TronScanWitnessListOptions,
   TronScanWitnessListResponse
 } from '../types/witness';
@@ -900,6 +901,15 @@ export class TronScanClient {
    */
   public async getAccountVotesList(params: TronScanAccountVotesListOptions): Promise<TronScanAccountVotesListResponse> {
     const response = await this.transport.get<TronScanAccountVotesListResponse>('account/votes', params);
+    return response.data;
+  }
+
+  /**
+   * Get the list of parameters in the chain
+   * @returns Returns the list of parameters in the chain
+   */
+  public async getChainParametersList(): Promise<TronScanChainParametersResponse> {
+    const response = await this.transport.get<TronScanChainParametersResponse>('chainparameters', {});
     return response.data;
   }
 

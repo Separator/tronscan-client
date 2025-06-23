@@ -1,4 +1,4 @@
-import { TronScanWitnessType } from './params';
+import { TronScanChainParameterName, TronScanWitnessType } from './params';
 
 interface WitnessListLastBlock {
   /**
@@ -186,6 +186,11 @@ interface WitnessListItem {
   votesPercentage: number;
 }
 
+interface TronChainParameter {
+  key: TronScanChainParameterName;
+  value: number;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanWitnessListOptions {
@@ -221,6 +226,12 @@ export interface TronScanAccountVotesListOptions {
 
 export interface TronScanAccountVotesListResponse {
   votes: { [key: string]: number };
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanChainParametersResponse {
+  tronParameters: TronChainParameter[];
 }
 
 // ----------------------------------------------------------------------------------------------------
