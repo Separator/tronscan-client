@@ -38,4 +38,9 @@ describe('Witness', () => {
     const response = await tronScanClient.getChainParametersList();
     expect(response.tronParameters.length).toBeGreaterThanOrEqual(0);
   });
+
+  test('Get the list of proposals', async () => {
+    const response: any = await tronScanClient.getProposalsList();
+    expect(response?.data?.length).toBeGreaterThanOrEqual(0);
+  });
 });

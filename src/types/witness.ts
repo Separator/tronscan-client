@@ -1,3 +1,4 @@
+import { TronScanPaginationOptions } from './tronscan';
 import { TronScanChainParameterName, TronScanWitnessType } from './params';
 
 interface WitnessListLastBlock {
@@ -191,6 +192,153 @@ interface TronChainParameter {
   value: number;
 }
 
+interface TronScanProposerItem {
+  /**
+   * @description Produced total
+   * @example 918228
+   */
+  producedTotal: number;
+  /**
+   * @description Produce percentage
+   * @example 99.9980397409844
+   */
+  producePercentage: number;
+  /**
+   * @description Address
+   * @example 'TQopP5GM68QoqLzpz8YReDfSoCMkvwcZYd'
+   */
+  address: string;
+  /**
+   * @description Latest slot number
+   * @example 583561591
+   */
+  latestSlotNumber: number;
+  /**
+   * @description Name
+   * @example 'cryptoAI'
+   */
+  name: string;
+  /**
+   * @description Producer status
+   * @example true
+   */
+  producer: boolean;
+  /**
+   * @description Votes
+   * @example 1314043724
+   */
+  votes: number;
+  /**
+   * @description Missed total
+   * @example 18
+   */
+  missedTotal: number;
+  /**
+   * @description Produced trx
+   * @example 0
+   */
+  producedTrx: number;
+  /**
+   * @description Votes percentage
+   * @example 3.18744519964991
+   */
+  votesPercentage: number;
+  /**
+   * @description Url
+   * @example 'https://cryptoai.com'
+   */
+  url: string;
+  /**
+   * @description Latest block number
+   * @example 73342694
+   */
+  latestBlockNumber: number;
+}
+
+interface TronScanProposalItem {
+  /**
+   * @description Proposal ID
+   * @example 103
+   */
+  proposalId: number;
+  /**
+   * @description Proposer information
+   */
+  proposer: TronScanProposerItem;
+  /**
+   * @description Proposal hash
+   * @example '155dd466c76805c6b12fe1f6dad4a6793e3cdff1112174caf1e5a9038c6e0526'
+   */
+  proposalHash: string;
+  /**
+   * @description Parameters
+   */
+  paramters: { key: number; value: number }[];
+  /**
+   * @description Expiration time
+   * @example 1750917600000
+   */
+  expirationTime: number;
+  /**
+   * @description Create time
+   * @example 1750655694000
+   */
+  createTime: number;
+  /**
+   * @description Approve self status
+   * @example false
+   */
+  approveSelf: boolean;
+  /**
+   * @description Type approvals
+   */
+  typeApprovals: {
+    candidate: any[];
+    partner: any[];
+    sr: TronScanProposerItem[];
+  };
+  /**
+   * @description Approvals
+   */
+  approvals: TronScanProposerItem[];
+  /**
+   * @description Veto
+   */
+  veto: TronScanProposerItem[];
+  /**
+   * @description State
+   * @example 'PENDING'
+   */
+  state: string;
+  /**
+   * @description Total votes
+   * @example 12
+   */
+  totalVotes: number;
+  /**
+   * @description Valid votes
+   * @example 12
+   */
+  validVotes: number;
+  /**
+   * @description Create self status
+   * @example false
+   */
+  createSelf: boolean;
+}
+
+export interface TronScanProposalItems {
+  /**
+   * @description Proposals number
+   * @example 65
+   */
+  total?: number;
+  /**
+   * @description Proposals list
+   */
+  data?: TronScanProposalItem[];
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanWitnessListOptions {
@@ -233,5 +381,26 @@ export interface TronScanAccountVotesListResponse {
 export interface TronScanChainParametersResponse {
   tronParameters: TronChainParameter[];
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanProposalsListOptions extends TronScanPaginationOptions {
+  /**
+   * @description Sort type
+   * @example '-number'
+   */
+  sort?: string;
+  /**
+   * @description Shows whether the address is an initiator or a participant
+   * @example 'TWSRE85rP7FydZKjHmmZgCYF5Dbw8AB91J'
+   */
+  address?: string;
+  /**
+   * @description Proposal ID
+   */
+  id?: string;
+}
+
+export type TronScanProposalsListResponse = TronScanProposalItem | TronScanProposalItems;
 
 // ----------------------------------------------------------------------------------------------------

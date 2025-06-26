@@ -358,6 +358,10 @@ console.log(accountVotesList);
 // Get the list of parameters in the chain:
 const chainParameters = await tronScanClient.getChainParametersList();
 console.log(chainParameters);
+
+// Get the list of proposals:
+const proposals = await tronScanClient.getProposalsList();
+console.log(proposals);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)
