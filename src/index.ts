@@ -4,11 +4,13 @@ import {
   // Options
   TronScanWitnessListOptions,
   TronScanAccountVotesListOptions,
+  TronScanProposalsListOptions,
 
   // Response
   TronScanWitnessListResponse,
   TronScanAccountVotesListResponse,
-  TronScanChainParametersResponse
+  TronScanChainParametersResponse,
+  TronScanProposalsListResponse
 } from './types/witness';
 
 import {
@@ -322,6 +324,7 @@ export {
   TronScanGetTrc721InventoryInformationOptions,
   TronScanWitnessListOptions,
   TronScanAccountVotesListOptions,
+  TronScanProposalsListOptions,
 
   // Tx types
   TronScanTxSimple,
@@ -394,6 +397,7 @@ export {
   TronScanWitnessListResponse,
   TronScanAccountVotesListResponse,
   TronScanChainParametersResponse,
+  TronScanProposalsListResponse,
 
   // Client
   TronScanClient,

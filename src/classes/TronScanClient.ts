@@ -161,6 +161,8 @@ import {
   TronScanAccountVotesListOptions,
   TronScanAccountVotesListResponse,
   TronScanChainParametersResponse,
+  TronScanProposalsListOptions,
+  TronScanProposalsListResponse,
   TronScanWitnessListOptions,
   TronScanWitnessListResponse
 } from '../types/witness';
@@ -910,6 +912,18 @@ export class TronScanClient {
    */
   public async getChainParametersList(): Promise<TronScanChainParametersResponse> {
     const response = await this.transport.get<TronScanChainParametersResponse>('chainparameters', {});
+    return response.data;
+  }
+
+  /**
+   * Get the list of proposals
+   *
+   * **Note** : The maximum value for **limit** is **200**.
+   * @param params TronScanProposalsListOptions
+   * @returns Returns the proposal details of the master chain based on the proposal ID and mark whether the address is the initiator or participant
+   */
+  public async getProposalsList(params: TronScanProposalsListOptions = {}): Promise<TronScanProposalsListResponse> {
+    const response = await this.transport.get<TronScanProposalsListResponse>('proposal', params);
     return response.data;
   }
 
