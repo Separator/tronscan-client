@@ -164,7 +164,9 @@ import {
   TronScanProposalsListOptions,
   TronScanProposalsListResponse,
   TronScanWitnessListOptions,
-  TronScanWitnessListResponse
+  TronScanWitnessListResponse,
+  TronScanWitnessVotingInformationOptions,
+  TronScanWitnessVotingInformationResponse
 } from '../types/witness';
 
 export interface TronScanClientOptions {
@@ -924,6 +926,18 @@ export class TronScanClient {
    */
   public async getProposalsList(params: TronScanProposalsListOptions = {}): Promise<TronScanProposalsListResponse> {
     const response = await this.transport.get<TronScanProposalsListResponse>('proposal', params);
+    return response.data;
+  }
+
+  /**
+   * Get the current voting information of witness
+   * @param params TronScanWitnessVotingInformationOptions
+   * @returns Returns a current voting information of a witness
+   */
+  public async getWitnessVotingInformation(
+    params: TronScanWitnessVotingInformationOptions = {}
+  ): Promise<TronScanWitnessVotingInformationResponse> {
+    const response = await this.transport.get<TronScanWitnessVotingInformationResponse>('vote/witness', params);
     return response.data;
   }
 
