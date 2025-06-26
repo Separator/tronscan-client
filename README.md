@@ -362,6 +362,10 @@ console.log(chainParameters);
 // Get the list of proposals:
 const proposals = await tronScanClient.getProposalsList();
 console.log(proposals);
+
+// Get the current voting information of witness:
+const votingInfo = await tronScanClient.getWitnessVotingInformation();
+console.log(votingInfo);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)

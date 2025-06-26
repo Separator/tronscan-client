@@ -43,4 +43,9 @@ describe('Witness', () => {
     const response: any = await tronScanClient.getProposalsList();
     expect(response?.data?.length).toBeGreaterThanOrEqual(0);
   });
+
+  test('Get the current voting information of witness', async () => {
+    const response = await tronScanClient.getWitnessVotingInformation();
+    expect(response.status).toBe('1');
+  });
 });

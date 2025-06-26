@@ -1,11 +1,11 @@
 {
   "name": "tronscan-client",
-  "version": "1.61.0",
+  "version": "1.62.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Separator/tronscan-client.git"
   },
-  "description": "A set of classes to work with tron-compatible blockchain observers",
+  "description": "Tronscan API Client",
   "keywords": [
     "api",
     "tron",

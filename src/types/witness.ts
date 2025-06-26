@@ -339,6 +339,169 @@ export interface TronScanProposalItems {
   data?: TronScanProposalItem[];
 }
 
+interface TronScanRealTimeVoteLineItem {
+  /**
+   * @description Time in milliseconds
+   * @example 1750809600000
+   */
+  time: number;
+  /**
+   * @description Vote count
+   * @example 1303123628
+   */
+  vote: number;
+}
+
+interface TronScanWitnessVotingInformationItem {
+  /**
+   * @description Last ranking
+   * @example 10
+   */
+  lastRanking: number;
+  /**
+   * @description Real time ranking
+   * @example 16
+   */
+  realTimeRanking: number;
+  /**
+   * @description Address
+   * @example 'TSMC4YzUSfySfqKuFnJbYyU3W6PBebBk2E'
+   */
+  address: string;
+  /**
+   * @description Name
+   * @example 'Smart Consensus'
+   */
+  name: string;
+  /**
+   * @description Url
+   * @example 'https://smartconsensus.io'
+   */
+  url: string;
+  /**
+   * @description Has page status
+   * @example false
+   */
+  hasPage: boolean;
+  /**
+   * @description Last cycle votes
+   * @example 1301990157
+   */
+  lastCycleVotes: number;
+  /**
+   * @description Real time votes
+   * @example 1295172396
+   */
+  realTimeVotes: number;
+  /**
+   * @description Change votes
+   * @example -6817761
+   */
+  changeVotes: number;
+  /**
+   * @description Brokerage
+   * @example 0
+   */
+  brokerage: number;
+  /**
+   * @description Voter brokerage
+   * @example 100
+   */
+  voterBrokerage: number;
+  /**
+   * @description Votes percentage
+   * @example 3.13961619473785
+   */
+  votesPercentage: number;
+  /**
+   * @description Last cycle votes percentage
+   * @example 3.15621630795435
+   */
+  lastCycleVotesPercentage: number;
+  /**
+   * @description Change cycle
+   * @example -6
+   */
+  change_cycle: number;
+  /**
+   * @description Witness type
+   * @example 1
+   */
+  witnessType: number;
+  /**
+   * @description Annualized rate
+   * @example '3.502272'
+   */
+  annualizedRate: string;
+  /**
+   * @description Produced total
+   * @example 1356925
+   */
+  producedTotal: number;
+  /**
+   * @description Produced efficiency
+   * @example 99.9924835688605
+   */
+  producedEfficiency: number;
+  /**
+   * @description Block reward
+   * @example 21710800
+   */
+  blockReward: number;
+  /**
+   * @description Version
+   * @example 32
+   */
+  version: number;
+  /**
+   * @description Total out of time transactions
+   * @example 2756
+   */
+  totalOutOfTimeTrans: number;
+  /**
+   * @description Last week out of time transactions
+   * @example 0
+   */
+  lastWeekOutOfTimeTrans: number;
+  /**
+   * @description Changed brokerage status
+   * @example false
+   */
+  changedBrokerage: boolean;
+  /**
+   * @description Lowest brokerage
+   * @example 100
+   */
+  lowestBrokerage: number;
+  /**
+   * @description Real time vote line
+   */
+  realtimeVoteLine: TronScanRealTimeVoteLineItem[];
+}
+
+interface TronScanBrokerageHistory {
+  /**
+   * @description From
+   * @example 100
+   */
+  from: number;
+  /**
+   * @description To
+   * @example 100
+   */
+  to: number;
+  /**
+   * @description Change time in seconds
+   * @example 1640850534
+   */
+  time: number;
+  /**
+   * @description Change hash
+   * @example '67e9fd98b4952b0bdde0abc4d321fc4efad4847060911be61b3c730c01526ee3'
+   */
+  hash: string;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanWitnessListOptions {
@@ -402,5 +565,84 @@ export interface TronScanProposalsListOptions extends TronScanPaginationOptions 
 }
 
 export type TronScanProposalsListResponse = TronScanProposalItem | TronScanProposalItems;
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanWitnessVotingInformationOptions {
+  /**
+   * @description Witness address
+   * @example 'TSMC4YzUSfySfqKuFnJbYyU3W6PBebBk2E'
+   */
+  address?: string;
+}
+
+export interface TronScanWitnessVotingInformationResponse {
+  /**
+   * @description Status of the response
+   * @example '1'
+   */
+  status: string;
+  /**
+   * @description Code of the response
+   * @example 200
+   */
+  code: number;
+  /**
+   * @description Message of the response
+   * @example 'request ok'
+   */
+  message: string;
+  /**
+   * @description Total number of items
+   * @example 1
+   */
+  total?: number;
+  /**
+   * @description Total number of votes
+   * @example 1295172396
+   */
+  totalVotes?: number;
+  /**
+   * @description Fastest rise witness
+   */
+  fastestRise?: TronScanWitnessVotingInformationItem;
+  /**
+   * @description Max votes rise witness
+   */
+  maxVotesRise?: TronScanWitnessVotingInformationItem;
+  /**
+   * @description Success status of the response
+   * @example 'true'
+   */
+  success?: string;
+  /**
+   * @description Data list
+   */
+  data: TronScanWitnessVotingInformationItem | TronScanWitnessVotingInformationItem[];
+  /**
+   * @description Total witness count
+   * @example 424
+   */
+  totalWitness?: number;
+  /**
+   * @description Changed brokerage status
+   * @example false
+   */
+  changedBrokerage?: boolean;
+  /**
+   * @description Lowest brokerage
+   * @example 100
+   */
+  lowestBrokerage?: number;
+  /**
+   * @description Brokerage history
+   */
+  brokerageHistory?: TronScanBrokerageHistory[];
+  /**
+   * @description Brokerage change number
+   * @example 1
+   */
+  brokerageChangeNum?: number;
+}
 
 // ----------------------------------------------------------------------------------------------------
