@@ -12,7 +12,8 @@ import {
   TronScanAccountVotesListResponse,
   TronScanChainParametersResponse,
   TronScanProposalsListResponse,
-  TronScanWitnessVotingInformationResponse
+  TronScanWitnessVotingInformationResponse,
+  TronScanWitnessHomepageStatisticsResponse
 } from './types/witness';
 
 import {
@@ -402,6 +403,7 @@ export {
   TronScanChainParametersResponse,
   TronScanProposalsListResponse,
   TronScanWitnessVotingInformationResponse,
+  TronScanWitnessHomepageStatisticsResponse,
 
   // Client
   TronScanClient,

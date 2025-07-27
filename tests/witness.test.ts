@@ -48,4 +48,9 @@ describe('Witness', () => {
     const response = await tronScanClient.getWitnessVotingInformation();
     expect(response.status).toBe('1');
   });
+
+  test('Get statistics for the witness homepage', async () => {
+    const response = await tronScanClient.getWitnessHomepageStatistics();
+    expect(response.total).toBeGreaterThanOrEqual(0);
+  });
 });

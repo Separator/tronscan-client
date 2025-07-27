@@ -163,6 +163,7 @@ import {
   TronScanChainParametersResponse,
   TronScanProposalsListOptions,
   TronScanProposalsListResponse,
+  TronScanWitnessHomepageStatisticsResponse,
   TronScanWitnessListOptions,
   TronScanWitnessListResponse,
   TronScanWitnessVotingInformationOptions,
@@ -938,6 +939,15 @@ export class TronScanClient {
     params: TronScanWitnessVotingInformationOptions = {}
   ): Promise<TronScanWitnessVotingInformationResponse> {
     const response = await this.transport.get<TronScanWitnessVotingInformationResponse>('vote/witness', params);
+    return response.data;
+  }
+
+  /**
+   * Get statistics for the witness homepage
+   * @returns Returns statistics for the witness homepage.
+   */
+  public async getWitnessHomepageStatistics(): Promise<TronScanWitnessHomepageStatisticsResponse> {
+    const response = await this.transport.get<TronScanWitnessHomepageStatisticsResponse>('witness/general-info', {});
     return response.data;
   }
 

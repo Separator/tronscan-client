@@ -502,6 +502,44 @@ interface TronScanBrokerageHistory {
   hash: string;
 }
 
+interface TronScanWitnessHomepageStatisticsItem {
+  /**
+   * @description Address
+   * @example 'TH7Fe1W8CcLeqN4LGfqX1R9EpsnrJBQJij'
+   */
+  address: string;
+  /**
+   * @description Name
+   * @example 'P2P.ORG'
+   */
+  name: string;
+  /**
+   * @description Url
+   * @example 'https://www.p2p.org'
+   */
+  url: string;
+  /**
+   * @description Missed total
+   * @example 383
+   */
+  missedTotal: number;
+  /**
+   * @description Produced total
+   * @example 103891
+   */
+  producedTotal: number;
+  /**
+   * @description Produce percentage
+   * @example 99.6326984674991
+   */
+  producePercentage: number;
+  /**
+   * @description Current produce percentage
+   * @example 100
+   */
+  currentProducePercentage: number;
+}
+
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanWitnessListOptions {
@@ -646,3 +684,37 @@ export interface TronScanWitnessVotingInformationResponse {
 }
 
 // ----------------------------------------------------------------------------------------------------
+
+export interface TronScanWitnessHomepageStatisticsResponse {
+  /**
+   * @description Total
+   * @example 425
+   */
+  total: number;
+  /**
+   * @description Increase of 30 day
+   * @example 1
+   */
+  increaseOf30Day: number;
+  /**
+   * @description Total realtime votes
+   * @example 42057594541
+   */
+  totalRealtimeVotes: number;
+  /**
+   * @description Min blocks count
+   */
+  minBlocksCount: TronScanWitnessHomepageStatisticsItem;
+  /**
+   * @description Highest efficiency
+   */
+  highestEfficiency: TronScanWitnessHomepageStatisticsItem;
+  /**
+   * @description Lowest efficiency
+   */
+  lowestEfficiency: TronScanWitnessHomepageStatisticsItem;
+  /**
+   * @description Max blocks count
+   */
+  maxBlocksCount: TronScanWitnessHomepageStatisticsItem;
+}
