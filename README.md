@@ -366,6 +366,10 @@ console.log(proposals);
 // Get the current voting information of witness:
 const votingInfo = await tronScanClient.getWitnessVotingInformation();
 console.log(votingInfo);
+
+// Get statistics for the witness homepage:
+const witnessHomepageStats = await tronScanClient.getWitnessHomepageStatistics();
+console.log(witnessHomepageStats);
 ```
 
 ## [Wallet section](https://docs.tronscan.org/api-endpoints/wallet)
