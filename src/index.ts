@@ -209,7 +209,10 @@ import {
   TronScanAssetType,
   TronScanInventorySortType,
   TronScanWitnessType,
-  TronScanChainParameterName
+  TronScanChainParameterName,
+  TronScanSortBy,
+  TronScanTokenListAssetType,
+  TronScanSortType
 } from './types/params';
 
 import {
@@ -262,6 +265,9 @@ export {
   TronScanInventorySortType,
   TronScanWitnessType,
   TronScanChainParameterName,
+  TronScanSortBy,
+  TronScanTokenListAssetType,
+  TronScanSortType,
 
   // Options
   TronScanPaginationOptions,

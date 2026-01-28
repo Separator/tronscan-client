@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
+
 import {
   TronScanGetDetailsOfAllTrc10TokensOptions,
   TronScanGetDetailsOfAllTrc10TokensResponse,
@@ -232,14 +233,7 @@ export class TronScanClient {
    * @returns Returns a list of tokens held by the account with a balance greater than 0.
    */
   public async getTokenList(params: TronScanGetTokenListOptions): Promise<TronScanTokenListResponse> {
-    const { address, hidden = 0, show = 0, sortType = 0, sortBy = 0 } = params;
-    const response = await this.transport.get<TronScanTokenListResponse>('account/tokens', {
-      address,
-      hidden,
-      show,
-      sortBy,
-      sortType
-    });
+    const response = await this.transport.get<TronScanTokenListResponse>('account/tokens', params);
     return response.data;
   }
 
