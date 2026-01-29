@@ -1,5 +1,15 @@
 import { TronScanTokenInfo, TronScanTokenBalanceInfo } from './token-info';
-import { TronScanAggregationType, TronScanResourceType, TronScanSort, TronScanStakeType, TronScanTransferType } from './params';
+import {
+  TronScanAccountAthTokenType,
+  TronScanAggregationType,
+  TronScanResourceType,
+  TronScanSort,
+  TronScanSortBy,
+  TronScanSortType,
+  TronScanStakeType,
+  TronScanTokenListAssetType,
+  TronScanTransferType
+} from './params';
 
 export interface TronScanTrc20TransferInfo {
   /**
@@ -634,15 +644,34 @@ export interface TronScanAccountListResponse {
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTokenListOptions extends TronScanPaginationOptions {
+  /**
+   * @description Account address
+   */
   address: string;
-
+  /**
+   * @description Whether to hide tokens with small balance. 0: hide (default) 1: show
+   */
   hidden?: number;
-
-  show?: number;
-
-  sortType?: number;
-
-  sortBy?: number;
+  /**
+   * @description Token type. 1: TRC20 2: TRC721 3: ALL (default) 4: TRC1155
+   */
+  show?: TronScanAccountAthTokenType;
+  /**
+   * @description Sort field. 1: price 2: amount (default) 3: quantity
+   */
+  sortBy?: TronScanSortBy;
+  /**
+   * @description Sort order. 0: descending order (default) 1: ascending order
+   */
+  sortType?: TronScanSortType;
+  /**
+   * @description Specify token ID or token address
+   */
+  token?: string;
+  /**
+   * @description Asset type. 0: ALL 1: token only (default) 2: receipt token only
+   */
+  assetType?: TronScanTokenListAssetType;
 }
 
 export interface TronScanTokenListResponse extends TronScanTransfersCommonResponse {

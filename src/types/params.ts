@@ -154,6 +154,12 @@ export enum TronScanAssetType {
   Collectibles = 2
 }
 
+export enum TronScanTokenListAssetType {
+  All = 0,
+  TokenOnly = 1,
+  ReceiptTokenOnly = 2
+}
+
 export enum TronScanInventorySortType {
   Asc = 'tokenId',
   Desc = '-tokenId'
@@ -163,6 +169,17 @@ export enum TronScanWitnessType {
   Witness = 0,
   Partner = 1,
   Candidate = 3
+}
+
+export enum TronScanSortBy {
+  Price = 1,
+  Amount = 2,
+  Quantity = 3
+}
+
+export enum TronScanSortType {
+  Descending = 0,
+  Ascending = 1
 }
 
 export enum TronScanChainParameterName {
